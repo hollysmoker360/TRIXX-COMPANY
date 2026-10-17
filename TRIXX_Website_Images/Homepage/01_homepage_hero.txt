@@ -1,0 +1,5 @@
+ASSET: Homepage hero image
+FILE: 01_homepage_hero.jpg
+WEBSITE PLACEMENT: Use as the full-width homepage hero background. Keep the headline and CTA on the left side; the home is positioned toward the right.
+SOURCE: Cropped from the generated TRIXX visual board.
+NOTE: This is a concept crop, not a separately rendered full-resolution original photograph.

@@ -4,6 +4,7 @@ const { esc, money, num } = require('../lib/util');
 const { SITE, t } = require('../data/site');
 const { c } = require('../data/copy');
 const { stylesFor } = require('../data/catalog');
+const SITE_IMAGES = require('../lib/site-images');
 const { LISTINGS } = require('../data/listings');
 const art = require('../lib/art');
 const { localePath } = require('../templates/layout');
@@ -121,6 +122,11 @@ function contactPage(locale) {
               <li><span>Security</span><span><a href="mailto:security@trixx.co.ke">security@trixx.co.ke</a></span></li>
             </ul>
           </div>
+
+          <figure class="brand-material-card">
+            <img src="${SITE_IMAGES.regionalLandscape}" alt="Illustrative regional landscape concept; not a photograph of the TRIXX office" loading="lazy" decoding="async">
+            <figcaption>${locale === 'sw' ? 'Mandhari ya eneo kwa dhana' : 'Regional concept image'}</figcaption>
+          </figure>
 
           <div class="panel panel--paper">
             <h3 style="margin-top:0">${esc(c(locale, 'contact.followTitle'))}</h3>

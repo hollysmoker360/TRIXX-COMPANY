@@ -41,6 +41,16 @@ function copyDir(from, to) {
   }
 }
 
+function copyJpgs(from, to) {
+  ensureDir(to);
+  for (const entry of fs.readdirSync(from, { withFileTypes: true })) {
+    const src = path.join(from, entry.name);
+    const dest = path.join(to, entry.name);
+    if (entry.isDirectory()) copyJpgs(src, dest);
+    else if (path.extname(entry.name).toLowerCase() === '.jpg') fs.copyFileSync(src, dest);
+  }
+}
+
 /* Pages declare their canonical (English) route in `path` plus a `locale`.
    The build composes the published URL, so the English tree sits at the root
    and Kiswahili under /sw/. */
@@ -94,7 +104,10 @@ function build() {
   }
 
   copyDir(path.join(ROOT, 'assets'), path.join(DIST, 'assets'));
-  fs.writeFileSync(path.join(DIST, 'assets', 'img', 'favicon.svg'), favicon(), 'utf8');
+  copyJpgs(path.join(ROOT, 'TRIXX_Website_Images'), path.join(DIST, 'assets', 'img', 'site'));
+  const faviconPath = path.join(DIST, 'assets', 'img', 'favicon.svg');
+  ensureDir(path.dirname(faviconPath));
+  fs.writeFileSync(faviconPath, favicon(), 'utf8');
 
   writeTourAssets();
   writeSitemap(pages);

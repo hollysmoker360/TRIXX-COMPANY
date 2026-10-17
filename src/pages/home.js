@@ -4,6 +4,8 @@ const { esc, money } = require('../lib/util');
 const { SITE, t } = require('../data/site');
 const { c } = require('../data/copy');
 const { stylesFor, packagesFor, appsFor } = require('../data/catalog');
+const { appLogo } = require('../lib/brand');
+const SITE_IMAGES = require('../lib/site-images');
 const { LISTINGS, TESTIMONIALS, BLOG_POSTS } = require('../data/listings');
 const art = require('../lib/art');
 const { localePath } = require('../templates/layout');
@@ -47,10 +49,36 @@ function homePage(locale) {
   const hero = LISTINGS[0];
   const ticker = TICKER[locale] || TICKER.en;
   const pick = (row) => (locale === 'sw' ? row.sw : row.en);
+  const designSlides = [
+    {
+      src: SITE_IMAGES.architecture['swahili-coastal'],
+      alt: 'Swahili coastal house architectural concept',
+      title: locale === 'sw' ? 'Pwani ya Kiswahili' : 'Swahili Coastal',
+      note: locale === 'sw' ? 'Ua na veranda zenye kivuli, zilizoongozwa na usanifu wa pwani.' : 'Shaded verandas and courtyard living, inspired by coastal architecture.',
+      href: '/house-collections/swahili-coastal',
+    },
+    {
+      src: SITE_IMAGES.architecture.victorian,
+      alt: 'Victorian and Georgian house architectural concept',
+      title: locale === 'sw' ? 'Kikoloni cha Victoria' : 'Victorian',
+      note: locale === 'sw' ? 'Paa zenye miteremko na uwiano wa nyumba za urithi.' : 'Rain-shedding gables and the proportions of a heritage home.',
+      href: '/house-collections/victorian',
+    },
+    {
+      src: SITE_IMAGES.architecture.contemporary,
+      alt: 'Contemporary minimalist house architectural concept',
+      title: locale === 'sw' ? 'Kisasa' : 'Contemporary',
+      note: locale === 'sw' ? 'Miundo safi na nafasi za kuishi zilizounganishwa na nje.' : 'Clean-lined volumes and connected indoor-outdoor spaces.',
+      href: '/house-collections/contemporary',
+    },
+  ];
 
   const body = `
-  <section class="hero">
-    <div class="hero__media">${art.houseRender('swahili-coastal', { label: 'A TRIXX Swahili Coastal home at dusk', seed: 'hero', w: 1600, h: 900 })}</div>
+  <section class="hero hero--home">
+    <div class="hero__media">
+      <img class="hero__image" src="${SITE_IMAGES.homepageHero}" alt="Illustrative TRIXX-style home concept, not a completed project" fetchpriority="high" decoding="async">
+      <span class="concept-image-label">${locale === 'sw' ? 'Picha ya dhana' : 'Concept image'}</span>
+    </div>
     <div class="hero__scrim"></div>
     <div class="wrap hero__inner">
       <p class="eyebrow">${esc(c(locale, 'home.eyebrow'))}</p>
@@ -59,8 +87,8 @@ function homePage(locale) {
       <p class="lede">${esc(c(locale, 'home.lede'))}</p>
       <div class="hero__actions cluster">
         <a class="btn btn--primary btn--lg" href="${localePath('/search?purpose=sale', locale)}">${esc(t(locale, 'cta.buy'))}</a>
-        <a class="btn btn--outline btn--lg" style="border-color:rgba(251,247,239,0.5);color:var(--paper)" href="${localePath('/tools/live-demo', locale)}">${esc(t(locale, 'cta.tryDemo'))}</a>
-        <a class="btn btn--quiet btn--lg" style="color:rgba(251,247,239,0.85)" href="${localePath('/book-viewing', locale)}">${esc(t(locale, 'cta.book'))} →</a>
+      <a class="btn btn--outline btn--lg" href="${localePath('/tools/live-demo', locale)}">${esc(t(locale, 'cta.tryDemo'))}</a>
+      <a class="btn btn--quiet btn--lg" href="${localePath('/book-viewing', locale)}">${esc(t(locale, 'cta.book'))} →</a>
       </div>
     </div>
     <div class="hero__rail">
@@ -104,6 +132,42 @@ function homePage(locale) {
       </div>
       <div class="grid grid--3">${STYLES.slice(0, 3).map((s) => styleCard(s, locale)).join('')}</div>
       <div class="grid grid--3 mt-3">${STYLES.slice(3).map((s) => styleCard(s, locale)).join('')}</div>
+    </div>
+  </section>
+
+  <section class="section section--tight bg-ink">
+    <div class="wrap">
+      <div class="section-head section-head--split">
+        <div>
+          <p class="eyebrow">${locale === 'sw' ? 'Mitindo ya usanifu' : 'Architectural direction'}</p>
+          <h2>${locale === 'sw' ? 'Tembelea mikusanyiko yetu' : 'A closer look at the collections'}</h2>
+          <p class="lede">${locale === 'sw' ? 'Mawazo ya usanifu kwa nyumba inayofuata.' : 'A rotating look at ideas for your next home.'}</p>
+        </div>
+        <a class="btn btn--outline" href="${localePath('/house-collections', locale)}">${esc(t(locale, 'cta.viewAll'))} →</a>
+      </div>
+      <div class="design-slideshow" data-slideshow data-autoplay="true" data-slide-noun="${locale === 'sw' ? 'Slaidi' : 'Slide'}" data-start-label="${locale === 'sw' ? 'Anzisha slaidi' : 'Start slideshow'}" data-stop-label="${locale === 'sw' ? 'Sitisha slaidi' : 'Pause slideshow'}" tabindex="0" role="region" aria-roledescription="carousel" aria-label="${locale === 'sw' ? 'Mitindo ya nyumba' : 'House design concepts'}">
+        <div class="design-slideshow__slides">
+          ${designSlides.map((slide, i) => `<article class="design-slide${i === 0 ? ' is-active' : ''}" data-slide data-label="${esc(slide.title)}" aria-hidden="${i === 0 ? 'false' : 'true'}"${i === 0 ? '' : ' hidden'}>
+            <img src="${slide.src}" alt="${esc(slide.alt)}" loading="lazy" decoding="async">
+            <div class="design-slide__body">
+              <span class="concept-image-label">${locale === 'sw' ? 'Picha ya dhana' : 'Concept image'}</span>
+              <p class="eyebrow">${locale === 'sw' ? 'Dhana ya usanifu' : 'Design concept'}</p>
+              <h3>${esc(slide.title)}</h3>
+              <p>${esc(slide.note)}</p>
+              <a class="btn btn--brass" href="${localePath(slide.href, locale)}">${esc(t(locale, 'cta.explore'))} →</a>
+            </div>
+          </article>`).join('')}
+        </div>
+        <div class="design-slideshow__controls">
+          <button class="slideshow-button" type="button" data-slideshow-prev aria-label="${locale === 'sw' ? 'Slaidi iliyotangulia' : 'Previous slide'}">←</button>
+          <div class="design-slideshow__dots" aria-label="${locale === 'sw' ? 'Chagua slaidi' : 'Choose a slide'}">
+            ${designSlides.map((slide, i) => `<button class="slideshow-dot${i === 0 ? ' is-active' : ''}" type="button" data-slide-go="${i}" aria-label="${locale === 'sw' ? `Onyesha ${slide.title}` : `Show ${slide.title}`}" aria-pressed="${i === 0 ? 'true' : 'false'}"></button>`).join('')}
+          </div>
+          <button class="slideshow-button" type="button" data-slideshow-next aria-label="${locale === 'sw' ? 'Slaidi inayofuata' : 'Next slide'}">→</button>
+          <button class="slideshow-toggle" type="button" data-slideshow-toggle data-play-label="${locale === 'sw' ? 'Cheza' : 'Play'}" data-pause-label="${locale === 'sw' ? 'Sitisha' : 'Pause'}" aria-label="${locale === 'sw' ? 'Sitisha slaidi' : 'Pause slideshow'}">${locale === 'sw' ? 'Sitisha' : 'Pause'}</button>
+        </div>
+        <p class="visually-hidden" data-slideshow-status aria-live="polite"></p>
+      </div>
     </div>
   </section>
 
@@ -221,7 +285,11 @@ function homePage(locale) {
             <a class="btn btn--outline" style="border-color:rgba(251,247,239,0.5);color:var(--paper)" href="${localePath('/tools/savings-calculator#farm', locale)}">${esc(t(locale, 'cta.calculate'))}</a>
           </div>
         </div>
-        <div class="phone-frame">${art.appScreen('farm', { label: 'TRIXX Farm app showing irrigation zones' })}</div>
+        <figure class="product-visual product-visual--feature">
+          <img class="product-visual__image" src="${SITE_IMAGES.apps.farm}" alt="Illustrative smart agriculture concept, not an installed TRIXX farm" loading="lazy" decoding="async">
+          <figcaption class="product-visual__label">${locale === 'sw' ? 'Picha ya dhana' : 'Concept image'}</figcaption>
+          <div class="phone-frame product-visual__phone">${art.appScreen('farm', { label: 'TRIXX Farm app showing irrigation zones' })}</div>
+        </figure>
       </div>
     </div>
   </section>
@@ -237,14 +305,15 @@ function homePage(locale) {
         <a class="btn btn--outline" href="${localePath('/products', locale)}">${esc(t(locale, 'nav.products'))} →</a>
       </div>
       <div class="grid grid--3">
-        ${APPS.map((app) => `<article class="card">
-          <div class="card__body">
-            <span class="badge" style="border-color:${app.accent};color:${app.accent};align-self:flex-start">${esc(app.name)}</span>
-            <h3 class="card__title" style="font-size:1.05rem"><a href="${localePath(`/products/${app.slug}`, locale)}">${esc(app.tagline)}</a></h3>
+        ${APPS.map((app) => `<article class="app-card app-card--${app.slug}">
+          <div class="app-card__brand">${appLogo(app.slug, app.name)}</div>
+          <div class="app-card__body">
+            <h3><a href="${localePath(`/products/${app.slug}`, locale)}">${esc(app.tagline)}</a></h3>
+            <p class="app-card__summary">${esc(app.description)}</p>
             <ul class="spec-list">${app.stats.map((s) => `<li><span>${esc(s.label)}</span><span>${esc(s.value)}</span></li>`).join('')}</ul>
-            <div class="card__foot">
+            <div class="app-card__foot">
               <span class="tiny muted">${esc(app.sizes)}</span>
-              <a class="btn btn--outline btn--sm" href="${localePath(`/products/${app.slug}`, locale)}">${esc(t(locale, 'cta.explore'))}</a>
+              <a class="app-card__link" href="${localePath(`/products/${app.slug}`, locale)}">${esc(t(locale, 'cta.explore'))}<span aria-hidden="true"> →</span></a>
             </div>
           </div>
         </article>`).join('')}

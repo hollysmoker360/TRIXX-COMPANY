@@ -4,10 +4,21 @@ const { esc, money } = require('../lib/util');
 const { SITE, t } = require('../data/site');
 const { c } = require('../data/copy');
 const { appsFor, APP_SLUGS } = require('../data/catalog');
+const { appLogo } = require('../lib/brand');
+const SITE_IMAGES = require('../lib/site-images');
 const { LISTINGS } = require('../data/listings');
 const art = require('../lib/art');
 const { localePath } = require('../templates/layout');
 const { breadcrumbs, breadcrumbLd, statBlock, storeButtons, listingCard } = require('../templates/components');
+
+function productVisual(app, locale, detail = false) {
+  const image = detail ? SITE_IMAGES.appDetails[app.slug] : SITE_IMAGES.apps[app.slug];
+  return `<figure class="product-visual">
+    <img class="product-visual__image" src="${image}" alt="Illustrative concept image for ${esc(app.name)}" loading="lazy" decoding="async">
+    <figcaption class="product-visual__label">${locale === 'sw' ? 'Picha ya dhana' : 'Concept image'}</figcaption>
+    <div class="phone-frame product-visual__phone">${art.appScreen(app.slug, { label: `${app.name} app screen` })}</div>
+  </figure>`;
+}
 
 function productsIndex(locale) {
   const APPS = appsFor(locale);
@@ -34,7 +45,7 @@ function productsIndex(locale) {
       <section class="section${i % 2 === 1 ? ' section--tight' : ''}" id="${app.slug}">
         <div class="app-showcase${i % 2 === 1 ? ' app-showcase--flip' : ''}">
           <div>
-            <p class="eyebrow">${esc(app.name)}</p>
+            <div class="app-showcase__brand">${appLogo(app.slug, app.name)}</div>
             <h2>${esc(app.tagline)}</h2>
             <p class="lede">${esc(app.description)}</p>
             <h3 class="mt-4">${esc(c(locale, 'products.featuresTitle'))}</h3>
@@ -51,7 +62,7 @@ function productsIndex(locale) {
             </div>
             ${storeButtons(app)}
           </div>
-          <div class="phone-frame">${art.appScreen(app.slug, { label: `${app.name} app screen` })}</div>
+          ${productVisual(app, locale)}
         </div>
       </section>`).join('')}
     </div>
@@ -69,9 +80,15 @@ function productsIndex(locale) {
             <a class="btn btn--outline" style="border-color:rgba(244,237,224,0.35);color:var(--paper)" href="${localePath('/contact', locale)}">${esc(t(locale, 'cta.talkToUs'))}</a>
           </div>
         </div>
-        <div class="phone-row">
-          <div class="phone-frame">${art.appScreen('rent', { label: 'TRIXX Rent app screen' })}</div>
-          <div class="phone-frame">${art.appScreen('market', { label: 'TRIXX Market app screen' })}</div>
+        <div class="technology-gallery">
+          <figure>
+            <img src="${SITE_IMAGES.technology.innovation}" alt="Technology innovation concept image" loading="lazy" decoding="async">
+            <figcaption>${locale === 'sw' ? 'Picha ya dhana' : 'Concept image'}</figcaption>
+          </figure>
+          <figure>
+            <img src="${SITE_IMAGES.technology.infrastructure}" alt="Digital infrastructure concept image" loading="lazy" decoding="async">
+            <figcaption>${locale === 'sw' ? 'Picha ya dhana' : 'Concept image'}</figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -118,7 +135,7 @@ function appPage(app, locale) {
       ${breadcrumbs([{ label: 'Home', href: '/' }, { label: c(locale, 'products.eyebrow'), href: '/products' }, { label: app.name }], locale)}
       <div class="app-showcase">
         <div>
-          <p class="eyebrow" style="color:${app.accent}">${esc(app.name)}</p>
+          <div class="app-showcase__brand">${appLogo(app.slug, app.name)}</div>
           <h1>${esc(app.tagline)}</h1>
           <p class="lede">${esc(app.description)}</p>
           <div class="cluster mt-3">
@@ -127,7 +144,7 @@ function appPage(app, locale) {
           </div>
           <div class="mt-4">${storeButtons(app)}</div>
         </div>
-        <div class="phone-frame">${art.appScreen(app.slug, { label: `${app.name} app screen` })}</div>
+        ${productVisual(app, locale, true)}
       </div>
     </div>
   </section>
@@ -168,7 +185,7 @@ function appPage(app, locale) {
       <div class="grid grid--4">
         ${others.map((o) => `<article class="card">
           <div class="card__body">
-            <span class="badge" style="border-color:${o.accent};color:${o.accent};align-self:flex-start">${esc(o.name)}</span>
+            <div class="app-showcase__brand">${appLogo(o.slug, o.name)}</div>
             <h3 class="card__title" style="font-size:1rem"><a href="${localePath(`/products/${o.slug}`, locale)}">${esc(o.tagline)}</a></h3>
             <div class="card__foot">
               <span class="tiny muted">${esc(o.sizes)}</span>

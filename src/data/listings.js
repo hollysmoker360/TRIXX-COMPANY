@@ -214,14 +214,14 @@ const PRESS = [
 ];
 
 const TEAM = [
-  { name: 'Nadia Kombo', role: 'Founder and Chief Executive', bio: 'Trained as a structural engineer and spent nine years in coastal construction before founding TRIXX in 2016. Nadia led the design of the Swahili Coastal range.', focus: 'Design and strategy' },
-  { name: 'Brian Wekesa', role: 'Chief Technology Officer', bio: 'Built the TRIXX Home and Farm platforms. Previously ran IoT deployments for a regional utility, and holds the patents behind our soil-moisture controller.', focus: 'Platforms and IoT' },
-  { name: 'Zainab Ali', role: 'Head of Property', bio: 'Runs listings, valuation and the verification team. Zainab has valued more than 3,000 residential properties across the coast and Nairobi.', focus: 'Listings and valuation' },
-  { name: 'Tom Gitau', role: 'Head of Construction', bio: 'Manages the build programme across six sites. Tom introduced the service-spine standard that lets us retrofit technology without opening walls.', focus: 'Build programme' },
-  { name: 'Lucy Njeri', role: 'Head of Farm Solutions', bio: 'An agronomist who designed the plot packages and the zone-planning method. Lucy runs the annual agronomy review visits.', focus: 'Irrigation and agronomy' },
-  { name: 'Peter Mwaura', role: 'Head of Finance', bio: 'Structures the mortgage partnerships and owner subscription billing. Peter built the payment reconciliation behind TRIXX Rent.', focus: 'Finance and billing' },
-  { name: 'Aisha Mohamed', role: 'Head of Customer Experience', bio: 'Owns the viewing calendar, the lead inbox and the 48-hour repair promise. Aisha has run the support desk since 2019.', focus: 'Service and support' },
-  { name: 'Kevin Odhiambo', role: 'Head of Security and Compliance', bio: 'Handles device-data governance, camera policy and the audit programme. Kevin wrote our privacy position on camera and sensor data.', focus: 'Compliance and privacy' },
+  { name: 'Francesc Orwa', role: 'Founder and Chief Executive Officer' },
+  { role: 'Chief Technology Officer' },
+  { role: 'Head of Property' },
+  { role: 'Head of Construction' },
+  { role: 'Head of Farm Solutions' },
+  { role: 'Head of Finance' },
+  { role: 'Head of Customer Experience' },
+  { role: 'Head of Security and Compliance' },
 ];
 
 const MILESTONES = [

@@ -1,0 +1,353 @@
+TRIXX
+AI IMAGE GENERATOR
+PROMPT COLLECTION
+A complete visual prompt guide for the TRIXX website
+Architecture • Smart Homes • Agriculture • Real Estate • Education • Technology
+Brand direction: Obsidian · Warm Ivory · Sage Green · Muted Bronze
+How to use this guide
+Use these prompts in Midjourney, ChatGPT Image Generator, DALL·E, Leonardo AI, Adobe Firefly, or another
+image-generation tool. Generate images without text or logos, then add website headlines, buttons, interface
+labels, and the TRIXX logo in the website itself.
+Global visual style
+Obsidian black (#151B1A): premium architectural backgrounds. Warm ivory (#F4F0E8): clean editorial sections.
+Sage green (#A9C5AD): technology and sustainability accents. Muted bronze (#B99A75): luxury detailing.
+Reusable style instruction
+Premium architectural editorial photography, photorealistic materials, sophisticated African contemporary design
+influence, natural cinematic lighting, realistic shadows, refined composition, subtle sage-green accents, warm
+neutral color grading, luxury technology brand art direction, realistic proportions, high dynamic range, no
+oversaturated colors, no cheap CGI appearance, no random text, no watermarks, no logos, no distorted
+architecture, professional commercial photography.
+Append the reusable style instruction to each image prompt when the generator benefits from a consistent style. Some generators
+may follow it better if it is placed at the end.
+2
+TRIXX • AI Image Generator Prompt Collection
+1. Homepage and main landing page
+01 — Homepage hero image
+Create an ultra-wide 16:9 hero photograph of a breathtaking luxury smart home in East Africa. The property
+combines contemporary minimalist architecture, natural stone, warm timber, expansive floor-to-ceiling glass, a
+reflecting pool, carefully landscaped indigenous plants, and subtle integrated smart-home lighting. Show a
+sophisticated two-storey residence at blue hour, with warm interior lighting glowing through the glass and a
+beautiful Nairobi-style green landscape in the background. Compose the villa toward the right half, leaving the left
+third dark, calm, and visually uncluttered for white website typography. Cinematic architectural photography,
+realistic details, premium real-estate campaign, 16:9 landscape.
+Recommended: 1920 × 1080 or larger. Keep the left side clear for the headline.
+02 — Brand introduction / company vision
+Create a premium editorial photograph representing the future of living in Africa. Show a beautifully designed
+modern home integrated naturally with its landscape, with stone, timber, greenery, glass, soft daylight, and subtle
+signs of connected technology. Include a person walking toward the entrance for scale, but keep the architecture
+dominant. The image should communicate innovation, trust, craftsmanship, sustainability, and thoughtful design.
+Wide horizontal composition with generous negative space, suitable for a company introduction section.
+3
+TRIXX • AI Image Generator Prompt Collection
+2. Architectural house collections
+03 — Swahili coastal architecture
+Photorealistic luxury Swahili coastal-inspired residence in East Africa, sculpted coral-stone textures, carved timber
+screens, elegant shaded verandas, a private courtyard, tropical planting, intricate geometric architectural details,
+contemporary smart-home integration hidden discreetly within traditional craftsmanship. Bright warm daylight,
+realistic construction, premium architecture magazine photography, vertical 4:5 composition.
+04 — Victorian / Georgian collection
+A sophisticated Georgian and Victorian-inspired luxury home reinterpreted for modern East African living. Elegant
+symmetrical facade, refined columns, tall sash-style windows, balanced proportions, a restrained neutral palette,
+beautifully landscaped garden, discreet smart lighting and contemporary comfort. Historically inspired without
+looking like a museum, realistic materials, professional architectural photography, vertical 4:5 composition.
+05 — Mediterranean / Moorish collection
+A luxury Mediterranean and Moorish-inspired residence featuring elegant arches, textured ivory plaster, warm
+stone, geometric screens, a tranquil courtyard, a reflecting water feature, shaded outdoor living spaces, and lush
+drought-conscious landscaping. Blend heritage forms with modern luxury and discreet smart-home systems.
+Golden-hour light, refined and realistic architectural photography, vertical 4:5 composition.
+06 — Cape Dutch collection
+A contemporary Cape Dutch-inspired estate with graceful white gables, dark roof detailing, natural stone, timber
+doors, landscaped gardens, and an expansive veranda. Incorporate modern glazing and subtle connected-home
+features without losing the architectural heritage. Beautiful East African estate setting, soft natural light,
+photorealistic luxury property editorial, vertical 4:5 composition.
+07 — Contemporary minimalist collection
+A striking minimalist smart residence with clean geometric volumes, sculptural concrete, natural stone, expansive
+glass, warm timber, a serene courtyard, integrated landscaping, and concealed architectural lighting. The home
+feels calm, intelligent, sustainable, and expensive rather than futuristic or artificial. Strong architectural composition,
+natural materials, East African landscape, realistic professional photography, vertical 4:5 composition.
+08 — African-inspired architecture
+A contemporary African-inspired luxury home drawing respectfully on traditional circular forms, earthy plaster,
+locally inspired textures, shaded outdoor spaces, natural materials, and a sculptural roofline. Combine cultural
+inspiration with modern comfort, energy efficiency, smart-home integration, and refined detailing. Avoid caricature
+or generic safari imagery. Sophisticated real architecture, authentic landscape, warm daylight, premium
+architectural photography, vertical 4:5 composition.
+4
+TRIXX • AI Image Generator Prompt Collection
+3. Smart-home technology
+09 — TRIXX Home overview
+Photorealistic luxury smart-home interior in a contemporary East African residence. Show a beautifully furnished
+living room with a discreet wall-mounted touchscreen controlling lighting, climate, curtains, and security. Warm
+indirect lighting, natural stone, timber, linen, refined furniture, subtle sage-green accents, and large garden-facing
+windows. The technology should be physically believable, integrated into the architecture, and visually secondary
+to the home. Premium interior design photography, wide horizontal image, no visible text on the screen.
+10 — Smart devices and automation
+A high-end product photograph of an elegant smart-home wall control panel, minimalist switches, a small modern
+sensor, and architectural lighting controls installed in a natural stone and warm timber wall. Soft side lighting,
+precise realistic materials, clean composition, sophisticated residential technology, subtle shadows, neutral
+background, premium hardware advertising, no brand names, no text, horizontal 16:9.
+11 — Energy efficiency and sustainability
+Show a beautifully designed modern home with discreet rooftop solar panels, energy-efficient glazing, a
+landscaped garden, and a subtle home energy monitoring device visible indoors through a window. Bright natural
+daylight, realistic sustainable architecture, healthy greenery, sophisticated and attainable technology, no
+exaggerated futuristic elements. The photograph should communicate lower energy waste, environmental
+responsibility, and practical innovation. Premium commercial architecture photography, wide 16:9 landscape.
+12 — Smart security
+A premium close-up photograph of a sophisticated smart lock fitted to a solid timber front door of a contemporary
+luxury residence. Show refined metal hardware, a discreet video doorbell and a softly illuminated entryway, with
+realistic natural textures. Secure and welcoming rather than intimidating. High-end architectural product
+photography, shallow depth of field, warm evening lighting, no readable text or logos, horizontal 16:9.
+5
+TRIXX • AI Image Generator Prompt Collection
+4. TRIXX Home packages
+13 — Basic package
+Photorealistic, elegant, practical contemporary home with a clean living room, simple smart lighting, a discreet
+smart switch, and a welcoming entry. Natural materials, restrained furniture, bright daylight, realistic modest scale,
+premium but accessible residential design. Communicate essential smart-home convenience without excessive
+luxury. Horizontal 4:3 composition.
+14 — Comfort package
+A refined contemporary family residence featuring integrated smart lighting, climate control, elegant furnishings,
+comfortable lounge seating, and a discreet home automation control panel. Natural wood, stone, warm ambient
+lighting, balanced proportions, premium practical design, realistic residential interior photography. Horizontal 4:3
+composition.
+15 — Premium package
+An exceptional luxury smart residence with architectural lighting scenes, floor-to-ceiling glass, automated curtains,
+premium integrated security, elegant climate control, sophisticated furnishings, and a landscaped outdoor view.
+The scene feels effortless and serene, with discreet technology and exquisite materials. Cinematic twilight, luxury
+architectural editorial photography. Horizontal 4:3 composition.
+6
+TRIXX • AI Image Generator Prompt Collection
+5. TRIXX Farm — smart agriculture
+16 — Smart farming hero
+A realistic smart agriculture scene on a productive East African farm. Show organized crop rows, healthy green
+crops, precision drip irrigation, a small weather station, soil sensors, and a farmer checking a handheld digital
+device. Gentle morning sunlight, natural landscape, fertile soil, modern but attainable agricultural technology,
+authentic farm operations. The image should communicate efficiency, water conservation, improved yields, and
+data-informed farming. Premium documentary commercial photography, wide 16:9, no text.
+17 — Soil sensors and smart irrigation
+Close-up commercial photograph of a real soil-moisture sensor installed beside a drip-irrigation line among healthy
+crops. Show dark, realistic soil, droplets of water, detailed leaves, and a small weather-resistant sensor housing.
+Natural light, authentic agricultural textures, shallow depth of field, precision farming technology presented clearly
+and realistically. No floating graphics, no labels, no logos. Horizontal 16:9.
+18 — Farm analytics and monitoring
+A confident East African farmer standing in a productive field, reviewing farm performance on a modern tablet.
+Include healthy crops, irrigation infrastructure, and a natural rural landscape in the background. The tablet should
+show a simple, believable agricultural dashboard with abstract charts and crop indicators but no legible text.
+Authentic person, realistic hands and device, natural daylight, modern agriculture, trustworthy commercial
+photography, horizontal 16:9.
+7
+TRIXX • AI Image Generator Prompt Collection
+6. TRIXX Rent and TRIXX Market — property
+marketplace
+19 — Property marketplace hero
+A premium real-estate campaign photograph showing an attractive contemporary residential development in
+Nairobi, Kenya. Feature modern apartment architecture, elegant balconies, landscaped communal spaces, mature
+tropical plants, and inviting natural light. The development should feel safe, desirable, well-maintained, and realistic
+for an upscale urban African property market. Compose the building toward the right, leaving clear negative space
+on the left for website text. Photorealistic property photography, wide 16:9.
+20 — Property listing cards
+Create a high-quality real-estate listing photograph of a bright, modern apartment with a spacious living area,
+neutral contemporary furniture, large windows, polished but natural finishes, and a tasteful view of an urban African
+neighborhood. Professional real-estate photography, accurate room proportions, natural daylight, inviting
+atmosphere, straight vertical lines, no people, no text, horizontal 4:3 crop suitable for property cards.
+21 — Landlords and tenants
+Authentic professional photograph of an East African property manager meeting a prospective tenant couple in a
+bright contemporary apartment. Natural candid expressions, respectful interaction, simple professional clothing, a
+tablet or folder used naturally, warm daylight, realistic home environment. Communicate trust, transparency,
+convenient property management, and an easy rental process. Avoid staged corporate stock-photo poses.
+Horizontal 16:9.
+22 — Featured developments
+A polished real-estate editorial photograph of a desirable contemporary residential development with spacious
+balconies, landscaped gardens, warm exterior lighting, and an attractive East African urban skyline in the distance.
+Strong composition, realistic architecture, late-afternoon sunlight, clean presentation, premium property marketing
+photography. Horizontal 16:9.
+8
+TRIXX • AI Image Generator Prompt Collection
+7. TRIXX School — education technology
+23 — School management hero
+A photorealistic modern school campus in East Africa, with contemporary classroom buildings, shaded walkways,
+green courtyards, and a welcoming learning environment. Show a small group of diverse African students in neat
+school uniforms walking naturally across the campus with a teacher nearby. Bright natural light, authentic
+educational setting, positive atmosphere, modern but realistic facilities. Professional education-sector photography,
+wide 16:9, no visible school logos or text.
+24 — Digital learning and school administration
+An authentic modern classroom in an East African school. A teacher uses a tablet to manage classroom activities
+while students work at desks in the background. Natural window light, clean classroom, realistic school uniforms,
+educational materials, calm and focused expressions. Convey how technology supports teachers and school
+administration without replacing human interaction. Professional documentary photography, horizontal 16:9, no
+legible text.
+25 — Attendance and school analytics
+A professional school administrator in a modern school office reviewing attendance and school performance on a
+laptop. The laptop screen displays a believable clean dashboard with simple charts, attendance indicators, and
+abstract student records, without readable names or personal information. Bright natural light, organized
+workspace, realistic computer hardware, trustworthy education technology campaign photography, horizontal 16:9.
+9
+TRIXX • AI Image Generator Prompt Collection
+8. TRIXX Pro — connected business and technology
+26 — TRIXX Pro hero
+A sophisticated technology workspace representing an integrated digital ecosystem for property, smart homes,
+agriculture, and education. Show a modern desk, a premium monitor with a clean abstract analytics dashboard,
+subtle ambient lighting, architectural materials, and a minimal organized environment. Restrained charcoal, warm
+ivory, and sage-green palette. Realistic screens and hardware, premium editorial photography, wide horizontal
+composition, no readable text, no logos.
+27 — Data, automation, and analytics
+Premium commercial photograph of a professional using a tablet to review an integrated business analytics
+interface. The display contains restrained charts, trend lines, summary cards, and simple visual indicators. Realistic
+screen reflections, natural hand anatomy, soft architectural lighting, charcoal and sage-green interface accents.
+Emphasize clarity, control, and informed decision-making. No legible text or brand names, horizontal 16:9.
+10
+TRIXX • AI Image Generator Prompt Collection
+9. Interactive house configurator
+28 — House customization visual
+Create a highly realistic architectural visualization of a premium contemporary two-storey house, shown from a
+three-quarter front angle. Include a clear view of the facade, roof, windows, entrance, landscaping, and exterior
+materials. Use natural stone, warm timber, ivory render, and dark metal detailing. Neutral warm ivory studio-like
+background with soft ground shadows. The building must be complete, physically plausible, and visually isolated so
+a website configurator can place interface controls around it. No text, no people, no watermarks, wide 16:9.
+For a real configurator, generate separate matching images for different facade materials, roof types, and house styles. A single
+image cannot provide genuinely interactive 3D customization.
+11
+TRIXX • AI Image Generator Prompt Collection
+10. About TRIXX, team, and craftsmanship
+29 — Our team and expertise
+An authentic professional photograph of a small East African team of architects, engineers, and technology
+specialists collaborating over architectural plans at a real residential project. Include rolled drawings, a tablet,
+material samples, and a partially completed contemporary building in the background. Natural candid interaction,
+realistic clothing, diverse professional roles, warm daylight, confident and collaborative atmosphere. Avoid generic
+corporate stock-photo styling. Horizontal 16:9.
+30 — Craftsmanship and construction quality
+An editorial close-up showing skilled craftsmanship on a premium contemporary home: a builder carefully finishing
+natural stone beside precisely installed timber joinery. Focus on authentic materials, careful hands, clean
+construction detailing, and the quality of the work. Soft natural light, realistic textures, sophisticated architectural
+documentary photography, no staged tools or exaggerated effects, horizontal 16:9.
+12
+TRIXX • AI Image Generator Prompt Collection
+11. Projects, testimonials, and case studies
+31 — Completed projects gallery
+A premium architectural portfolio photograph of a completed contemporary residence in East Africa. Show the
+entire building, carefully finished exterior, realistic landscaping, stone and timber details, and natural evening light.
+The photograph should feel like an actual commissioned project captured by an architectural photographer, with
+straight lines, realistic proportions, rich but natural colors, and no artificial cinematic exaggeration. Wide 16:9.
+32 — Customer stories and testimonials
+A natural lifestyle photograph of an East African family relaxing together in a beautiful contemporary home. Warm
+daylight, comfortable furnishings, thoughtful architecture, genuine expressions, and a calm everyday moment.
+Subtle smart-home convenience is suggested through the comfortable lighting and well-designed environment
+rather than visible futuristic technology. Authentic documentary lifestyle photography, horizontal 16:9.
+Use real customer photos and approved testimonials for actual case studies. Generated people must not be presented as real
+TRIXX customers.
+13
+TRIXX • AI Image Generator Prompt Collection
+12. Contact, consultation, and booking
+33 — Book a consultation
+A welcoming premium architectural consultation space with a timber meeting table, architectural drawings, curated
+material samples, a tablet, comfortable chairs, and large windows overlooking greenery. Minimalist contemporary
+interior, warm neutral palette, natural light, uncluttered composition, realistic professional studio atmosphere. Leave
+one side of the frame relatively empty for a website consultation form or booking call to action. Horizontal 16:9.
+14
+TRIXX • AI Image Generator Prompt Collection
+13. Website backgrounds and abstract visual assets
+34 — Glassmorphism background
+A refined abstract 3D composition of translucent frosted glass forms, softly curved architectural shapes, pale
+sage-green accents, warm ivory surfaces, subtle reflections, and gentle ambient shadows. Minimal, calm,
+luxurious, and modern. Large areas of negative space, realistic glass refraction, soft studio lighting, understated
+depth, no text, no logos, no objects, no excessive glow. Wide 16:9 website background.
+35 — Morphing transition background
+Create a minimalist abstract 3D artwork featuring flowing organic sculptural ribbons and smooth liquid-like
+architectural forms in muted sage, warm ivory, and soft bronze. Elegant curves, seamless surfaces, subtle
+gradients, realistic soft shadows, and refined dimensional depth. Balanced composition with no central focal point,
+no text, no logos, and no neon colors. Designed as a premium technology website background that can inspire
+smooth shape-morphing transitions. Wide 16:9.
+36 — Dark section background
+A restrained near-black charcoal abstract architectural background with subtle sculptural depth, barely visible
+flowing contour lines, soft sage-green ambient illumination, and gentle gradients. Premium, quiet, modern, high
+contrast, with large clean areas for white website text. Avoid stars, circuit-board clichés, bright neon, or busy
+patterns. Wide 16:9 background.
+15
+TRIXX • AI Image Generator Prompt Collection
+14. App and dashboard mockup images
+37 — TRIXX app showcase
+Create a premium product showcase image with a modern smartphone and tablet arranged at elegant angles on a
+warm ivory surface. Both screens display a cohesive fictional smart-home application interface with clean white
+cards, charcoal text, muted sage-green accents, simple lighting controls, a temperature dial, security status, and an
+energy usage chart. The interface should appear like a polished real software product, with consistent spacing,
+restrained typography, and realistic screen reflections. No readable brand names, no watermarks, no extra devices,
+commercial product photography, horizontal 16:9.
+Repeat this prompt with the dashboard subject changed to farm irrigation, property listings, rent management, or school
+attendance for the corresponding product sections.
+16
+TRIXX • AI Image Generator Prompt Collection
+15. Animation and transition prompts for AI video
+generators
+38 — Homepage cinematic reveal
+Create a 6-second seamless cinematic architectural reveal from the supplied image. Begin with a close view of
+softly illuminated landscaping, then slowly dolly the camera backward and slightly upward to reveal the complete
+luxury smart villa. Subtle tree movement, realistic water reflections, and warm interior lights. Preserve the original
+building geometry and material details exactly. Smooth, restrained movement, premium real-estate commercial, no
+sudden cuts, no morphing architecture, no text. Widescreen 16:9.
+39 — House collection transition
+Create a 5-second elegant architectural transition between two supplied house images. Use a smooth camera
+push-in toward the central doorway, followed by a seamless match transition into the second architectural style.
+Maintain realistic geometry, consistent perspective, natural lighting, and clean material details. The transition
+should feel like a sophisticated architectural presentation, not a fantasy transformation. No melting walls, warped
+windows, or abrupt cuts. Widescreen 16:9.
+40 — Smart-home technology reveal
+Create a 5-second cinematic shot of a premium smart-home interior. Slowly move the camera through the room as
+ambient architectural lighting transitions gently from warm evening light to a calm, comfortable setting. A curtain
+moves slightly and subtle reflections shift across natural materials. Preserve all furniture, room proportions, and
+device placement. Realistic physical motion, restrained luxury advertising style, no floating interfaces or artificial
+holograms. Widescreen 16:9.
+41 — Farm technology reveal
+Create a 6-second realistic aerial-to-ground transition over a productive East African farm. Slowly glide over crop
+rows and precision irrigation lines, then descend toward a small soil sensor beside healthy crops. Gentle wind
+moves the leaves and natural morning light illuminates the field. Preserve the real agricultural layout, sensor shape,
+and crop appearance. Professional agricultural technology campaign, smooth stable camera movement, no
+futuristic visual effects. Widescreen 16:9.
+17
+TRIXX • AI Image Generator Prompt Collection
+16. Recommended image sizes
+Website section
+Aspect ratio
+Homepage hero
+Architecture collections
+16:9
+4:5
+Suggested dimensions
+1920 × 1080
+1000 × 1250
+Smart-home features
+Package cards
+16:9
+4:3
+1600 × 900
+1200 × 900
+Property listings
+Farm and school sections
+4:3
+16:9
+1200 × 900
+1600 × 900
+Team and case studies
+Abstract backgrounds
+16:9
+16:9
+1600 × 900
+1920 × 1080
+Mobile hero
+4:5 or 9:16
+1080 × 1350 or 1080 × 1920
+17. Practical implementation recommendations
+• Use WebP or AVIF for website photographs where supported, and compress images before publishing.
+• Keep color grading consistent across the site; avoid mixing cold blue imagery with warm ivory and sage-green
+imagery.
+• Use subtle motion: small parallax on the homepage hero, gentle image zoom on collection cards, and smooth
+crossfades between architectural images.
+• Use real 3D models or frontend animations for interactive house customization. A generated video or still image
+cannot provide true interactive controls.
+• Keep text outside images. Render headings, pricing, property details, and navigation as HTML.
+• Do not present AI-generated images as proof of completed projects or as real customers. Use authentic
+photographs for actual projects, customers, team members, and case studies.
+Suggested first batch
+Generate prompts 01, 03–08, 09, 16, 19, 23, 26, and 34 first. These establish the visual identity and cover the
+homepage, architecture, smart-home technology, farm solutions, property marketplace, education platform, and
+abstract design system.
+18
+TRIXX • AI Image Generator Prompt Collection

@@ -5,6 +5,7 @@ const { t } = require('../data/site');
 const { c } = require('../data/copy');
 const { STYLES, PACKAGES, stylesFor } = require('../data/catalog');
 const art = require('../lib/art');
+const SITE_IMAGES = require('../lib/site-images');
 const { localePath } = require('./layout');
 
 const TIER_LABEL = { basic: 'Basic', comfort: 'Comfort', premium: 'Premium' };
@@ -64,9 +65,12 @@ function listingCard(listing, locale, opts = {}) {
 
 function styleCard(style, locale) {
   const swatches = style.colors.map((c) => `<i style="background:${c}"></i>`).join('');
+  const image = SITE_IMAGES.architecture[style.slug];
   return `<article class="card style-card">
   <div class="card__media">
-    ${art.houseRender(style.slug, { label: `${style.name} home render`, seed: style.slug })}
+    ${image
+    ? `<img class="site-photo" src="${image}" alt="${esc(style.name)} architectural concept image" loading="lazy" decoding="async"><span class="concept-image-label">${locale === 'sw' ? 'Picha ya dhana' : 'Concept image'}</span>`
+    : art.houseRender(style.slug, { label: `${style.name} home render`, seed: style.slug })}
   </div>
   <div class="card__body">
     <div class="cluster cluster--between">

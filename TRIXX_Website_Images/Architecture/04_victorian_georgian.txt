@@ -1,0 +1,5 @@
+ASSET: Victorian / Georgian collection
+FILE: 04_victorian_georgian.jpg
+WEBSITE PLACEMENT: Use on the Victorian or Georgian architectural style card, with style title and details rendered as webpage text.
+SOURCE: Cropped from the generated TRIXX visual board.
+NOTE: This is a concept crop, not a separately rendered full-resolution original photograph.

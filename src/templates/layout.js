@@ -18,11 +18,8 @@ function swapLocale(path, locale) {
 
 function brandMark(size = 40) {
   return `<svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true" width="${size}" height="${size}">
-    <path d="M6 44V22a18 18 0 0 1 36 0v22" fill="none" stroke="currentColor" stroke-width="2.4"/>
-    <path d="M14 44V24a10 10 0 0 1 20 0v20" fill="none" stroke="currentColor" stroke-width="1.6" opacity="0.65"/>
-    <circle cx="24" cy="16" r="3.4" fill="#A8452C"/>
-    <path d="M24 22v16" stroke="#A8452C" stroke-width="1.6"/>
-    <path d="M2 44h44" stroke="currentColor" stroke-width="2.4"/>
+    <path d="M24 2 46 44H2L24 2Z" fill="currentColor"/>
+    <path d="m15 25 18 18M33 25 15 43" fill="none" stroke="var(--brand-surface, #F5F3EC)" stroke-width="6" stroke-linecap="square"/>
   </svg>`;
 }
 
@@ -135,7 +132,7 @@ function header(currentPath, locale, singleLocale) {
     <a class="brand" href="${localePath('/', locale)}">
       ${brandMark()}
       <span>
-        <span class="brand__word">TRIXX</span>
+        <span class="brand__word"><span>TRI</span><b>XX</b></span>
         <span class="brand__sub">${esc(t(locale, 'brand.sub'))}</span>
       </span>
     </a>
@@ -145,7 +142,7 @@ function header(currentPath, locale, singleLocale) {
     <div class="masthead__actions">
       <div class="lang" role="group" aria-label="${esc(t(locale, 'lang.switch'))}">${langLinks}</div>
       <a class="btn btn--quiet btn--sm" href="${localePath('/login', locale)}">${esc(t(locale, 'cta.login'))}</a>
-      <a class="btn btn--primary btn--sm" href="${localePath('/list-your-property', locale)}">${esc(t(locale, 'cta.list'))}</a>
+      <a class="btn btn--primary btn--sm" href="${localePath('/book-viewing', locale)}">${esc(t(locale, 'cta.book'))}</a>
       <button class="nav-toggle" type="button" data-drawer-open aria-controls="drawer" aria-expanded="false">
         ${esc(t(locale, 'nav.menu'))}
       </button>
@@ -155,7 +152,7 @@ function header(currentPath, locale, singleLocale) {
 
 <div class="drawer" id="drawer" data-open="false" role="dialog" aria-modal="true" aria-label="${esc(t(locale, 'nav.menu'))}">
   <div class="drawer__head">
-    <a class="brand" href="${localePath('/', locale)}">${brandMark(32)}<span class="brand__word">TRIXX</span></a>
+    <a class="brand" href="${localePath('/', locale)}">${brandMark(32)}<span class="brand__word"><span>TRI</span><b>XX</b></span></a>
     <button class="nav-toggle" type="button" data-drawer-close>${esc(t(locale, 'nav.close'))}</button>
   </div>
   <div class="drawer__body">
@@ -240,7 +237,7 @@ function footer(locale) {
   <div class="wrap">
     <div class="footer__grid">
       <div class="footer__brand">
-        <a class="brand" href="${localePath('/', locale)}">${brandMark(38)}<span><span class="brand__word">TRIXX</span><span class="brand__sub">${esc(t(locale, 'brand.sub'))}</span></span></a>
+        <a class="brand" href="${localePath('/', locale)}">${brandMark(38)}<span><span class="brand__word"><span>TRI</span><b>XX</b></span><span class="brand__sub">${esc(t(locale, 'brand.sub'))}</span></span></a>
         <p>${esc(SITE.description)}</p>
         <p class="tiny">${esc(SITE.address.line1)}, ${esc(SITE.address.line2)}, ${esc(SITE.address.city)} ${esc(SITE.address.postcode)}, ${esc(SITE.address.country)}</p>
         <p class="tiny"><a href="mailto:${esc(SITE.email)}">${esc(SITE.email)}</a> · <a href="tel:${esc(SITE.phone.replace(/\s/g, ''))}">${esc(SITE.phone)}</a></p>
@@ -281,7 +278,7 @@ function head(page, locale) {
   <link rel="canonical" href="${canonical}">
   ${page.noindex ? '<meta name="robots" content="noindex, nofollow">' : ''}
   ${alternates}
-  <meta name="theme-color" content="#0E5C56">
+  <meta name="theme-color" content="#101A19">
   <meta property="og:type" content="${page.ogType || 'website'}">
   <meta property="og:site_name" content="${esc(SITE.name)}">
   <meta property="og:title" content="${esc(page.title)}">
@@ -291,7 +288,7 @@ function head(page, locale) {
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">

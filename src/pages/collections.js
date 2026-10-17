@@ -6,6 +6,7 @@ const { c, ROOM_KEYS } = require('../data/copy');
 const { stylesFor, packagesFor } = require('../data/catalog');
 const { LISTINGS } = require('../data/listings');
 const art = require('../lib/art');
+const SITE_IMAGES = require('../lib/site-images');
 const { localePath } = require('../templates/layout');
 const {
   styleCard, listingCard, breadcrumbs, breadcrumbLd, statBlock, packageCard,
@@ -39,6 +40,24 @@ function collectionsIndex(locale) {
 
       <div class="grid grid--3">
         ${STYLES.map((s) => styleCard(s, locale)).join('')}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight bg-paper2 border-y">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">${locale === 'sw' ? 'Marejeleo ya usanifu' : 'Design references'}</p>
+        <h2>${locale === 'sw' ? 'Msukumo kutoka mitindo mbalimbali' : 'Ideas from different traditions'}</h2>
+        <p class="lede">${locale === 'sw'
+    ? 'Picha hizi ni marejeleo ya dhana pekee; si miradi iliyokamilika wala matangazo ya nyumba.'
+    : 'These concepts are architectural references only, not completed projects or property listings.'}</p>
+      </div>
+      <div class="grid grid--3">
+        ${SITE_IMAGES.architectureInspiration.map((item) => `<figure class="inspiration-card">
+          <img class="site-photo" src="${item.src}" alt="${esc(item.alt)}" loading="lazy" decoding="async">
+          <figcaption><span>${esc(item.title)}</span><small>${locale === 'sw' ? 'Picha ya dhana' : 'Concept image'}</small></figcaption>
+        </figure>`).join('')}
       </div>
     </div>
   </section>
@@ -104,6 +123,7 @@ function stylePage(style, locale) {
   const PACKAGES = packagesFor(locale);
   const STYLES = stylesFor(locale);
   style = STYLES.find((s) => s.slug === style.slug) || style;
+  const conceptImage = SITE_IMAGES.architecture[style.slug];
   const homes = LISTINGS.filter((l) => l.style === style.slug).slice(0, 3);
   const plans = style.bedrooms.map((b) => ({
     bedrooms: b,
@@ -113,8 +133,11 @@ function stylePage(style, locale) {
 
   const body = `
   <section class="collection-hero">
-    <div class="art">${art.houseRender(style.slug, { label: `${style.name} render`, seed: style.slug, w: 1600, h: 900 })}</div>
+    <div class="art">${conceptImage
+    ? `<img class="collection-hero__image" src="${conceptImage}" alt="${esc(style.name)} architectural concept image" fetchpriority="high" decoding="async">`
+    : art.houseRender(style.slug, { label: `${style.name} render`, seed: style.slug, w: 1600, h: 900 })}</div>
     <div class="collection-hero__scrim"></div>
+    ${conceptImage ? `<span class="concept-image-label concept-image-label--hero">${locale === 'sw' ? 'Picha ya dhana' : 'Concept image'}</span>` : ''}
     <div class="wrap collection-hero__inner">
       ${breadcrumbs([{ label: 'Home', href: '/' }, { label: c(locale, 'collections.eyebrow'), href: '/house-collections' }, { label: style.name }], locale)}
       <p class="eyebrow">${esc(style.swahiliName)} · ${esc(style.plotRange)}</p>
@@ -198,20 +221,31 @@ function stylePage(style, locale) {
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">${esc(c(locale, 'collections.plansTitle'))}</p>
-        <h2>Floor plans and typical dimensions</h2>
-        <p class="lede">Every plan is adapted to the plot, orientation and the tier you choose. These are the base layouts we start from.</p>
+        <h2>${locale === 'sw' ? 'Ramani za dhana, chumba kwa chumba' : 'Room-by-room concept plans'}</h2>
+        <p class="lede">${locale === 'sw'
+    ? 'Chunguza mpangilio wa awali wenye samani kwa kila idadi ya vyumba. Eneo na upana ni makadirio; vipimo, muundo na huduma za mwisho lazima zibuniwe kwa eneo lako na mtaalamu aliyehitimu.'
+    : 'Explore a furnished early-stage layout for each bedroom count. Area and width are indicative; final room sizes, structure and services require a site-specific design by a qualified professional.'}</p>
       </div>
       <div class="grid grid--3">
-        ${plans.map((p) => `<figure class="card card--flat" style="margin:0">
+        ${plans.map((p, i) => `<figure class="card card--flat" id="floor-plan-${i + 1}" data-floor-plan data-plan-title="${locale === 'sw' ? `Ramani ya dhana ya vyumba ${p.bedrooms}` : `${p.bedrooms}-bedroom concept plan`}" style="margin:0">
           <div class="card__media card__media--plan" style="border:1px solid var(--line);border-radius:var(--radius-lg)">
-            ${art.floorPlan(style.slug, { bedrooms: p.bedrooms, width: p.width, label: `${p.bedrooms} bedroom floor plan` })}
+            ${art.floorPlan(style.slug, { bedrooms: p.bedrooms, width: p.width, area: p.area, seed: `plan-${i}`, label: `${p.bedrooms} bedroom conceptual floor plan` })}
           </div>
           <figcaption class="card__body" style="padding-inline:0">
-            <h3 style="margin:0;font-size:1.1rem">${p.bedrooms}-bedroom plan</h3>
-            <div class="card__meta"><span>${num(p.area)} m²</span><span>${p.width.toFixed(1)} m wide</span></div>
+            <h3 style="margin:0;font-size:1.1rem">${p.bedrooms}-bedroom concept</h3>
+            <div class="card__meta"><span>${num(p.area)} m² indicative area</span><span>${p.width.toFixed(1)} m indicative width</span></div>
+            <a class="btn btn--outline btn--sm mt-2" href="#floor-plan-${i + 1}" data-plan-open aria-haspopup="dialog">${locale === 'sw' ? 'Tazama ramani kubwa' : 'View larger plan'}</a>
           </figcaption>
         </figure>`).join('')}
       </div>
+      <dialog class="plan-dialog" data-plan-dialog aria-labelledby="plan-dialog-title">
+        <div class="plan-dialog__header">
+          <h2 id="plan-dialog-title" data-plan-dialog-title>${locale === 'sw' ? 'Ramani ya dhana ya nyumba' : 'Concept floor plan'}</h2>
+          <button class="btn btn--outline btn--sm" type="button" data-plan-dialog-close aria-label="${locale === 'sw' ? 'Funga ramani' : 'Close floor plan'}">${locale === 'sw' ? 'Funga' : 'Close'} ×</button>
+        </div>
+        <p class="plan-dialog__hint">${locale === 'sw' ? 'Telezesha ramani pembeni ili kuona maelezo yote.' : 'On smaller screens, swipe horizontally to inspect the drawing.'}</p>
+        <div class="plan-dialog__drawing" data-plan-dialog-drawing></div>
+      </dialog>
     </div>
   </section>
 

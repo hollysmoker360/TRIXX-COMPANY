@@ -1,0 +1,5 @@
+ASSET: Smart living interior
+FILE: 10_smart_living_interior.jpg
+WEBSITE PLACEMENT: Use as the main visual for connected living, lighting automation, comfort, and home control.
+SOURCE: Cropped from the generated TRIXX visual board.
+NOTE: This is a concept crop, not a separately rendered full-resolution original photograph.

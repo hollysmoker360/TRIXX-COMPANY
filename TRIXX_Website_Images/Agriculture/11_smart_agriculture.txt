@@ -1,0 +1,5 @@
+ASSET: Smart agriculture
+FILE: 11_smart_agriculture.jpg
+WEBSITE PLACEMENT: Use as the hero or feature image for TRIXX Farm, showing a farmer using technology in the field.
+SOURCE: Cropped from the generated TRIXX visual board.
+NOTE: This is a concept crop, not a separately rendered full-resolution original photograph.

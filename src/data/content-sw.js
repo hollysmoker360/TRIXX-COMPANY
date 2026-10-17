@@ -4,46 +4,14 @@
    source stays the single structural definition. */
 
 const TEAM_SW = [
-  {
-    role: 'Mwanzilishi na Afisa Mtendaji Mkuu',
-    bio: 'Alifunzwa kama mhandisi wa miundo na alitumia miaka tisa katika ujenzi wa pwani kabla ya kuanzisha TRIXX mwaka 2016. Nadia aliongoza usanifu wa safu ya Pwani ya Kiswahili.',
-    focus: 'Usanifu na mkakati',
-  },
-  {
-    role: 'Afisa Mkuu wa Teknolojia',
-    bio: 'Alijenga mifumo ya TRIXX Home na TRIXX Farm. Hapo awali aliendesha usambazaji wa IoT kwa kampuni ya huduma ya kanda, na anamiliki hati za uvumbuzi za kidhibiti chetu cha unyevu wa udongo.',
-    focus: 'Mifumo na IoT',
-  },
-  {
-    role: 'Mkuu wa Mali',
-    bio: 'Anaendesha orodha, ukadiriaji wa thamani na timu ya uthibitishaji. Zainab amekadiria thamani ya mali zaidi ya 3,000 za makazi katika pwani na Nairobi.',
-    focus: 'Orodha na thamani',
-  },
-  {
-    role: 'Mkuu wa Ujenzi',
-    bio: 'Anasimamia programu ya ujenzi katika tovuti sita. Tom alianzisha kiwango cha uti wa huduma kinachotuwezesha kuongeza teknolojia bila kufungua kuta.',
-    focus: 'Programu ya ujenzi',
-  },
-  {
-    role: 'Mkuu wa Suluhisho za Shamba',
-    bio: 'Mtaalamu wa kilimo aliyeunda vifurushi vya viwanja na mbinu ya kupanga kanda. Lucy anaendesha ziara za mapitio ya kilimo kila mwaka.',
-    focus: 'Umwagiliaji na kilimo',
-  },
-  {
-    role: 'Mkuu wa Fedha',
-    bio: 'Anapanga ushirikiano wa mikopo ya nyumba na bili za usajili wa wamiliki. Peter alijenga usuluhishi wa malipo nyuma ya TRIXX Rent.',
-    focus: 'Fedha na bili',
-  },
-  {
-    role: 'Mkuu wa Uzoefu wa Mteja',
-    bio: 'Anamiliki kalenda ya ziara, kikasha cha wateja na ahadi ya ukarabati wa saa 48. Aisha ameendesha dawati la msaada tangu 2019.',
-    focus: 'Huduma na msaada',
-  },
-  {
-    role: 'Mkuu wa Usalama na Uzingatiaji',
-    bio: 'Anashughulikia utawala wa data ya vifaa, sera ya kamera na programu ya ukaguzi. Kevin aliandika msimamo wetu wa faragha kuhusu data ya kamera na vitambuzi.',
-    focus: 'Uzingatiaji na faragha',
-  },
+  { role: 'Mwanzilishi na Afisa Mtendaji Mkuu' },
+  { role: 'Afisa Mkuu wa Teknolojia' },
+  { role: 'Mkuu wa Mali' },
+  { role: 'Mkuu wa Ujenzi' },
+  { role: 'Mkuu wa Suluhisho za Shamba' },
+  { role: 'Mkuu wa Fedha' },
+  { role: 'Mkuu wa Uzoefu wa Mteja' },
+  { role: 'Mkuu wa Usalama na Uzingatiaji' },
 ];
 
 const FAQ_SW = [

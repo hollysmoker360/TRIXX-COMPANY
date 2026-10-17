@@ -191,7 +191,7 @@ const APPS = [
   {
     slug: 'home',
     name: 'TRIXX Home',
-    accent: '#0E5C56',
+    accent: '#0B7167',
     tagline: 'Control lights, locks, climate and power from one screen.',
     description: 'TRIXX Home is the control room for your house. It reads your solar, watches your tank, arms your cameras and lets you hand a temporary key to a cleaner or a contractor without ever cutting a metal one.',
     features: [
@@ -235,7 +235,7 @@ const APPS = [
   {
     slug: 'rent',
     name: 'TRIXX Rent',
-    accent: '#1F3A5F',
+    accent: '#9C741A',
     tagline: 'Pay rent, get receipts, log a repair — in three taps.',
     description: 'TRIXX Rent removes the monthly argument. Rent is invoiced, paid by M-Pesa or card, receipted instantly and reconciled against the lease. Maintenance requests carry photos and a status the tenant can follow.',
     features: [
@@ -257,7 +257,7 @@ const APPS = [
   {
     slug: 'market',
     name: 'TRIXX Market',
-    accent: '#A8452C',
+    accent: '#956344',
     tagline: 'Buy and sell property with verified people.',
     description: 'TRIXX Market is the listing side of the business. Every owner is identity-checked, every TRIXX-built home carries its build record, and buyers chat directly with the seller instead of through a chain of brokers.',
     features: [
@@ -279,7 +279,7 @@ const APPS = [
   {
     slug: 'school',
     name: 'TRIXX School',
-    accent: '#C4791F',
+    accent: '#34465B',
     tagline: 'Fees, timetables and reports for parents and schools.',
     description: 'TRIXX School connects a school to its parents. Fees are invoiced and receipted, timetables and results are published to the right guardians only, and announcements reach everyone who needs them without a paper trail.',
     features: [

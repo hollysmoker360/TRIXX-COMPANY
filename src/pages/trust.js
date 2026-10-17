@@ -8,6 +8,7 @@ const {
   TESTIMONIALS, CASE_STUDIES, PRESS, TEAM, MILESTONES, FAQ_GROUPS, BLOG_POSTS,
 } = require('../data/listings');
 const { PROJECTS } = require('../data/portfolio');
+const SITE_IMAGES = require('../lib/site-images');
 const {
   TEAM_SW, FAQ_SW, TESTIMONIALS_SW, CASE_STUDIES_SW, PRESS_SW, MILESTONES_SW,
 } = require('../data/content-sw');
@@ -19,6 +20,16 @@ const art = require('../lib/art');
 const teamFor = (locale) => (locale === 'sw'
   ? TEAM.map((p, i) => ({ ...p, ...(TEAM_SW[i] || {}) }))
   : TEAM);
+
+function teamCard(person, index) {
+  return `<article class="card team-card">
+    <div class="team-card__mark" aria-hidden="true">${String(index + 1).padStart(2, '0')}</div>
+    <div class="card__body card__body--tight">
+      <h3 class="card__title">${esc(person.role)}</h3>
+      ${person.name ? `<p class="team-card__name">${esc(person.name)}</p>` : ''}
+    </div>
+  </article>`;
+}
 
 const testimonialsFor = (locale) => (locale === 'sw'
   ? TESTIMONIALS.map((x, i) => ({ ...x, ...(TESTIMONIALS_SW[i] || {}) }))
@@ -64,8 +75,9 @@ const {
 function aboutPage(locale) {
   const body = `
   <section class="collection-hero">
-    <div class="art">${art.houseRender('courtyard-villa', { label: 'A TRIXX courtyard villa', seed: 'about-hero', w: 1600, h: 900 })}</div>
+    <div class="art"><img class="collection-hero__image" src="${SITE_IMAGES.brandVision}" alt="Illustrative concept image for the TRIXX brand vision" fetchpriority="high" decoding="async"></div>
     <div class="collection-hero__scrim"></div>
+    <span class="concept-image-label concept-image-label--hero">${locale === 'sw' ? 'Picha ya dhana' : 'Concept image'}</span>
     <div class="wrap collection-hero__inner">
       ${breadcrumbs([{ label: 'Home', href: '/' }, { label: c(locale, 'about.eyebrow') }], locale)}
       <p class="eyebrow">Founded ${SITE.founded} · Nairobi, Kenya</p>
@@ -122,6 +134,10 @@ function aboutPage(locale) {
               ${SITE.partners.map((p) => `<li><span>${esc(p.name)}<span class="cms-row__meta" style="display:block">${esc(p.role)}</span></span></li>`).join('')}
             </ul>
           </div>
+          <figure class="brand-material-card">
+            <img src="${SITE_IMAGES.materials}" alt="Concept image showing TRIXX-inspired building materials and textures" loading="lazy" decoding="async">
+            <figcaption>${locale === 'sw' ? 'Dhana ya nyenzo na rangi' : 'Concept material palette'}</figcaption>
+          </figure>
           <div class="panel panel--ink">
             <h3 style="margin-top:0">Visit us</h3>
             <p class="small" style="color:rgba(244,237,224,0.72)">
@@ -163,13 +179,7 @@ function aboutPage(locale) {
         <a class="btn btn--outline" href="${localePath('/team', locale)}">${esc(t(locale, 'nav.team'))} →</a>
       </div>
       <div class="grid grid--4">
-        ${teamFor(locale).slice(0, 4).map((person) => `<article class="card">
-          <div class="card__media card__media--tall">${art.avatar(person.name, { label: `Portrait of ${person.name}` })}</div>
-          <div class="card__body card__body--tight">
-            <h3 class="card__title" style="font-size:1.02rem">${esc(person.name)}</h3>
-            <span class="tiny muted">${esc(person.role)}</span>
-          </div>
-        </article>`).join('')}
+        ${teamFor(locale).map(teamCard).join('')}
       </div>
     </div>
   </section>
@@ -240,16 +250,9 @@ function teamPage(locale) {
       </div>
 
       <div class="grid grid--4">
-        ${teamFor(locale).map((person) => `<article class="card">
-          <div class="card__media card__media--tall">${art.avatar(person.name, { label: `Portrait of ${person.name}` })}</div>
-          <div class="card__body card__body--tight">
-            <h3 class="card__title" style="font-size:1.05rem">${esc(person.name)}</h3>
-            <span class="tiny muted" style="display:block;margin-bottom:0.5rem">${esc(person.role)}</span>
-            <p class="small muted" style="margin:0">${esc(person.bio)}</p>
-            <span class="tag mt-2" style="align-self:flex-start">${esc(person.focus)}</span>
-          </div>
-        </article>`).join('')}
+        ${teamFor(locale).map(teamCard).join('')}
       </div>
+      <p class="small muted mt-3">${esc(c(locale, 'team.note'))}</p>
     </div>
   </section>
 
@@ -281,19 +284,18 @@ function teamPage(locale) {
     path: '/team',
     locale,
     navKey: 'about',
-    title: `Our team — design, construction, platforms and agronomy | TRIXX`,
-    description: 'Meet the TRIXX leadership team: design and strategy, platforms and IoT, listings and valuation, build programme, agronomy, finance and customer experience.',
+    title: `Our team and leadership roles | TRIXX`,
+    description: 'Meet TRIXX founder Francesc Orwa and explore the leadership roles guiding the company. Additional team profiles will be added soon.',
     jsonLd: [
       breadcrumbLd([{ label: 'Home', href: '/' }, { label: 'About', href: '/about' }, { label: 'Team', href: '/team' }]),
       {
         '@context': 'https://schema.org',
         '@type': 'Organization',
         name: SITE.legalName,
-        employee: TEAM.map((p) => ({
+        employee: TEAM.filter((p) => p.name).map((p) => ({
           '@type': 'Person',
           name: p.name,
           jobTitle: p.role,
-          description: p.bio,
         })),
       },
     ],

@@ -213,52 +213,125 @@ function houseRender(style, opts = {}) {
 
 function floorPlan(style, opts = {}) {
   const bedrooms = opts.bedrooms || 3;
-  const w = 640;
-  const h = 480;
+  const w = 1200;
+  const h = 900;
   const p = palette(style);
-  const pad = 34;
-  const iw = w - pad * 2;
-  const ih = h - pad * 2;
+  const x = 112;
+  const y = 174;
+  const iw = 976;
+  const publicH = 238;
+  const hallY = y + publicH;
+  const hallH = 74;
+  const bedroomY = hallY + hallH;
+  const bedroomH = 250;
+  const ink = '#25332F';
+  const paper = '#FAF9F4';
+  const floor = '#F0EEE6';
+  const soft = '#E5EBE3';
+  const hasCourtyard = ['swahili-coastal', 'garden-court', 'courtyard-villa'].includes(style);
+  const bedroomsCount = Math.max(1, Math.min(6, Math.round(bedrooms)));
+  const gradientId = `plan-bg-${bedroomsCount}-${hash(`${style}-${opts.seed || ''}`) % 999999}`;
+  const roomWidth = iw / bedroomsCount;
+  const roomLabel = (cx, cy, name, size = 18) => `<text x="${cx}" y="${cy}" text-anchor="middle" font-size="${size}" font-family="'IBM Plex Mono',monospace" letter-spacing="1.5" fill="${ink}">${name}</text>`;
+  const verticalWall = (px, y1, y2) => `<line x1="${px}" y1="${y1}" x2="${px}" y2="${y2}" stroke="${ink}" stroke-width="7"/>`;
+  const furniture = (cx, cy, width, height) => `<g fill="${p.wallAlt}" stroke="${p.accent}" stroke-width="2.5">
+    <rect x="${cx - width / 2}" y="${cy - height / 2}" width="${width}" height="${height}" rx="8"/>
+    <rect x="${cx - width / 2 + 10}" y="${cy - height / 2 + 9}" width="${width / 2 - 14}" height="27" rx="5" fill="${paper}"/>
+    <rect x="${cx + 4}" y="${cy - height / 2 + 9}" width="${width / 2 - 14}" height="27" rx="5" fill="${paper}"/>
+  </g>`;
 
-  // Column count tracks bedroom count so plans read differently per home.
-  const cols = bedrooms >= 4 ? 4 : 3;
-  const colW = iw / cols;
-  let walls = '';
-  for (let c = 1; c < cols; c += 1) {
-    walls += `<line x1="${pad + c * colW}" y1="${pad}" x2="${pad + c * colW}" y2="${pad + ih}" stroke="${p.accent}" stroke-width="2.4"/>`;
-  }
-  walls += `<line x1="${pad}" y1="${pad + ih * 0.52}" x2="${pad + iw}" y2="${pad + ih * 0.52}" stroke="${p.accent}" stroke-width="2.4"/>`;
-
-  const labels = [];
-  for (let c = 0; c < cols; c += 1) {
-    const name = c === 0 ? 'Living' : c === 1 ? 'Kitchen' : c === 2 ? 'Utility' : 'Study';
-    labels.push(`<text x="${(pad + c * colW + colW / 2).toFixed(0)}" y="${(pad + ih * 0.26).toFixed(0)}" text-anchor="middle" font-size="13" font-family="'IBM Plex Mono',monospace" fill="${p.accent}" opacity="0.75">${name}</text>`);
-  }
-  for (let c = 0; c < Math.min(bedrooms, cols); c += 1) {
-    labels.push(`<text x="${(pad + c * colW + colW / 2).toFixed(0)}" y="${(pad + ih * 0.52 + ih * 0.22).toFixed(0)}" text-anchor="middle" font-size="13" font-family="'IBM Plex Mono',monospace" fill="${p.accent}" opacity="0.75">Bed ${c + 1}</text>`);
-  }
-
-  // Door swing arcs and dimension ticks make the plan read as a real drawing.
-  const arcs = range(4).map((i) => {
-    const x = pad + 20 + i * (iw / 4.4);
-    const y = pad + ih * 0.52;
-    return `<path d="M ${x} ${y} a 22 22 0 0 1 22 22" fill="none" stroke="${p.trim}" stroke-width="1.6" stroke-dasharray="3 3"/>`;
+  const bedroomsMarkup = range(bedroomsCount).map((i) => {
+    const roomX = x + i * roomWidth;
+    const center = roomX + roomWidth / 2;
+    const furnitureWidth = Math.min(142, roomWidth * 0.66);
+    const label = i === 0 ? 'PRIMARY SUITE' : `BEDROOM 0${i + 1}`;
+    return `<rect x="${roomX}" y="${bedroomY}" width="${roomWidth}" height="${bedroomH}" fill="${i === 0 ? soft : paper}"/>
+      ${i > 0 ? verticalWall(roomX, bedroomY, bedroomY + bedroomH) : ''}
+      ${roomLabel(center, bedroomY + 55, label, bedroomsCount > 4 ? 12 : 15)}
+      ${furniture(center, bedroomY + 151, furnitureWidth, 91)}
+      <rect x="${center - 30}" y="${bedroomY + 219}" width="60" height="15" rx="3" fill="${p.trim}" opacity=".22"/>
+      <circle cx="${roomX + roomWidth - 22}" cy="${bedroomY + 27}" r="7" fill="${p.accent}" opacity=".68"/>`;
   }).join('');
 
-  const dim = `<line x1="${pad}" y1="${h - 14}" x2="${pad + iw}" y2="${h - 14}" stroke="${p.accent}" stroke-width="1.2"/>
-  <line x1="${pad}" y1="${h - 19}" x2="${pad}" y2="${h - 9}" stroke="${p.accent}" stroke-width="1.2"/>
-  <line x1="${pad + iw}" y1="${h - 19}" x2="${pad + iw}" y2="${h - 9}" stroke="${p.accent}" stroke-width="1.2"/>
-  <text x="${w / 2}" y="${h - 20}" text-anchor="middle" font-size="12" font-family="'IBM Plex Mono',monospace" fill="${p.accent}" opacity="0.7">${(opts.width || 14).toFixed(1)} m</text>`;
+  const bedroomPartitions = range(bedroomsCount - 1).map((i) => {
+    const px = x + (i + 1) * roomWidth;
+    return `<line x1="${px}" y1="${bedroomY}" x2="${px}" y2="${bedroomY + bedroomH}" stroke="${ink}" stroke-width="7"/>`;
+  }).join('');
 
-  return `<svg ${svgAttrs({ w, h, label: opts.label || `${bedrooms} bedroom floor plan`, cls: opts.cls || '' })}>
-  <rect width="${w}" height="${h}" fill="${p.wall}"/>
-  <g opacity="0.5">${range(24).map((i) => `<line x1="0" y1="${i * 20}" x2="${w}" y2="${i * 20}" stroke="${p.accent}" stroke-width="0.4" opacity="0.25"/>`).join('')}</g>
-  <rect x="${pad}" y="${pad}" width="${iw}" height="${ih}" fill="none" stroke="${p.accent}" stroke-width="3.4"/>
-  ${walls}
-  ${arcs}
-  ${labels.join('')}
-  <rect x="${pad + 4}" y="${pad + 4}" width="${colW - 8}" height="${ih * 0.52 - 8}" fill="${p.trim}" opacity="0.08"/>
-  ${dim}
+  const windows = [
+    `<line x1="${x + 82}" y1="${y}" x2="${x + 218}" y2="${y}" stroke="${p.accent}" stroke-width="13"/>`,
+    `<line x1="${x + iw - 210}" y1="${y}" x2="${x + iw - 74}" y2="${y}" stroke="${p.accent}" stroke-width="13"/>`,
+    `<line x1="${x + 118}" y1="${bedroomY + bedroomH}" x2="${x + 242}" y2="${bedroomY + bedroomH}" stroke="${p.accent}" stroke-width="13"/>`,
+    `<line x1="${x + iw - 240}" y1="${bedroomY + bedroomH}" x2="${x + iw - 116}" y2="${bedroomY + bedroomH}" stroke="${p.accent}" stroke-width="13"/>`,
+  ].join('');
+
+  const bedroomDoorGaps = range(bedroomsCount).map((i) => {
+    const center = x + (i + 0.5) * roomWidth;
+    return `<line x1="${center - 22}" y1="${bedroomY}" x2="${center + 22}" y2="${bedroomY}" stroke="${paper}" stroke-width="12"/>
+      <path d="M ${center - 22} ${bedroomY + 5} v 42 a 42 42 0 0 0 42 -42" fill="none" stroke="${p.trim}" stroke-width="2.5"/>`;
+  }).join('');
+  const centralRoom = hasCourtyard
+    ? `<text x="${x + 503}" y="${y + 40}" text-anchor="middle" font-size="14" font-family="'IBM Plex Mono',monospace" letter-spacing="1.2" fill="${ink}">${style === 'garden-court' ? 'GARDEN COURT' : 'OPEN COURTYARD'}</text>
+      <rect x="${x + 410}" y="${y + 68}" width="186" height="150" rx="8" fill="#D8E5D2" stroke="${p.accent}" stroke-width="3"/>
+      <rect x="${x + 469}" y="${y + 112}" width="68" height="62" rx="8" fill="#AFCFC4" stroke="${p.accent}" stroke-width="2"/>
+      ${[0, 1, 2, 3, 4, 5].map((i) => `<circle cx="${x + 430 + i * 31}" cy="${y + (i % 2 ? 88 : 198)}" r="8" fill="${p.accent}" opacity=".62"/>`).join('')}`
+    : `<text x="${x + 503}" y="${y + 40}" text-anchor="middle" font-size="16" font-family="'IBM Plex Mono',monospace" letter-spacing="1.5" fill="${ink}">DINING</text>
+      <rect x="${x + 428}" y="${y + 92}" width="150" height="86" rx="12" fill="${paper}" stroke="${p.accent}" stroke-width="3"/>
+      ${range(6).map((i) => {
+    const seatX = x + 440 + i * 26;
+    const seatY = i < 3 ? y + 78 : y + 183;
+    return `<rect x="${seatX}" y="${seatY}" width="18" height="13" rx="4" fill="${p.trim}" opacity=".52"/>`;
+  }).join('')}`;
+
+  return `<svg ${svgAttrs({ w, h, label: opts.label || `${bedroomsCount} bedroom conceptual floor plan`, cls: opts.cls || '' })}>
+  <defs>
+    <linearGradient id="${gradientId}" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="${paper}"/>
+      <stop offset="1" stop-color="${p.wallAlt}"/>
+    </linearGradient>
+  </defs>
+  <rect width="${w}" height="${h}" fill="url(#${gradientId})"/>
+  <text x="64" y="67" font-size="17" font-family="'IBM Plex Mono',monospace" letter-spacing="3" fill="${p.accent}">TRIXX  /  HOME STUDY</text>
+  <text x="64" y="112" font-size="30" font-family="'Manrope',sans-serif" font-weight="700" fill="${ink}">${bedroomsCount}-BEDROOM CONCEPT PLAN</text>
+  <text x="${w - 64}" y="71" text-anchor="end" font-size="17" font-family="'IBM Plex Mono',monospace" fill="${ink}">${opts.area || '—'} m² INDICATIVE</text>
+  <circle cx="${w - 84}" cy="116" r="24" fill="${paper}" stroke="${p.accent}" stroke-width="2"/>
+  <path d="M ${w - 84} 130 V 101 M ${w - 95} 112 L ${w - 84} 99 L ${w - 73} 112" fill="none" stroke="${p.accent}" stroke-width="3"/>
+  <rect x="${x}" y="${y}" width="${iw}" height="${publicH}" fill="${paper}"/>
+  <rect x="${x}" y="${y}" width="376" height="${publicH}" fill="${soft}"/>
+  <rect x="${x + 376}" y="${y}" width="254" height="${publicH}" fill="${hasCourtyard ? '#DCE8D7' : floor}"/>
+  <rect x="${x + 630}" y="${y}" width="${iw - 630}" height="${publicH}" fill="${paper}"/>
+  <rect x="${x}" y="${hallY}" width="${iw}" height="${hallH}" fill="${p.wallAlt}" opacity=".42"/>
+  <rect x="${x}" y="${bedroomY}" width="${iw}" height="${bedroomH}" fill="${paper}"/>
+  <rect x="${x}" y="${y}" width="${iw}" height="${publicH + hallH + bedroomH}" fill="none" stroke="${ink}" stroke-width="11"/>
+  ${hasCourtyard ? '' : verticalWall(x + 376, y, hallY)}
+  ${hasCourtyard ? '' : verticalWall(x + 630, y, hallY)}
+  <line x1="${x}" y1="${hallY}" x2="${x + iw}" y2="${hallY}" stroke="${ink}" stroke-width="7"/>
+  <line x1="${x}" y1="${bedroomY}" x2="${x + iw}" y2="${bedroomY}" stroke="${ink}" stroke-width="7"/>
+  ${bedroomPartitions}
+  ${windows}
+  ${roomLabel(x + 188, y + 40, 'LIVING', 17)}
+  <rect x="${x + 58}" y="${y + 87}" width="250" height="88" rx="16" fill="${p.wallAlt}" stroke="${p.accent}" stroke-width="3"/>
+  <rect x="${x + 76}" y="${y + 98}" width="92" height="65" rx="9" fill="${paper}" stroke="${p.accent}" stroke-width="2"/>
+  <rect x="${x + 178}" y="${y + 98}" width="112" height="65" rx="9" fill="${paper}" stroke="${p.accent}" stroke-width="2"/>
+  <rect x="${x + 149}" y="${y + 187}" width="84" height="28" rx="8" fill="${p.trim}" opacity=".22"/>
+  ${centralRoom}
+  ${roomLabel(x + 803, y + 40, 'KITCHEN', 17)}
+  <path d="M ${x + 674} ${y + 73} h 350 v 39 h -311 v 57 h -39 Z" fill="${p.wallAlt}" stroke="${p.accent}" stroke-width="3"/>
+  <rect x="${x + 738}" y="${y + 169}" width="221" height="40" rx="9" fill="${paper}" stroke="${p.accent}" stroke-width="2"/>
+  <line x1="${x + iw - 230}" y1="${hallY}" x2="${x + iw - 230}" y2="${bedroomY}" stroke="${ink}" stroke-width="7"/>
+  <text x="${x + (iw - 230) / 2}" y="${hallY + 46}" text-anchor="middle" font-size="15" font-family="'IBM Plex Mono',monospace" letter-spacing="4" fill="${p.accent}">PRIVATE HALL</text>
+  <rect x="${x + iw - 220}" y="${hallY + 7}" width="208" height="29" fill="${paper}" stroke="${ink}" stroke-width="2"/>
+  <text x="${x + iw - 116}" y="${hallY + 27}" text-anchor="middle" font-size="11" font-family="'IBM Plex Mono',monospace" fill="${ink}">BATH</text>
+  <rect x="${x + iw - 220}" y="${hallY + 39}" width="208" height="28" fill="${soft}" stroke="${ink}" stroke-width="2"/>
+  <text x="${x + iw - 116}" y="${hallY + 58}" text-anchor="middle" font-size="10" font-family="'IBM Plex Mono',monospace" fill="${ink}">UTILITY</text>
+  ${bedroomsMarkup}
+  ${bedroomDoorGaps}
+  <line x1="${w / 2 - 54}" y1="${bedroomY + bedroomH}" x2="${w / 2 + 54}" y2="${bedroomY + bedroomH}" stroke="${paper}" stroke-width="14"/>
+  <path d="M ${w / 2 - 54} ${y + publicH + hallH + bedroomH + 8} v 36 h 108 v -36" fill="none" stroke="${p.accent}" stroke-width="4"/>
+  <text x="${w / 2}" y="${y + publicH + hallH + bedroomH + 64}" text-anchor="middle" font-size="15" font-family="'IBM Plex Mono',monospace" letter-spacing="2" fill="${p.accent}">ENTRY</text>
+  <line x1="64" y1="824" x2="${w - 64}" y2="824" stroke="${ink}" stroke-opacity=".18"/>
+  <text x="64" y="860" font-size="14" font-family="'IBM Plex Mono',monospace" fill="${ink}" opacity=".8">EARLY DESIGN STUDY  ·  NOT TO SCALE  ·  NOT FOR CONSTRUCTION</text>
+  <text x="${w - 64}" y="860" text-anchor="end" font-size="14" font-family="'IBM Plex Mono',monospace" fill="${p.accent}">WIDTH ${Number(opts.width || 0).toFixed(1)} m · INDICATIVE</text>
 </svg>`;
 }
 

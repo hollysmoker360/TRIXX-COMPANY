@@ -1,0 +1,5 @@
+ASSET: Smart-home control interface
+FILE: 09_smart_home_control.jpg
+WEBSITE PLACEMENT: Use in the TRIXX Home feature section or mobile-app showcase. Screen text is illustrative; build actual UI separately.
+SOURCE: Cropped from the generated TRIXX visual board.
+NOTE: This is a concept crop, not a separately rendered full-resolution original photograph.

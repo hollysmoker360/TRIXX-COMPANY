@@ -1,0 +1,5 @@
+ASSET: Data and infrastructure
+FILE: 18_data_infrastructure.jpg
+WEBSITE PLACEMENT: Use in infrastructure, analytics, or technology capability sections. Replace with real facility imagery if claiming a real data center.
+SOURCE: Cropped from the generated TRIXX visual board.
+NOTE: This is a concept crop, not a separately rendered full-resolution original photograph.

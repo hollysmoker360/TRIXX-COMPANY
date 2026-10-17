@@ -1,35 +1,34 @@
 'use strict';
 
-/* Brand assets generated as inline SVG: the favicon and the standalone
-   wordmark used in structured data and press kits. */
-
-function markSvg(size = 48, color = '#0E5C56', accent = '#A8452C') {
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="${size}" height="${size}" role="img" aria-label="TRIXX">
-  <path d="M6 44V22a18 18 0 0 1 36 0v22" fill="none" stroke="${color}" stroke-width="2.6"/>
-  <path d="M14 44V24a10 10 0 0 1 20 0v20" fill="none" stroke="${color}" stroke-width="1.7" opacity="0.6"/>
-  <circle cx="24" cy="16" r="3.6" fill="${accent}"/>
-  <path d="M24 22v16" stroke="${accent}" stroke-width="1.7"/>
-  <path d="M2 44h44" stroke="${color}" stroke-width="2.6"/>
+function markSvg(size = 48) {
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="${size}" height="${size}" aria-hidden="true">
+  <path d="M24 2 46 44H2L24 2Z" fill="currentColor"/>
+  <path d="m15 25 18 18M33 25 15 43" fill="none" stroke="var(--brand-surface, #F5F3EC)" stroke-width="6" stroke-linecap="square"/>
 </svg>`;
 }
 
 function favicon() {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="14" fill="#0E5C56"/>
-  <path d="M14 52V28a18 18 0 0 1 36 0v24" fill="none" stroke="#FBF4E7" stroke-width="3.2"/>
-  <path d="M22 52V30a10 10 0 0 1 20 0v22" fill="none" stroke="#FBF4E7" stroke-width="2" opacity="0.6"/>
-  <circle cx="32" cy="22" r="4.4" fill="#C08A3E"/>
-  <path d="M32 29v19" stroke="#C08A3E" stroke-width="2"/>
-  <path d="M10 52h44" stroke="#FBF4E7" stroke-width="3.2"/>
+  <rect width="64" height="64" rx="14" fill="#101A19"/>
+  <path d="M32 8 56 54H8L32 8Z" fill="#FF4B2B"/>
+  <path d="m22 34 20 20M42 34 22 54" fill="none" stroke="#101A19" stroke-width="7" stroke-linecap="square"/>
 </svg>`;
 }
 
 function logoLockup() {
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80" role="img" aria-label="TRIXX Smart Living">
-  <g transform="translate(4 16)">${markSvg(48).replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '')}</g>
-  <text x="66" y="46" font-family="Georgia, serif" font-size="30" letter-spacing="4" fill="#14201F">TRIXX</text>
-  <text x="67" y="64" font-family="monospace" font-size="9" letter-spacing="3.4" fill="#6C7B77">SMART LIVING</text>
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 72" width="360" height="72" role="img" aria-label="TRIXX Property and Technology">
+  <g transform="translate(0 12)"><path d="M24 2 46 44H2L24 2Z" fill="#FF4B2B"/><path d="m15 25 18 18M33 25 15 43" fill="none" stroke="#F5F3EC" stroke-width="6" stroke-linecap="square"/></g>
+  <text x="62" y="48" font-family="Arial, sans-serif" font-size="43" font-weight="900" letter-spacing="1" fill="#111827">TRI<tspan fill="#FF4B2B">XX</tspan></text>
+  <text x="64" y="66" font-family="Arial, sans-serif" font-size="8" font-weight="700" letter-spacing="2.4" fill="#717B8B">PROPERTY + TECH</text>
 </svg>`;
 }
 
-module.exports = { markSvg, favicon, logoLockup };
+function appLogo(slug, name) {
+  const suffix = name.replace(/^TRIXX\s*/, '');
+  return `<span class="app-logo app-logo--${slug}" role="img" aria-label="${name}">
+    <span class="app-logo__tile">${markSvg(40)}</span>
+    <span class="app-logo__word" aria-hidden="true"><span>TRI</span><b>XX</b><small>${suffix}</small></span>
+  </span>`;
+}
+
+module.exports = { markSvg, favicon, logoLockup, appLogo };

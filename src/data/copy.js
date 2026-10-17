@@ -11,8 +11,8 @@ const COPY = {
     /* ---- home ---- */
     'home.eyebrow': 'Smart homes · Property · Farm systems',
     'home.title': 'Homes that think. Farms that thrive.',
-    'home.promise': 'A TRIXX home reads its own power, water and security — and tells you before anything goes wrong.',
-    'home.lede': 'We build and sell smart homes across Kenya, list verified property from other owners, and run the IoT systems that keep the lights on and the irrigation honest. One account connects the house, the plot and all five apps.',
+    'home.promise': 'Monitor your energy, water and security from one place.',
+    'home.lede': 'Smart homes, trusted property and farm technology—all connected through one TRIXX account.',
     'home.rail.building': 'Now building',
     'home.rail.buildingValue': 'Athi River Contemporary Twelve — 6 of 12 units roofed',
     'home.rail.tier': 'Comfort tier',
@@ -155,8 +155,9 @@ const COPY = {
     'faq.legalTitle': 'Legal and data',
 
     /* ---- team ---- */
-    'team.title': 'Eight people who own the outcomes.',
-    'team.lede': 'Design, construction, platforms, agronomy, valuation, finance and service. Every one of them has built something with their hands, and they still do.',
+    'team.title': 'The people and roles behind TRIXX.',
+    'team.lede': 'Meet our founder and explore the leadership roles shaping our work. More team profiles will be added soon.',
+    'team.note': 'Additional team members will be introduced here as their profiles are ready.',
 
     /* ---- legal document headings ---- */
     'legalDoc.privacy.title': 'Privacy policy',
@@ -313,8 +314,8 @@ const COPY = {
     /* ---- home ---- */
     'home.eyebrow': 'Nyumba smart · Mali · Mifumo ya shamba',
     'home.title': 'Nyumba zinazofikiri. Mashamba yanayostawi.',
-    'home.promise': 'Nyumba ya TRIXX inasoma umeme, maji na usalama wake yenyewe — na inakwambia kabla kitu kiharibike.',
-    'home.lede': 'Tunajenga na kuuza nyumba smart kote Kenya, tunatangaza mali zilizothibitishwa kutoka kwa wamiliki wengine, na tunaendesha mifumo ya IoT inayoweka taa zikiwaka na umwagiliaji ukifanya kazi kwa haki. Akaunti moja inaunganisha nyumba, shamba na app zote tano.',
+    'home.promise': 'Fuatilia umeme, maji na usalama wa nyumba yako sehemu moja.',
+    'home.lede': 'Nyumba smart, mali zilizothibitishwa na teknolojia ya shamba—zote kwenye akaunti moja ya TRIXX.',
     'home.rail.building': 'Tunajenga sasa',
     'home.rail.buildingValue': 'Athi River Contemporary Twelve — vyumba 6 kati ya 12 vimeezekwa',
     'home.rail.tier': 'Kiwango cha Comfort',
@@ -463,8 +464,9 @@ const COPY = {
     'faq.legalTitle': 'Sheria na data',
 
     /* ---- team ---- */
-    'team.title': 'Watu wanane wanaomiliki matokeo.',
-    'team.lede': 'Usanifu, ujenzi, mifumo, kilimo, thamani, fedha na huduma. Kila mmoja amejenga kitu kwa mikono yake, na bado anaendelea.',
+    'team.title': 'Watu na majukumu yaliyo nyuma ya TRIXX.',
+    'team.lede': 'Kutana na mwanzilishi wetu na uchunguze majukumu ya uongozi yanayoongoza kazi yetu. Wasifu zaidi wa timu utaongezwa hivi karibuni.',
+    'team.note': 'Washiriki wengine wa timu watajulishwa hapa wasifu wao utakapokuwa tayari.',
 
     /* ---- legal document headings ---- */
     'legalDoc.privacy.title': 'Sera ya faragha',

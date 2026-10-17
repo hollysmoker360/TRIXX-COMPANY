@@ -38,10 +38,10 @@
   /* ---------- reveal on scroll ---------- */
 
   function initReveal() {
-    const targets = $$('.reveal');
+    const targets = $$('.section-head, .grid > .card, .app-showcase, .pkg-card, .design-slideshow, .inspiration-card, .product-visual');
     if (!targets.length) return;
     if (!('IntersectionObserver' in window)) {
-      targets.forEach((el) => el.classList.add('is-in'));
+      targets.forEach((el) => el.classList.add('reveal', 'is-in'));
       return;
     }
     const io = new IntersectionObserver((entries) => {
@@ -53,8 +53,133 @@
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
     targets.forEach((el, i) => {
-      el.style.setProperty('--reveal-delay', `${Math.min(i, 6) * 60}ms`);
+      el.classList.add('reveal');
+      el.style.setProperty('--reveal-delay', `${Math.min(i % 6, 5) * 55}ms`);
       io.observe(el);
+    });
+  }
+
+  /* ---------- architectural concept slideshows ---------- */
+
+  function initSlideshows() {
+    $$('[data-slideshow]').forEach((slideshow) => {
+      const slides = $$('[data-slide]', slideshow);
+      if (slides.length < 2) return;
+
+      const dots = $$('[data-slide-go]', slideshow);
+      const status = $('[data-slideshow-status]', slideshow);
+      const toggle = $('[data-slideshow-toggle]', slideshow);
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let index = Math.max(0, slides.findIndex((slide) => !slide.hidden));
+      let paused = reducedMotion.matches;
+      let timer = null;
+
+      const setToggle = () => {
+        if (!toggle) return;
+        const label = paused ? toggle.dataset.playLabel : toggle.dataset.pauseLabel;
+        toggle.textContent = label;
+        toggle.setAttribute('aria-label', paused ? slideshow.dataset.startLabel : slideshow.dataset.stopLabel);
+      };
+
+      const show = (next, announce) => {
+        index = (next + slides.length) % slides.length;
+        slides.forEach((slide, i) => {
+          slide.hidden = i !== index;
+          slide.classList.toggle('is-active', i === index);
+          slide.setAttribute('aria-hidden', String(i !== index));
+        });
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('is-active', i === index);
+          dot.setAttribute('aria-pressed', String(i === index));
+        });
+        if (announce && status) status.textContent = `${slideshow.dataset.slideNoun} ${index + 1} / ${slides.length}: ${slides[index].dataset.label}`;
+      };
+
+      const stopTimer = () => {
+        if (timer !== null) window.clearTimeout(timer);
+        timer = null;
+      };
+
+      const schedule = () => {
+        stopTimer();
+        if (paused || document.hidden || slideshow.matches(':hover') || slideshow.contains(document.activeElement)) return;
+        timer = window.setTimeout(() => {
+          show(index + 1, false);
+          schedule();
+        }, 6500);
+      };
+
+      const move = (delta) => {
+        show(index + delta, true);
+        schedule();
+      };
+
+      $('[data-slideshow-prev]', slideshow)?.addEventListener('click', () => move(-1));
+      $('[data-slideshow-next]', slideshow)?.addEventListener('click', () => move(1));
+      dots.forEach((dot) => dot.addEventListener('click', () => {
+        show(Number(dot.dataset.slideGo), true);
+        schedule();
+      }));
+      toggle?.addEventListener('click', () => {
+        paused = !paused;
+        setToggle();
+        schedule();
+      });
+
+      slideshow.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+          event.preventDefault();
+          move(event.key === 'ArrowLeft' ? -1 : 1);
+        }
+      });
+      slideshow.addEventListener('mouseenter', stopTimer);
+      slideshow.addEventListener('mouseleave', schedule);
+      slideshow.addEventListener('focusin', stopTimer);
+      slideshow.addEventListener('focusout', schedule);
+      document.addEventListener('visibilitychange', schedule);
+      reducedMotion.addEventListener?.('change', (event) => {
+        if (event.matches) {
+          paused = true;
+          setToggle();
+        }
+        schedule();
+      });
+
+      setToggle();
+      schedule();
+    });
+  }
+
+  /* ---------- accessible floor-plan enlargement ---------- */
+
+  function initFloorPlanDialog() {
+    const dialog = $('[data-plan-dialog]');
+    if (!dialog) return;
+    const title = $('[data-plan-dialog-title]', dialog);
+    const drawing = $('[data-plan-dialog-drawing]', dialog);
+
+    $$('[data-plan-open]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const card = document.getElementById(link.hash.slice(1));
+        const svg = card && $('.card__media--plan svg', card);
+        if (!svg) return;
+        if (typeof dialog.showModal !== 'function') return;
+        event.preventDefault();
+        title.textContent = card.dataset.planTitle || 'Concept floor plan';
+        drawing.replaceChildren(svg.cloneNode(true));
+        dialog.showModal();
+      });
+    });
+
+    $('[data-plan-dialog-close]', dialog)?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && dialog.open) {
+        event.preventDefault();
+        dialog.close();
+      }
+    });
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
     });
   }
 
@@ -1398,6 +1523,8 @@
 
   function boot() {
     initReveal();
+    initSlideshows();
+    initFloorPlanDialog();
     initProgress();
     initDrawer();
     initForms();

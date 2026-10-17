@@ -4,6 +4,7 @@ const { esc, money, num } = require('../lib/util');
 const { SITE, t } = require('../data/site');
 const { c } = require('../data/copy');
 const { farmFor } = require('../data/catalog');
+const SITE_IMAGES = require('../lib/site-images');
 const art = require('../lib/art');
 const { localePath } = require('../templates/layout');
 const { breadcrumbs, breadcrumbLd, statBlock, storeButtons } = require('../templates/components');
@@ -12,8 +13,9 @@ function farmPage(locale) {
   const FARM = farmFor(locale);
   const body = `
   <section class="collection-hero">
-    <div class="art">${art.houseRender('garden-court', { label: 'Irrigated garden court', seed: 'farm-hero', w: 1600, h: 900 })}</div>
+    <div class="art"><img class="collection-hero__image" src="${SITE_IMAGES.appDetails.farm}" alt="Illustrative sustainable farming concept, not an installed TRIXX farm" fetchpriority="high" decoding="async"></div>
     <div class="collection-hero__scrim"></div>
+    <span class="concept-image-label concept-image-label--hero">${locale === 'sw' ? 'Picha ya dhana' : 'Concept image'}</span>
     <div class="wrap collection-hero__inner">
       ${breadcrumbs([{ label: 'Home', href: '/' }, { label: c(locale, 'farm.eyebrow') }], locale)}
       <p class="eyebrow">IoT irrigation · Soil sensing · Plot packages</p>
