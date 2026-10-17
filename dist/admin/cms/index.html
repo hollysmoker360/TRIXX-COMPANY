@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Content management — listings, posts and pages | TRIXX</title>
+  <meta name="description" content="Add houses, listings, blog posts and prices without a developer, with live preview, translation fields and a review workflow.">
+  <link rel="canonical" href="https://trixx.co.ke/admin/cms/">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="alternate" hreflang="en" href="https://trixx.co.ke/admin/cms/">
+  <link rel="alternate" hreflang="sw" href="https://trixx.co.ke/sw/admin/cms/">
+  <meta name="theme-color" content="#0E5C56">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TRIXX">
+  <meta property="og:title" content="Content management — listings, posts and pages | TRIXX">
+  <meta property="og:description" content="Add houses, listings, blog posts and prices without a developer, with live preview, translation fields and a review workflow.">
+  <meta property="og:url" content="https://trixx.co.ke/admin/cms/">
+  <meta property="og:locale" content="en_KE">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://trixx.co.ke/"},{"@type":"ListItem","position":2,"name":"Admin","item":"https://trixx.co.ke/admin"},{"@type":"ListItem","position":3,"name":"Content","item":"https://trixx.co.ke/admin/cms"}]}</script>
+</head>
+<body data-page="admin" data-locale="en">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="scroll-progress" data-progress aria-hidden="true"></div>
+  <header class="masthead">
+  <div class="masthead__top">
+    <div class="wrap">
+      <span>Homes that think, farms that thrive.</span>
+      <span class="cluster" style="gap:1.1rem">
+        <a href="tel:+254700000000">+254 700 000 000</a>
+        <a href="/contact">Contact</a>
+      </span>
+    </div>
+  </div>
+  <div class="wrap masthead__bar">
+    <a class="brand" href="/">
+      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true" width="40" height="40">
+    <path d="M6 44V22a18 18 0 0 1 36 0v22" fill="none" stroke="currentColor" stroke-width="2.4"/>
+    <path d="M14 44V24a10 10 0 0 1 20 0v20" fill="none" stroke="currentColor" stroke-width="1.6" opacity="0.65"/>
+    <circle cx="24" cy="16" r="3.4" fill="#A8452C"/>
+    <path d="M24 22v16" stroke="#A8452C" stroke-width="1.6"/>
+    <path d="M2 44h44" stroke="currentColor" stroke-width="2.4"/>
+  </svg>
+      <span>
+        <span class="brand__word">TRIXX</span>
+        <span class="brand__sub">Smart living</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav__link" href="/search?purpose=sale">Buy</a><a class="nav__link" href="/search?purpose=rent">Rent</a><div class="nav__group">
+      <a class="nav__link" href="/house-collections">House collections<span aria-hidden="true"> ▾</span></a>
+      <div class="nav__panel"><a href="/house-collections">All collections</a><a href="/house-collections/swahili-coastal">Swahili Coastal</a><a href="/house-collections/victorian">Victorian</a><a href="/house-collections/art-deco">Art Deco</a><a href="/house-collections/contemporary">Contemporary</a><a href="/house-collections/garden-court">Garden Court</a><a href="/house-collections/courtyard-villa">Courtyard Villa</a></div>
+    </div><div class="nav__group">
+      <a class="nav__link" href="/tools/configurator">Tools<span aria-hidden="true"> ▾</span></a>
+      <div class="nav__panel"><a href="/tools/configurator">Smart home configurator</a><a href="/tools/live-demo">Live demo dashboard</a><a href="/tools/savings-calculator">Savings calculator</a><a href="/tools/virtual-tours">Virtual tours</a><a href="/compare">Compare properties</a></div>
+    </div><div class="nav__group">
+      <a class="nav__link" href="/products">Products<span aria-hidden="true"> ▾</span></a>
+      <div class="nav__panel"><a href="/products">All apps</a><a href="/products/home">TRIXX Home</a><a href="/products/farm">TRIXX Farm</a><a href="/products/rent">TRIXX Rent</a><a href="/products/market">TRIXX Market</a><a href="/products/school">TRIXX School</a><a href="/smart-packages">Smart packages</a><a href="/farm-solutions">Farm solutions</a></div>
+    </div><div class="nav__group">
+      <a class="nav__link" href="/about">About<span aria-hidden="true"> ▾</span></a>
+      <div class="nav__panel"><a href="/about">About TRIXX</a><a href="/team">Our team</a><a href="/portfolio">Portfolio</a><a href="/blog">Blog and guides</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></div>
+    </div>
+    </nav>
+    <div class="masthead__actions">
+      <div class="lang" role="group" aria-label="Language"><a href="/admin/cms" hreflang="en" aria-current="true">EN</a><a href="/sw/admin/cms" hreflang="sw">SW</a></div>
+      <a class="btn btn--quiet btn--sm" href="/login">Log in</a>
+      <a class="btn btn--primary btn--sm" href="/list-your-property">List your property</a>
+      <button class="nav-toggle" type="button" data-drawer-open aria-controls="drawer" aria-expanded="false">
+        Menu
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" data-open="false" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="drawer__head">
+    <a class="brand" href="/"><svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true" width="32" height="32">
+    <path d="M6 44V22a18 18 0 0 1 36 0v22" fill="none" stroke="currentColor" stroke-width="2.4"/>
+    <path d="M14 44V24a10 10 0 0 1 20 0v20" fill="none" stroke="currentColor" stroke-width="1.6" opacity="0.65"/>
+    <circle cx="24" cy="16" r="3.4" fill="#A8452C"/>
+    <path d="M24 22v16" stroke="#A8452C" stroke-width="1.6"/>
+    <path d="M2 44h44" stroke="currentColor" stroke-width="2.4"/>
+  </svg><span class="brand__word">TRIXX</span></a>
+    <button class="nav-toggle" type="button" data-drawer-close>Close</button>
+  </div>
+  <div class="drawer__body">
+    <div class="drawer__group"><p class="group-label">Buy</p><a href="/search?purpose=sale"><span>Buy</span><span aria-hidden="true">→</span></a></div><div class="drawer__group"><p class="group-label">Rent</p><a href="/search?purpose=rent"><span>Rent</span><span aria-hidden="true">→</span></a></div><div class="drawer__group"><p class="group-label">House collections</p><a href="/house-collections"><span>All collections</span><span aria-hidden="true">→</span></a><a href="/house-collections/swahili-coastal"><span>Swahili Coastal</span><span aria-hidden="true">→</span></a><a href="/house-collections/victorian"><span>Victorian</span><span aria-hidden="true">→</span></a><a href="/house-collections/art-deco"><span>Art Deco</span><span aria-hidden="true">→</span></a><a href="/house-collections/contemporary"><span>Contemporary</span><span aria-hidden="true">→</span></a><a href="/house-collections/garden-court"><span>Garden Court</span><span aria-hidden="true">→</span></a><a href="/house-collections/courtyard-villa"><span>Courtyard Villa</span><span aria-hidden="true">→</span></a></div><div class="drawer__group"><p class="group-label">Tools</p><a href="/tools/configurator"><span>Smart home configurator</span><span aria-hidden="true">→</span></a><a href="/tools/live-demo"><span>Live demo dashboard</span><span aria-hidden="true">→</span></a><a href="/tools/savings-calculator"><span>Savings calculator</span><span aria-hidden="true">→</span></a><a href="/tools/virtual-tours"><span>Virtual tours</span><span aria-hidden="true">→</span></a><a href="/compare"><span>Compare properties</span><span aria-hidden="true">→</span></a></div><div class="drawer__group"><p class="group-label">Products</p><a href="/products"><span>All apps</span><span aria-hidden="true">→</span></a><a href="/products/home"><span>TRIXX Home</span><span aria-hidden="true">→</span></a><a href="/products/farm"><span>TRIXX Farm</span><span aria-hidden="true">→</span></a><a href="/products/rent"><span>TRIXX Rent</span><span aria-hidden="true">→</span></a><a href="/products/market"><span>TRIXX Market</span><span aria-hidden="true">→</span></a><a href="/products/school"><span>TRIXX School</span><span aria-hidden="true">→</span></a><a href="/smart-packages"><span>Smart packages</span><span aria-hidden="true">→</span></a><a href="/farm-solutions"><span>Farm solutions</span><span aria-hidden="true">→</span></a></div><div class="drawer__group"><p class="group-label">About</p><a href="/about"><span>About TRIXX</span><span aria-hidden="true">→</span></a><a href="/team"><span>Our team</span><span aria-hidden="true">→</span></a><a href="/portfolio"><span>Portfolio</span><span aria-hidden="true">→</span></a><a href="/blog"><span>Blog and guides</span><span aria-hidden="true">→</span></a><a href="/faq"><span>FAQ</span><span aria-hidden="true">→</span></a><a href="/contact"><span>Contact</span><span aria-hidden="true">→</span></a></div>
+    <div class="drawer__group">
+      <p class="group-label">Accounts</p>
+      <a href="/login"><span>Log in</span><span aria-hidden="true">→</span></a>
+      <a href="/register"><span>Create free account</span><span aria-hidden="true">→</span></a>
+      <a href="/owner/dashboard"><span>Owner dashboard</span><span aria-hidden="true">→</span></a>
+      <a href="/tenant"><span>Tenant portal</span><span aria-hidden="true">→</span></a>
+      <a href="/book-viewing"><span>Book a viewing</span><span aria-hidden="true">→</span></a>
+    </div>
+    <div class="cluster" style="margin-top:1.5rem">
+      <a class="btn btn--primary" href="/list-your-property">List your property</a>
+      <a class="btn btn--outline" href="https://wa.me/254700000000">Chat on WhatsApp</a>
+    </div>
+  </div>
+</div>
+  <div class="admin-bar">
+    <div class="wrap">
+      <span>Back office · demo data</span>
+      <span class="cluster" style="gap:1rem">
+        <a href="/admin">Dashboard</a><a href="/admin/cms" style="color:var(--paper)">CMS</a><a href="/admin/leads">Lead inbox</a><a href="/admin/moderation">Moderation</a><a href="/admin/billing">Billing</a><a href="/admin/analytics">Analytics</a>
+      </span>
+    </div>
+  </div>
+  <main id="main">
+
+  <section class="section">
+    <div class="wrap wrap--wide">
+      <nav class="tiny mono" aria-label="Breadcrumb" style="margin-bottom:1.5rem;color:var(--ink-mute)"><a href="/">Home</a><span aria-hidden="true"> / </span><a href="/admin">Admin</a><span aria-hidden="true"> / </span><span aria-current="page">Content</span></nav>
+      <div class="section-head">
+        <p class="eyebrow">Content management</p>
+        <h1>Add and edit content without a developer</h1>
+        <p class="lede">Houses, listings, blog posts, prices and page copy are all editable here. Every change is versioned and can be rolled back.</p>
+      </div>
+
+      <div class="grid grid--sidebar grid--sidebar--right">
+        <div class="stack" style="--stack-gap:1.5rem">
+          <div class="panel panel--paper" data-cms-editor>
+            <h2 style="margin-top:0">New listing</h3>
+            <p class="small muted">Fill the form and watch the card render exactly as a visitor will see it.</p>
+            <div class="form-grid mt-2">
+              <div class="field">
+                <label for="cms-title">Listing title</label>
+                <input id="cms-title" type="text" data-cms-field="title" value="4-Bedroom Contemporary in Syokimau">
+              </div>
+              <div class="field">
+                <label for="cms-location">Location</label>
+                <input id="cms-location" type="text" data-cms-field="location" value="Syokimau">
+              </div>
+              <div class="field">
+                <label for="cms-style">Style</label>
+                <select id="cms-style" data-cms-field="style">
+                  <option value="swahili-coastal">Swahili Coastal</option><option value="victorian">Victorian</option><option value="art-deco">Art Deco</option><option value="contemporary">Contemporary</option><option value="garden-court">Garden Court</option><option value="courtyard-villa">Courtyard Villa</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="cms-tier">Smart tier</label>
+                <select id="cms-tier" data-cms-field="tier">
+                  <option value="basic">Basic</option><option value="comfort">Comfort</option><option value="premium">Premium</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="cms-beds">Bedrooms</label>
+                <input id="cms-beds" type="number" min="1" max="10" data-cms-field="bedrooms" value="4">
+              </div>
+              <div class="field">
+                <label for="cms-price">Price (KES)</label>
+                <input id="cms-price" type="number" step="50000" data-cms-field="price" value="26500000">
+              </div>
+            </div>
+            <div class="cluster mt-2">
+              <button class="btn btn--primary" type="button">Save draft</button>
+              <button class="btn btn--outline" type="button">Submit for review</button>
+              <button class="btn btn--quiet" type="button">Preview on site</button>
+            </div>
+          </div>
+
+          <div class="panel panel--paper">
+            <h3 style="margin-top:0">Live preview</h3>
+            <div data-cms-preview></div>
+          </div>
+
+          <div class="panel panel--paper">
+            <h3 style="margin-top:0">Existing content</h3>
+            <div class="cms-row" style="grid-template-columns:1fr auto auto auto">
+              <span class="cms-row__meta" style="font-family:var(--mono);text-transform:uppercase;letter-spacing:0.1em">Item</span>
+              <span class="cms-row__meta" style="font-family:var(--mono);text-transform:uppercase;letter-spacing:0.1em">Type</span>
+              <span class="cms-row__meta" style="font-family:var(--mono);text-transform:uppercase;letter-spacing:0.1em">Updated</span>
+              <span></span>
+            </div>
+            <div class="cms-row" style="grid-template-columns:1fr auto auto auto">
+              <div>
+                <span class="cms-row__title">Coastal 3-Bedroom Home in Kilimani</span>
+                <span class="cms-row__meta">TX-1000</span>
+              </div>
+              <span class="cms-row__meta">Listing</span>
+              <span class="cms-row__meta">1 January 2026</span>
+              <button class="btn btn--quiet btn--sm" type="button">Edit</button>
+            </div><div class="cms-row" style="grid-template-columns:1fr auto auto auto">
+              <div>
+                <span class="cms-row__title">Contemporary 3-Bedroom Home in Ruaka</span>
+                <span class="cms-row__meta">TX-1001</span>
+              </div>
+              <span class="cms-row__meta">Listing</span>
+              <span class="cms-row__meta">2 February 2026</span>
+              <button class="btn btn--quiet btn--sm" type="button">Edit</button>
+            </div><div class="cms-row" style="grid-template-columns:1fr auto auto auto">
+              <div>
+                <span class="cms-row__title">Victorian 4-Bedroom to Let in Kilifi</span>
+                <span class="cms-row__meta">TX-1002</span>
+              </div>
+              <span class="cms-row__meta">Listing</span>
+              <span class="cms-row__meta">3 March 2026</span>
+              <button class="btn btn--quiet btn--sm" type="button">Edit</button>
+            </div><div class="cms-row" style="grid-template-columns:1fr auto auto auto">
+              <div>
+                <span class="cms-row__title">Deco 4-Bedroom Home in Tigoni</span>
+                <span class="cms-row__meta">TX-1003</span>
+              </div>
+              <span class="cms-row__meta">Listing</span>
+              <span class="cms-row__meta">4 April 2026</span>
+              <button class="btn btn--quiet btn--sm" type="button">Edit</button>
+            </div><div class="cms-row" style="grid-template-columns:1fr auto auto auto">
+              <div>
+                <span class="cms-row__title">Garden Court 5-Bedroom Home in Nanyuki</span>
+                <span class="cms-row__meta">TX-1004</span>
+              </div>
+              <span class="cms-row__meta">Listing</span>
+              <span class="cms-row__meta">5 May 2026</span>
+              <button class="btn btn--quiet btn--sm" type="button">Edit</button>
+            </div><div class="cms-row" style="grid-template-columns:1fr auto auto auto">
+              <div>
+                <span class="cms-row__title">Courtyard 5-Bedroom to Let in Karen</span>
+                <span class="cms-row__meta">TX-1005</span>
+              </div>
+              <span class="cms-row__meta">Listing</span>
+              <span class="cms-row__meta">6 June 2026</span>
+              <button class="btn btn--quiet btn--sm" type="button">Edit</button>
+            </div>
+            <div class="cms-row" style="grid-template-columns:1fr auto auto auto">
+              <div>
+                <span class="cms-row__title">How much does a smart home actually cost in Kenya?</span>
+                <span class="cms-row__meta">Buying</span>
+              </div>
+              <span class="cms-row__meta">Blog post</span>
+              <span class="cms-row__meta">18 September 2026</span>
+              <button class="btn btn--quiet btn--sm" type="button">Edit</button>
+            </div><div class="cms-row" style="grid-template-columns:1fr auto auto auto">
+              <div>
+                <span class="cms-row__title">Coastal design that cools without air conditioning</span>
+                <span class="cms-row__meta">Design</span>
+              </div>
+              <span class="cms-row__meta">Blog post</span>
+              <span class="cms-row__meta">27 August 2026</span>
+              <button class="btn btn--quiet btn--sm" type="button">Edit</button>
+            </div><div class="cms-row" style="grid-template-columns:1fr auto auto auto">
+              <div>
+                <span class="cms-row__title">Soil-moisture irrigation: what it saves and when it pays back</span>
+                <span class="cms-row__meta">Farm tips</span>
+              </div>
+              <span class="cms-row__meta">Blog post</span>
+              <span class="cms-row__meta">5 August 2026</span>
+              <button class="btn btn--quiet btn--sm" type="button">Edit</button>
+            </div>
+            <div class="cms-row" style="grid-template-columns:1fr auto auto auto">
+              <div>
+                <span class="cms-row__title">Swahili Coastal collection</span>
+                <span class="cms-row__meta">Lime-washed walls, carved doors and air that moves.</span>
+              </div>
+              <span class="cms-row__meta">Collection</span>
+              <span class="cms-row__meta">2026-09-12</span>
+              <button class="btn btn--quiet btn--sm" type="button">Edit</button>
+            </div><div class="cms-row" style="grid-template-columns:1fr auto auto auto">
+              <div>
+                <span class="cms-row__title">Victorian collection</span>
+                <span class="cms-row__meta">High ceilings, gabled roofs and rooms that breathe.</span>
+              </div>
+              <span class="cms-row__meta">Collection</span>
+              <span class="cms-row__meta">2026-09-12</span>
+              <button class="btn btn--quiet btn--sm" type="button">Edit</button>
+            </div>
+            <div class="cms-row" style="grid-template-columns:1fr auto auto auto">
+              <div>
+                <span class="cms-row__title">Kilifi Coastal Six</span>
+                <span class="cms-row__meta">Kilifi, Kilifi County</span>
+              </div>
+              <span class="cms-row__meta">Project</span>
+              <span class="cms-row__meta">2026-10-11</span>
+              <button class="btn btn--quiet btn--sm" type="button">Edit</button>
+            </div><div class="cms-row" style="grid-template-columns:1fr auto auto auto">
+              <div>
+                <span class="cms-row__title">Karen Garden Court Duo</span>
+                <span class="cms-row__meta">Karen, Nairobi County</span>
+              </div>
+              <span class="cms-row__meta">Project</span>
+              <span class="cms-row__meta">2026-10-11</span>
+              <button class="btn btn--quiet btn--sm" type="button">Edit</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="stack" style="--stack-gap:1rem">
+          <div class="panel panel--paper">
+            <h3 style="margin-bottom:0.6rem">What is editable</h3>
+            <ul class="spec-list">
+              <li><span>Listings</span><span>Create, edit, publish</span></li>
+              <li><span>House collections</span><span>Copy, prices, materials</span></li>
+              <li><span>Smart packages</span><span>Device lists and prices</span></li>
+              <li><span>Blog posts</span><span>Write and schedule</span></li>
+              <li><span>Projects</span><span>Progress and photos</span></li>
+              <li><span>Team and FAQ</span><span>Bios and answers</span></li>
+              <li><span>Page copy</span><span>English and Kiswahili</span></li>
+              <li><span>Legal documents</span><span>Versioned</span></li>
+            </ul>
+          </div>
+          <div class="panel panel--paper">
+            <h3 style="margin-bottom:0.6rem">Workflow</h3>
+            <p class="small muted" style="margin:0">Draft → review → published. Editors cannot publish without review. Every change records who made it and when, and any version can be restored in one click.</p>
+          </div>
+          <div class="panel panel--ink">
+            <h3 style="margin-top:0;color:var(--paper)">Translations</h3>
+            <p class="small" style="color:rgba(244,237,224,0.72)">Every field has an English and a Kiswahili value. If a translation is missing the site falls back to English rather than showing an empty space.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  </main>
+  <footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="/"><svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true" width="38" height="38">
+    <path d="M6 44V22a18 18 0 0 1 36 0v22" fill="none" stroke="currentColor" stroke-width="2.4"/>
+    <path d="M14 44V24a10 10 0 0 1 20 0v20" fill="none" stroke="currentColor" stroke-width="1.6" opacity="0.65"/>
+    <circle cx="24" cy="16" r="3.4" fill="#A8452C"/>
+    <path d="M24 22v16" stroke="#A8452C" stroke-width="1.6"/>
+    <path d="M2 44h44" stroke="currentColor" stroke-width="2.4"/>
+  </svg><span><span class="brand__word">TRIXX</span><span class="brand__sub">Smart living</span></span></a>
+        <p>TRIXX builds smart homes and sells, rents and manages property across Kenya — with connected apps for Home, Farm, Rent, Market and School.</p>
+        <p class="tiny">TRIXX House, 4th Floor, Kilimani Business Centre, Wood Avenue, Nairobi 00100, Kenya</p>
+        <p class="tiny"><a href="mailto:hello@trixx.co.ke">hello@trixx.co.ke</a> · <a href="tel:+254700000000">+254 700 000 000</a></p>
+        <form class="newsletter" data-form="newsletter" novalidate>
+          <label class="visually-hidden" for="nl-en">Email address</label>
+          <input id="nl-en" type="email" name="email" placeholder="you@example.com" required>
+          <button class="btn btn--brass btn--sm" type="submit">Subscribe</button>
+        </form>
+        <p class="tiny" data-form-msg hidden></p>
+      </div>
+      <div>
+    <p class="group-label">Explore</p>
+    <ul><li><a href="/search?purpose=sale">Buy a home</a></li><li><a href="/search?purpose=rent">Rent a home</a></li><li><a href="/house-collections">House collections</a></li><li><a href="/smart-packages">Smart packages</a></li><li><a href="/farm-solutions">Farm solutions</a></li><li><a href="/tools/virtual-tours">Virtual tours</a></li></ul>
+  </div><div>
+    <p class="group-label">Products</p>
+    <ul><li><a href="/products/home">TRIXX Home</a></li><li><a href="/products/farm">TRIXX Farm</a></li><li><a href="/products/rent">TRIXX Rent</a></li><li><a href="/products/market">TRIXX Market</a></li><li><a href="/products/school">TRIXX School</a></li><li><a href="/products">All apps</a></li></ul>
+  </div><div>
+    <p class="group-label">Company</p>
+    <ul><li><a href="/about">About TRIXX</a></li><li><a href="/team">Our team</a></li><li><a href="/portfolio">Portfolio</a></li><li><a href="/blog">Blog and guides</a></li><li><a href="/about#careers">Careers</a></li><li><a href="/portfolio#press">Press</a></li></ul>
+  </div><div>
+    <p class="group-label">Support</p>
+    <ul><li><a href="/contact">Contact us</a></li><li><a href="/book-viewing">Book a viewing</a></li><li><a href="/list-your-property">List your property</a></li><li><a href="/owner/dashboard">Owner dashboard</a></li><li><a href="/tenant">Tenant portal</a></li><li><a href="/faq">FAQ</a></li></ul>
+  </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 TRIXX Smart Living Limited. All rights reserved.</span>
+      <span class="footer__legal"><a href="/legal/privacy">Privacy policy</a><a href="/legal/terms">Terms of service</a><a href="/legal/cookies">Cookie policy</a><a href="/legal/device-data">Camera and device data</a><a href="/legal/accessibility">Accessibility</a><a href="/legal/listing-rules">Listing rules</a></span>
+    </div>
+  </div>
+</footer>
+  
+  
+  <script src="/assets/js/app.js" defer></script>
+  <script src="/assets/data/renders.js" defer></script>
+  
+  
+</body>
+</html>

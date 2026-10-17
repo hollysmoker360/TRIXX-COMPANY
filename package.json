@@ -1,0 +1,16 @@
+{
+  "name": "trixx-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TRIXX — smart homes, property listings and farm solutions. Static marketing site, property portal and back office.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js --watch",
+    "serve": "node build.js --serve",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\""
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

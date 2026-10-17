@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /owner/
+Disallow: /tenant/
+Disallow: /api/
+
+Sitemap: https://trixx.co.ke/sitemap.xml
