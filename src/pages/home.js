@@ -10,7 +10,7 @@ const { LISTINGS, TESTIMONIALS, BLOG_POSTS } = require('../data/listings');
 const art = require('../lib/art');
 const { localePath } = require('../templates/layout');
 const {
-  listingCard, styleCard, statBlock, testimonialCard, postCard, storeButtons,
+  listingCard, styleCard, statBlock, slideshow, testimonialCard, postCard, storeButtons,
 } = require('../templates/components');
 
 const QUICKLINKS = [
@@ -71,12 +71,27 @@ function homePage(locale) {
       note: locale === 'sw' ? 'Miundo safi na nafasi za kuishi zilizounganishwa na nje.' : 'Clean-lined volumes and connected indoor-outdoor spaces.',
       href: '/house-collections/contemporary',
     },
+    ...SITE_IMAGES.architectureInspiration.map((item) => ({
+      src: item.src,
+      alt: item.alt,
+      title: item.title,
+      note: locale === 'sw' ? 'Msukumo wa usanifu unaoongoza jinsi tunavyobuni mikusanyiko yetu.' : 'Architectural inspiration that shapes how we design our collections.',
+      href: '/house-collections',
+    })),
+  ].map((slide) => ({ ...slide, eyebrow: locale === 'sw' ? 'Dhana ya usanifu' : 'Design concept' }));
+  const heroSlides = [
+    { src: SITE_IMAGES.homepageHero, alt: 'Illustrative TRIXX-style home concept, not a completed project' },
+    { src: SITE_IMAGES.appDetails.home, alt: 'Illustrative smart living interior concept' },
+    { src: SITE_IMAGES.brandVision, alt: 'Illustrative TRIXX brand vision concept' },
+    { src: SITE_IMAGES.architecture['swahili-coastal'], alt: 'Illustrative Swahili coastal house concept' },
   ];
 
   const body = `
   <section class="hero hero--home">
     <div class="hero__media">
-      <img class="hero__image" src="${SITE_IMAGES.homepageHero}" alt="Illustrative TRIXX-style home concept, not a completed project" fetchpriority="high" decoding="async">
+      <div class="hero__slides" data-hero-slides>
+        ${heroSlides.map((slide, i) => `<img class="hero__image${i === 0 ? ' is-active' : ''}" src="${slide.src}" alt="${esc(slide.alt)}"${i === 0 ? ' fetchpriority="high"' : ' loading="lazy" aria-hidden="true"'} decoding="async">`).join('')}
+      </div>
       <span class="concept-image-label">${locale === 'sw' ? 'Picha ya dhana' : 'Concept image'}</span>
     </div>
     <div class="hero__scrim"></div>
@@ -145,29 +160,7 @@ function homePage(locale) {
         </div>
         <a class="btn btn--outline" href="${localePath('/house-collections', locale)}">${esc(t(locale, 'cta.viewAll'))} →</a>
       </div>
-      <div class="design-slideshow" data-slideshow data-autoplay="true" data-slide-noun="${locale === 'sw' ? 'Slaidi' : 'Slide'}" data-start-label="${locale === 'sw' ? 'Anzisha slaidi' : 'Start slideshow'}" data-stop-label="${locale === 'sw' ? 'Sitisha slaidi' : 'Pause slideshow'}" tabindex="0" role="region" aria-roledescription="carousel" aria-label="${locale === 'sw' ? 'Mitindo ya nyumba' : 'House design concepts'}">
-        <div class="design-slideshow__slides">
-          ${designSlides.map((slide, i) => `<article class="design-slide${i === 0 ? ' is-active' : ''}" data-slide data-label="${esc(slide.title)}" aria-hidden="${i === 0 ? 'false' : 'true'}"${i === 0 ? '' : ' hidden'}>
-            <img src="${slide.src}" alt="${esc(slide.alt)}" loading="lazy" decoding="async">
-            <div class="design-slide__body">
-              <span class="concept-image-label">${locale === 'sw' ? 'Picha ya dhana' : 'Concept image'}</span>
-              <p class="eyebrow">${locale === 'sw' ? 'Dhana ya usanifu' : 'Design concept'}</p>
-              <h3>${esc(slide.title)}</h3>
-              <p>${esc(slide.note)}</p>
-              <a class="btn btn--brass" href="${localePath(slide.href, locale)}">${esc(t(locale, 'cta.explore'))} →</a>
-            </div>
-          </article>`).join('')}
-        </div>
-        <div class="design-slideshow__controls">
-          <button class="slideshow-button" type="button" data-slideshow-prev aria-label="${locale === 'sw' ? 'Slaidi iliyotangulia' : 'Previous slide'}">←</button>
-          <div class="design-slideshow__dots" aria-label="${locale === 'sw' ? 'Chagua slaidi' : 'Choose a slide'}">
-            ${designSlides.map((slide, i) => `<button class="slideshow-dot${i === 0 ? ' is-active' : ''}" type="button" data-slide-go="${i}" aria-label="${locale === 'sw' ? `Onyesha ${slide.title}` : `Show ${slide.title}`}" aria-pressed="${i === 0 ? 'true' : 'false'}"></button>`).join('')}
-          </div>
-          <button class="slideshow-button" type="button" data-slideshow-next aria-label="${locale === 'sw' ? 'Slaidi inayofuata' : 'Next slide'}">→</button>
-          <button class="slideshow-toggle" type="button" data-slideshow-toggle data-play-label="${locale === 'sw' ? 'Cheza' : 'Play'}" data-pause-label="${locale === 'sw' ? 'Sitisha' : 'Pause'}" aria-label="${locale === 'sw' ? 'Sitisha slaidi' : 'Pause slideshow'}">${locale === 'sw' ? 'Sitisha' : 'Pause'}</button>
-        </div>
-        <p class="visually-hidden" data-slideshow-status aria-live="polite"></p>
-      </div>
+      ${slideshow({ slides: designSlides, locale, label: locale === 'sw' ? 'Mitindo ya nyumba' : 'House design concepts' })}
     </div>
   </section>
 

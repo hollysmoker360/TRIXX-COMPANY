@@ -66,7 +66,7 @@ const pressFor = (locale) => (locale === 'sw'
   : PRESS);
 const { localePath } = require('../templates/layout');
 const {
-  breadcrumbs, breadcrumbLd, statBlock, testimonialCard, postCard,
+  breadcrumbs, breadcrumbLd, statBlock, slideshow, testimonialCard, postCard,
   progressTracker, timeline, listingCard,
 } = require('../templates/components');
 
@@ -150,6 +150,60 @@ function aboutPage(locale) {
           </div>
         </aside>
       </div>
+    </div>
+  </section>
+
+  <section class="section bg-ink">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">${locale === 'sw' ? 'Tunachojenga' : 'What we build'}</p>
+        <h2>${locale === 'sw' ? 'Ulimwengu wa TRIXX kwa picha' : 'The TRIXX world in pictures'}</h2>
+      </div>
+      ${slideshow({
+        locale,
+        label: locale === 'sw' ? 'Ulimwengu wa TRIXX' : 'The TRIXX world',
+        slides: [
+          {
+            src: SITE_IMAGES.brandVision,
+            alt: 'Illustrative concept image for the TRIXX brand vision',
+            eyebrow: locale === 'sw' ? 'Maono' : 'Vision',
+            title: locale === 'sw' ? 'Nyumba zinazokua na teknolojia' : 'Homes that grow with technology',
+            note: locale === 'sw' ? 'Kila nyumba imeandaliwa kupokea maboresho bila kufungua kuta.' : 'Every house is prepared to take upgrades without opening a wall.',
+            href: '/house-collections',
+          },
+          {
+            src: SITE_IMAGES.materials,
+            alt: 'Concept image showing TRIXX-inspired building materials and textures',
+            eyebrow: locale === 'sw' ? 'Nyenzo' : 'Materials',
+            title: locale === 'sw' ? 'Nyenzo za kudumu, za hapa nyumbani' : 'Durable, locally sourced materials',
+            note: locale === 'sw' ? 'Mawe, mbao na rangi zilizochaguliwa kwa hali ya hewa ya Kenya.' : 'Stone, timber and finishes chosen for the Kenyan climate.',
+          },
+          {
+            src: SITE_IMAGES.technology.infrastructure,
+            alt: 'Digital infrastructure concept image',
+            eyebrow: locale === 'sw' ? 'Mifumo' : 'Systems',
+            title: locale === 'sw' ? 'Mfumo mmoja kwa app zote tano' : 'One platform behind five apps',
+            note: locale === 'sw' ? 'Nishati, maji, usalama na malipo vinasimamiwa mahali pamoja.' : 'Energy, water, security and payments managed in one place.',
+            href: '/products',
+          },
+          {
+            src: SITE_IMAGES.appDetails.farm,
+            alt: 'Illustrative sustainable farming concept, not an installed TRIXX farm',
+            eyebrow: locale === 'sw' ? 'Shamba' : 'Farm',
+            title: locale === 'sw' ? 'Umwagiliaji unaookoa maji' : 'Irrigation that saves water',
+            note: locale === 'sw' ? 'Vidhibiti vya shamba vinavyopima unyevu kabla ya kumwagilia.' : 'Farm controllers that measure soil moisture before they water.',
+            href: '/farm-solutions',
+          },
+          {
+            src: SITE_IMAGES.regionalLandscape,
+            alt: 'Illustrative regional landscape concept',
+            eyebrow: locale === 'sw' ? 'Kenya' : 'Kenya',
+            title: locale === 'sw' ? 'Imejengwa kwa ajili ya Kenya' : 'Built for Kenya',
+            note: locale === 'sw' ? 'Kutoka Nairobi hadi pwani, tunajenga kwa kila eneo.' : 'From Nairobi to the coast, designed for every region we work in.',
+            href: '/contact',
+          },
+        ],
+      })}
     </div>
   </section>
 
