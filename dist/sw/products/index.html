@@ -9,7 +9,7 @@
   
   <link rel="alternate" hreflang="en" href="https://trixx.co.ke/products/">
   <link rel="alternate" hreflang="sw" href="https://trixx.co.ke/sw/products/">
-  <meta name="theme-color" content="#0E5C56">
+  <meta name="theme-color" content="#101A19">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="TRIXX">
   <meta property="og:title" content="Bidhaa — app tano za TRIXX: Home, Farm, Rent, Market na School">
@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
@@ -43,15 +43,12 @@
   <div class="wrap masthead__bar">
     <a class="brand" href="/sw">
       <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true" width="40" height="40">
-    <path d="M6 44V22a18 18 0 0 1 36 0v22" fill="none" stroke="currentColor" stroke-width="2.4"/>
-    <path d="M14 44V24a10 10 0 0 1 20 0v20" fill="none" stroke="currentColor" stroke-width="1.6" opacity="0.65"/>
-    <circle cx="24" cy="16" r="3.4" fill="#A8452C"/>
-    <path d="M24 22v16" stroke="#A8452C" stroke-width="1.6"/>
-    <path d="M2 44h44" stroke="currentColor" stroke-width="2.4"/>
+    <path d="M24 2 46 44H2L24 2Z" fill="currentColor"/>
+    <path d="m15 25 18 18M33 25 15 43" fill="none" stroke="var(--brand-surface, #F5F3EC)" stroke-width="6" stroke-linecap="square"/>
   </svg>
       <span>
-        <span class="brand__word">TRIXX</span>
-        <span class="brand__sub">Maisha ya kisasa</span>
+        <span class="brand__word"><span>TRI</span><b>XX</b></span>
+        <span class="brand__sub">Mali na teknolojia</span>
       </span>
     </a>
     <nav class="nav" aria-label="Main">
@@ -72,7 +69,7 @@
     <div class="masthead__actions">
       <div class="lang" role="group" aria-label="Lugha"><a href="/products" hreflang="en">EN</a><a href="/sw/products" hreflang="sw" aria-current="true">SW</a></div>
       <a class="btn btn--quiet btn--sm" href="/sw/login">Ingia</a>
-      <a class="btn btn--primary btn--sm" href="/sw/list-your-property">Tangaza nyumba yako</a>
+      <a class="btn btn--primary btn--sm" href="/sw/book-viewing">Weka miadi ya kuona</a>
       <button class="nav-toggle" type="button" data-drawer-open aria-controls="drawer" aria-expanded="false">
         Menyu
       </button>
@@ -83,12 +80,9 @@
 <div class="drawer" id="drawer" data-open="false" role="dialog" aria-modal="true" aria-label="Menyu">
   <div class="drawer__head">
     <a class="brand" href="/sw"><svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true" width="32" height="32">
-    <path d="M6 44V22a18 18 0 0 1 36 0v22" fill="none" stroke="currentColor" stroke-width="2.4"/>
-    <path d="M14 44V24a10 10 0 0 1 20 0v20" fill="none" stroke="currentColor" stroke-width="1.6" opacity="0.65"/>
-    <circle cx="24" cy="16" r="3.4" fill="#A8452C"/>
-    <path d="M24 22v16" stroke="#A8452C" stroke-width="1.6"/>
-    <path d="M2 44h44" stroke="currentColor" stroke-width="2.4"/>
-  </svg><span class="brand__word">TRIXX</span></a>
+    <path d="M24 2 46 44H2L24 2Z" fill="currentColor"/>
+    <path d="m15 25 18 18M33 25 15 43" fill="none" stroke="var(--brand-surface, #F5F3EC)" stroke-width="6" stroke-linecap="square"/>
+  </svg><span class="brand__word"><span>TRI</span><b>XX</b></span></a>
     <button class="nav-toggle" type="button" data-drawer-close>Funga</button>
   </div>
   <div class="drawer__body">
@@ -144,12 +138,18 @@
       <section class="section" id="home">
         <div class="app-showcase">
           <div>
-            <p class="eyebrow">TRIXX Home</p>
+            <div class="app-showcase__brand"><span class="app-logo app-logo--home" role="img" aria-label="TRIXX Home">
+    <span class="app-logo__tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
+  <path d="M24 2 46 44H2L24 2Z" fill="currentColor"/>
+  <path d="m15 25 18 18M33 25 15 43" fill="none" stroke="var(--brand-surface, #F5F3EC)" stroke-width="6" stroke-linecap="square"/>
+</svg></span>
+    <span class="app-logo__word" aria-hidden="true"><span>TRI</span><b>XX</b><small>Home</small></span>
+  </span></div>
             <h2>Dhibiti taa, kufuli, hali ya hewa na umeme kutoka skrini moja.</h2>
             <p class="lede">TRIXX Home ni chumba cha udhibiti cha nyumba yako. Husoma sola yako, hufuatilia tanki lako, huweka kamera zako tayari na hukuruhusu kumpa mtu wa kusafisha au mkandarasi ufunguo wa muda bila kukata ufunguo wa chuma.</p>
             <h3 class="mt-4">Vipengele</h3>
             <ul style="list-style:none;padding:0">
-              <li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#0E5C56">✓</span><span>Taa, soketi na matukio chumba kwa chumba</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#0E5C56">✓</span><span>Uzalishaji wa sola wa moja kwa moja, hali ya betri na matumizi ya gridi</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#0E5C56">✓</span><span>Mitiririko ya kamera na historia ya mwendo</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#0E5C56">✓</span><span>Funguo za kidijitali zenye muda wa kuisha kwa wafanyakazi na wageni</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#0E5C56">✓</span><span>Uendeshaji wa kiotomatiki: mwanga wa macheo, hali ya kuondoka, arifa za tanki la maji</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#0E5C56">✓</span><span>Hufanya kazi nje ya mtandao kwenye hub ya ndani wakati internet inapotea</span></li>
+              <li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#0B7167">✓</span><span>Taa, soketi na matukio chumba kwa chumba</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#0B7167">✓</span><span>Uzalishaji wa sola wa moja kwa moja, hali ya betri na matumizi ya gridi</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#0B7167">✓</span><span>Mitiririko ya kamera na historia ya mwendo</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#0B7167">✓</span><span>Funguo za kidijitali zenye muda wa kuisha kwa wafanyakazi na wageni</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#0B7167">✓</span><span>Uendeshaji wa kiotomatiki: mwanga wa macheo, hali ya kuondoka, arifa za tanki la maji</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#0B7167">✓</span><span>Hufanya kazi nje ya mtandao kwenye hub ya ndani wakati internet inapotea</span></li>
             </ul>
             <div class="grid grid--3 mt-4">
               <div class="stat">
@@ -179,7 +179,10 @@
     </a>
   </div>
           </div>
-          <div class="phone-frame"><svg viewBox="0 0 420 860" role="img" aria-label="TRIXX Home app screen" xmlns="http://www.w3.org/2000/svg" class="art " preserveAspectRatio="xMidYMid slice">
+          <figure class="product-visual">
+    <img class="product-visual__image" src="/assets/img/site-upscaled/Smart_Home/09_smart_home_control.jpg" alt="Illustrative concept image for TRIXX Home" loading="lazy" decoding="async">
+    <figcaption class="product-visual__label">Picha ya dhana</figcaption>
+    <div class="phone-frame product-visual__phone"><svg viewBox="0 0 420 860" role="img" aria-label="TRIXX Home app screen" xmlns="http://www.w3.org/2000/svg" class="art " preserveAspectRatio="xMidYMid slice">
   <rect width="420" height="860" rx="44" fill="#0E5C56"/>
   <rect x="14" y="14" width="392" height="832" rx="34" fill="none" stroke="#FBF4E7" stroke-width="1.5" opacity="0.25"/>
   <rect x="166" y="26" width="88" height="10" rx="5" fill="#FBF4E7" opacity="0.4"/>
@@ -217,12 +220,19 @@
     </g>
   <circle cx="60" cy="814" r="9" fill="#FBF4E7" opacity="1"/><circle cx="160" cy="814" r="7" fill="#FBF4E7" opacity="0.45"/><circle cx="260" cy="814" r="7" fill="#FBF4E7" opacity="0.45"/><circle cx="360" cy="814" r="7" fill="#FBF4E7" opacity="0.45"/>
 </svg></div>
+  </figure>
         </div>
       </section>
       <section class="section section--tight" id="farm">
         <div class="app-showcase app-showcase--flip">
           <div>
-            <p class="eyebrow">TRIXX Farm</p>
+            <div class="app-showcase__brand"><span class="app-logo app-logo--farm" role="img" aria-label="TRIXX Farm">
+    <span class="app-logo__tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
+  <path d="M24 2 46 44H2L24 2Z" fill="currentColor"/>
+  <path d="m15 25 18 18M33 25 15 43" fill="none" stroke="var(--brand-surface, #F5F3EC)" stroke-width="6" stroke-linecap="square"/>
+</svg></span>
+    <span class="app-logo__word" aria-hidden="true"><span>TRI</span><b>XX</b><small>Farm</small></span>
+  </span></div>
             <h2>Mwagilia kwa unyevu wa udongo, si kwa kubahatisha.</h2>
             <p class="lede">TRIXX Farm hubadilisha shamba kuwa mfumo unaosimamiwa. Vitambuzi huripoti unyevu kwa kina tatu, kidhibiti humwagilia tu wakati udongo unahitaji, na kila lita na saa hurekodiwa ili uone msimu uligharimu kiasi gani.</p>
             <h3 class="mt-4">Vipengele</h3>
@@ -257,7 +267,10 @@
     </a>
   </div>
           </div>
-          <div class="phone-frame"><svg viewBox="0 0 420 860" role="img" aria-label="TRIXX Farm app screen" xmlns="http://www.w3.org/2000/svg" class="art " preserveAspectRatio="xMidYMid slice">
+          <figure class="product-visual">
+    <img class="product-visual__image" src="/assets/img/site-upscaled/Agriculture/11_smart_agriculture.jpg" alt="Illustrative concept image for TRIXX Farm" loading="lazy" decoding="async">
+    <figcaption class="product-visual__label">Picha ya dhana</figcaption>
+    <div class="phone-frame product-visual__phone"><svg viewBox="0 0 420 860" role="img" aria-label="TRIXX Farm app screen" xmlns="http://www.w3.org/2000/svg" class="art " preserveAspectRatio="xMidYMid slice">
   <rect width="420" height="860" rx="44" fill="#2F6B4F"/>
   <rect x="14" y="14" width="392" height="832" rx="34" fill="none" stroke="#F2F7EE" stroke-width="1.5" opacity="0.25"/>
   <rect x="166" y="26" width="88" height="10" rx="5" fill="#F2F7EE" opacity="0.4"/>
@@ -295,17 +308,24 @@
     </g>
   <circle cx="60" cy="814" r="9" fill="#F2F7EE" opacity="1"/><circle cx="160" cy="814" r="7" fill="#F2F7EE" opacity="0.45"/><circle cx="260" cy="814" r="7" fill="#F2F7EE" opacity="0.45"/><circle cx="360" cy="814" r="7" fill="#F2F7EE" opacity="0.45"/>
 </svg></div>
+  </figure>
         </div>
       </section>
       <section class="section" id="rent">
         <div class="app-showcase">
           <div>
-            <p class="eyebrow">TRIXX Rent</p>
+            <div class="app-showcase__brand"><span class="app-logo app-logo--rent" role="img" aria-label="TRIXX Rent">
+    <span class="app-logo__tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
+  <path d="M24 2 46 44H2L24 2Z" fill="currentColor"/>
+  <path d="m15 25 18 18M33 25 15 43" fill="none" stroke="var(--brand-surface, #F5F3EC)" stroke-width="6" stroke-linecap="square"/>
+</svg></span>
+    <span class="app-logo__word" aria-hidden="true"><span>TRI</span><b>XX</b><small>Rent</small></span>
+  </span></div>
             <h2>Lipa kodi, pata risiti, ripoti ukarabati — kwa miguso mitatu.</h2>
             <p class="lede">TRIXX Rent huondoa mzozo wa kila mwezi. Kodi hutolewa ankara, hulipwa kwa M-Pesa au kadi, hupokea risiti papo hapo na hulinganishwa na mkataba wa kukodisha. Maombi ya ukarabati hubeba picha na hali ambayo mpangaji anaweza kufuatilia.</p>
             <h3 class="mt-4">Vipengele</h3>
             <ul style="list-style:none;padding:0">
-              <li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#1F3A5F">✓</span><span>Ankara za kodi zenye malipo ya M-Pesa na kadi</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#1F3A5F">✓</span><span>Risiti za kidijitali papo hapo na salio linaloendelea</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#1F3A5F">✓</span><span>Maombi ya ukarabati yenye picha na ufuatiliaji wa hali</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#1F3A5F">✓</span><span>Hati za mkataba na kumbusho za kuhuisha</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#1F3A5F">✓</span><span>Daftari la amana na orodha ya kuondoka</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#1F3A5F">✓</span><span>Mitazamo ya mwenye nyumba na mpangaji wa rekodi moja</span></li>
+              <li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#9C741A">✓</span><span>Ankara za kodi zenye malipo ya M-Pesa na kadi</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#9C741A">✓</span><span>Risiti za kidijitali papo hapo na salio linaloendelea</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#9C741A">✓</span><span>Maombi ya ukarabati yenye picha na ufuatiliaji wa hali</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#9C741A">✓</span><span>Hati za mkataba na kumbusho za kuhuisha</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#9C741A">✓</span><span>Daftari la amana na orodha ya kuondoka</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#9C741A">✓</span><span>Mitazamo ya mwenye nyumba na mpangaji wa rekodi moja</span></li>
             </ul>
             <div class="grid grid--3 mt-4">
               <div class="stat">
@@ -335,7 +355,10 @@
     </a>
   </div>
           </div>
-          <div class="phone-frame"><svg viewBox="0 0 420 860" role="img" aria-label="TRIXX Rent app screen" xmlns="http://www.w3.org/2000/svg" class="art " preserveAspectRatio="xMidYMid slice">
+          <figure class="product-visual">
+    <img class="product-visual__image" src="/assets/img/site-upscaled/Lifestyle/19_lifestyle_comfort.jpg" alt="Illustrative concept image for TRIXX Rent" loading="lazy" decoding="async">
+    <figcaption class="product-visual__label">Picha ya dhana</figcaption>
+    <div class="phone-frame product-visual__phone"><svg viewBox="0 0 420 860" role="img" aria-label="TRIXX Rent app screen" xmlns="http://www.w3.org/2000/svg" class="art " preserveAspectRatio="xMidYMid slice">
   <rect width="420" height="860" rx="44" fill="#1F3A5F"/>
   <rect x="14" y="14" width="392" height="832" rx="34" fill="none" stroke="#EFF4FB" stroke-width="1.5" opacity="0.25"/>
   <rect x="166" y="26" width="88" height="10" rx="5" fill="#EFF4FB" opacity="0.4"/>
@@ -373,17 +396,24 @@
     </g>
   <circle cx="60" cy="814" r="9" fill="#EFF4FB" opacity="1"/><circle cx="160" cy="814" r="7" fill="#EFF4FB" opacity="0.45"/><circle cx="260" cy="814" r="7" fill="#EFF4FB" opacity="0.45"/><circle cx="360" cy="814" r="7" fill="#EFF4FB" opacity="0.45"/>
 </svg></div>
+  </figure>
         </div>
       </section>
       <section class="section section--tight" id="market">
         <div class="app-showcase app-showcase--flip">
           <div>
-            <p class="eyebrow">TRIXX Market</p>
+            <div class="app-showcase__brand"><span class="app-logo app-logo--market" role="img" aria-label="TRIXX Market">
+    <span class="app-logo__tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
+  <path d="M24 2 46 44H2L24 2Z" fill="currentColor"/>
+  <path d="m15 25 18 18M33 25 15 43" fill="none" stroke="var(--brand-surface, #F5F3EC)" stroke-width="6" stroke-linecap="square"/>
+</svg></span>
+    <span class="app-logo__word" aria-hidden="true"><span>TRI</span><b>XX</b><small>Market</small></span>
+  </span></div>
             <h2>Nunua na uza mali na watu waliothibitishwa.</h2>
             <p class="lede">TRIXX Market ni upande wa orodha wa biashara. Kila mmiliki huthibitishwa utambulisho, kila nyumba iliyojengwa na TRIXX hubeba rekodi yake ya ujenzi, na wanunuzi huzungumza moja kwa moja na muuzaji badala ya kupitia mnyororo wa madalali.</p>
             <h3 class="mt-4">Vipengele</h3>
             <ul style="list-style:none;padding:0">
-              <li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#A8452C">✓</span><span>Profaili za wamiliki na mawakala waliothibitishwa</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#A8452C">✓</span><span>Tafuta kwa eneo, bei, mtindo na kiwango cha smart</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#A8452C">✓</span><span>Zungumza na mmiliki au wakala kwenye app</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#A8452C">✓</span><span>Utafutaji uliohifadhiwa wenye arifa za mechi mpya</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#A8452C">✓</span><span>Picha, video na ziara ya 360 kwenye kila orodha</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#A8452C">✓</span><span>Kikokotoo cha mkopo na malipo ndani ya app</span></li>
+              <li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#956344">✓</span><span>Profaili za wamiliki na mawakala waliothibitishwa</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#956344">✓</span><span>Tafuta kwa eneo, bei, mtindo na kiwango cha smart</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#956344">✓</span><span>Zungumza na mmiliki au wakala kwenye app</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#956344">✓</span><span>Utafutaji uliohifadhiwa wenye arifa za mechi mpya</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#956344">✓</span><span>Picha, video na ziara ya 360 kwenye kila orodha</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#956344">✓</span><span>Kikokotoo cha mkopo na malipo ndani ya app</span></li>
             </ul>
             <div class="grid grid--3 mt-4">
               <div class="stat">
@@ -413,7 +443,10 @@
     </a>
   </div>
           </div>
-          <div class="phone-frame"><svg viewBox="0 0 420 860" role="img" aria-label="TRIXX Market app screen" xmlns="http://www.w3.org/2000/svg" class="art " preserveAspectRatio="xMidYMid slice">
+          <figure class="product-visual">
+    <img class="product-visual__image" src="/assets/img/site-upscaled/Real_Estate/13_luxury_property_showcase.jpg" alt="Illustrative concept image for TRIXX Market" loading="lazy" decoding="async">
+    <figcaption class="product-visual__label">Picha ya dhana</figcaption>
+    <div class="phone-frame product-visual__phone"><svg viewBox="0 0 420 860" role="img" aria-label="TRIXX Market app screen" xmlns="http://www.w3.org/2000/svg" class="art " preserveAspectRatio="xMidYMid slice">
   <rect width="420" height="860" rx="44" fill="#A8452C"/>
   <rect x="14" y="14" width="392" height="832" rx="34" fill="none" stroke="#FDF3EC" stroke-width="1.5" opacity="0.25"/>
   <rect x="166" y="26" width="88" height="10" rx="5" fill="#FDF3EC" opacity="0.4"/>
@@ -451,17 +484,24 @@
     </g>
   <circle cx="60" cy="814" r="9" fill="#FDF3EC" opacity="1"/><circle cx="160" cy="814" r="7" fill="#FDF3EC" opacity="0.45"/><circle cx="260" cy="814" r="7" fill="#FDF3EC" opacity="0.45"/><circle cx="360" cy="814" r="7" fill="#FDF3EC" opacity="0.45"/>
 </svg></div>
+  </figure>
         </div>
       </section>
       <section class="section" id="school">
         <div class="app-showcase">
           <div>
-            <p class="eyebrow">TRIXX School</p>
+            <div class="app-showcase__brand"><span class="app-logo app-logo--school" role="img" aria-label="TRIXX School">
+    <span class="app-logo__tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
+  <path d="M24 2 46 44H2L24 2Z" fill="currentColor"/>
+  <path d="m15 25 18 18M33 25 15 43" fill="none" stroke="var(--brand-surface, #F5F3EC)" stroke-width="6" stroke-linecap="square"/>
+</svg></span>
+    <span class="app-logo__word" aria-hidden="true"><span>TRI</span><b>XX</b><small>School</small></span>
+  </span></div>
             <h2>Ada, ratiba na ripoti kwa wazazi na shule.</h2>
             <p class="lede">TRIXX School huunganisha shule na wazazi wake. Ada hutolewa ankara na kupokea risiti, ratiba na matokeo huchapishwa kwa walezi wanaofaa tu, na matangazo huwafikia wote wanaohitaji bila karatasi.</p>
             <h3 class="mt-4">Vipengele</h3>
             <ul style="list-style:none;padding:0">
-              <li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#C4791F">✓</span><span>Ankara za ada, malipo ya M-Pesa na risiti</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#C4791F">✓</span><span>Ratiba na kalenda ya muhula</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#C4791F">✓</span><span>Kadi za ripoti na historia ya tathmini</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#C4791F">✓</span><span>Arifa za mahudhurio na usafiri</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#C4791F">✓</span><span>Matangazo kwa walezi pekee</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#C4791F">✓</span><span>Ufuatiliaji wa bursari na mipango ya malipo</span></li>
+              <li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#34465B">✓</span><span>Ankara za ada, malipo ya M-Pesa na risiti</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#34465B">✓</span><span>Ratiba na kalenda ya muhula</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#34465B">✓</span><span>Kadi za ripoti na historia ya tathmini</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#34465B">✓</span><span>Arifa za mahudhurio na usafiri</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#34465B">✓</span><span>Matangazo kwa walezi pekee</span></li><li style="display:flex;gap:0.6rem;padding:0.45rem 0;border-bottom:1px solid var(--line)"><span style="color:#34465B">✓</span><span>Ufuatiliaji wa bursari na mipango ya malipo</span></li>
             </ul>
             <div class="grid grid--3 mt-4">
               <div class="stat">
@@ -491,7 +531,10 @@
     </a>
   </div>
           </div>
-          <div class="phone-frame"><svg viewBox="0 0 420 860" role="img" aria-label="TRIXX School app screen" xmlns="http://www.w3.org/2000/svg" class="art " preserveAspectRatio="xMidYMid slice">
+          <figure class="product-visual">
+    <img class="product-visual__image" src="/assets/img/site-upscaled/Education/15_modern_classroom.jpg" alt="Illustrative concept image for TRIXX School" loading="lazy" decoding="async">
+    <figcaption class="product-visual__label">Picha ya dhana</figcaption>
+    <div class="phone-frame product-visual__phone"><svg viewBox="0 0 420 860" role="img" aria-label="TRIXX School app screen" xmlns="http://www.w3.org/2000/svg" class="art " preserveAspectRatio="xMidYMid slice">
   <rect width="420" height="860" rx="44" fill="#C4791F"/>
   <rect x="14" y="14" width="392" height="832" rx="34" fill="none" stroke="#FEF6E8" stroke-width="1.5" opacity="0.25"/>
   <rect x="166" y="26" width="88" height="10" rx="5" fill="#FEF6E8" opacity="0.4"/>
@@ -529,6 +572,7 @@
     </g>
   <circle cx="60" cy="814" r="9" fill="#FEF6E8" opacity="1"/><circle cx="160" cy="814" r="7" fill="#FEF6E8" opacity="0.45"/><circle cx="260" cy="814" r="7" fill="#FEF6E8" opacity="0.45"/><circle cx="360" cy="814" r="7" fill="#FEF6E8" opacity="0.45"/>
 </svg></div>
+  </figure>
         </div>
       </section>
     </div>
@@ -546,83 +590,15 @@
             <a class="btn btn--outline" style="border-color:rgba(244,237,224,0.35);color:var(--paper)" href="/sw/contact">Wasiliana nasi</a>
           </div>
         </div>
-        <div class="phone-row">
-          <div class="phone-frame"><svg viewBox="0 0 420 860" role="img" aria-label="TRIXX Rent app screen" xmlns="http://www.w3.org/2000/svg" class="art " preserveAspectRatio="xMidYMid slice">
-  <rect width="420" height="860" rx="44" fill="#1F3A5F"/>
-  <rect x="14" y="14" width="392" height="832" rx="34" fill="none" stroke="#EFF4FB" stroke-width="1.5" opacity="0.25"/>
-  <rect x="166" y="26" width="88" height="10" rx="5" fill="#EFF4FB" opacity="0.4"/>
-  <text x="26" y="98" font-size="30" font-family="'Bodoni Moda',serif" fill="#EFF4FB">TRIXX Rent</text>
-  <text x="26" y="126" font-size="15" font-family="'IBM Plex Mono',monospace" fill="#EFF4FB" opacity="0.7">Nairobi · 17 Oct</text>
-  <g>
-    <rect x="26" y="150" width="368" height="120" rx="18" fill="#EFF4FB" opacity="0.12"/>
-    <rect x="44" y="167" width="16" height="89" rx="5" fill="#EFF4FB" opacity="0.44"/><rect x="73" y="182" width="16" height="74" rx="5" fill="#EFF4FB" opacity="0.49"/><rect x="102" y="239" width="16" height="17" rx="5" fill="#EFF4FB" opacity="0.77"/><rect x="131" y="191" width="16" height="65" rx="5" fill="#EFF4FB" opacity="0.77"/><rect x="160" y="231" width="16" height="25" rx="5" fill="#EFF4FB" opacity="0.74"/><rect x="189" y="230" width="16" height="26" rx="5" fill="#EFF4FB" opacity="0.67"/><rect x="218" y="197" width="16" height="59" rx="5" fill="#EFF4FB" opacity="0.63"/><rect x="247" y="198" width="16" height="58" rx="5" fill="#EFF4FB" opacity="0.54"/><rect x="276" y="236" width="16" height="20" rx="5" fill="#EFF4FB" opacity="0.52"/><rect x="305" y="178" width="16" height="78" rx="5" fill="#EFF4FB" opacity="0.76"/><rect x="334" y="214" width="16" height="42" rx="5" fill="#EFF4FB" opacity="0.43"/><rect x="363" y="189" width="16" height="67" rx="5" fill="#EFF4FB" opacity="0.58"/>
-    <text x="44" y="176" font-size="14" font-family="'IBM Plex Mono',monospace" fill="#EFF4FB" opacity="0.75">LAST 12 MONTHS</text>
-  </g>
-  <g>
-      <rect x="26" y="300" width="368" height="76" rx="16" fill="#EFF4FB" opacity="0.14"/>
-      <circle cx="62" cy="338" r="16" fill="#EFF4FB" opacity="0.85"/>
-      <text x="92" y="332" font-size="17" font-family="'Archivo',sans-serif" fill="#EFF4FB">Rent due 5 Nov</text>
-      <text x="92" y="358" font-size="15" font-family="'IBM Plex Mono',monospace" fill="#EFF4FB" opacity="0.7">98%</text>
-      <rect x="316" y="326" width="52" height="26" rx="13" fill="#7FE0B0" opacity="0.9"/>
-    </g><g>
-      <rect x="26" y="392" width="368" height="76" rx="16" fill="#EFF4FB" opacity="0.14"/>
-      <circle cx="62" cy="430" r="16" fill="#EFF4FB" opacity="0.85"/>
-      <text x="92" y="424" font-size="17" font-family="'Archivo',sans-serif" fill="#EFF4FB">Receipts</text>
-      <text x="92" y="450" font-size="15" font-family="'IBM Plex Mono',monospace" fill="#EFF4FB" opacity="0.7">81%</text>
-      <rect x="316" y="418" width="52" height="26" rx="13" fill="#EFF4FB" opacity="0.9"/>
-    </g><g>
-      <rect x="26" y="484" width="368" height="76" rx="16" fill="#EFF4FB" opacity="0.14"/>
-      <circle cx="62" cy="522" r="16" fill="#EFF4FB" opacity="0.85"/>
-      <text x="92" y="516" font-size="17" font-family="'Archivo',sans-serif" fill="#EFF4FB">Maintenance</text>
-      <text x="92" y="542" font-size="15" font-family="'IBM Plex Mono',monospace" fill="#EFF4FB" opacity="0.7">67%</text>
-      <rect x="316" y="510" width="52" height="26" rx="13" fill="#7FE0B0" opacity="0.9"/>
-    </g><g>
-      <rect x="26" y="576" width="368" height="76" rx="16" fill="#EFF4FB" opacity="0.14"/>
-      <circle cx="62" cy="614" r="16" fill="#EFF4FB" opacity="0.85"/>
-      <text x="92" y="608" font-size="17" font-family="'Archivo',sans-serif" fill="#EFF4FB">My lease</text>
-      <text x="92" y="634" font-size="15" font-family="'IBM Plex Mono',monospace" fill="#EFF4FB" opacity="0.7">99%</text>
-      <rect x="316" y="602" width="52" height="26" rx="13" fill="#EFF4FB" opacity="0.9"/>
-    </g>
-  <circle cx="60" cy="814" r="9" fill="#EFF4FB" opacity="1"/><circle cx="160" cy="814" r="7" fill="#EFF4FB" opacity="0.45"/><circle cx="260" cy="814" r="7" fill="#EFF4FB" opacity="0.45"/><circle cx="360" cy="814" r="7" fill="#EFF4FB" opacity="0.45"/>
-</svg></div>
-          <div class="phone-frame"><svg viewBox="0 0 420 860" role="img" aria-label="TRIXX Market app screen" xmlns="http://www.w3.org/2000/svg" class="art " preserveAspectRatio="xMidYMid slice">
-  <rect width="420" height="860" rx="44" fill="#A8452C"/>
-  <rect x="14" y="14" width="392" height="832" rx="34" fill="none" stroke="#FDF3EC" stroke-width="1.5" opacity="0.25"/>
-  <rect x="166" y="26" width="88" height="10" rx="5" fill="#FDF3EC" opacity="0.4"/>
-  <text x="26" y="98" font-size="30" font-family="'Bodoni Moda',serif" fill="#FDF3EC">TRIXX Market</text>
-  <text x="26" y="126" font-size="15" font-family="'IBM Plex Mono',monospace" fill="#FDF3EC" opacity="0.7">Nairobi · 17 Oct</text>
-  <g>
-    <rect x="26" y="150" width="368" height="120" rx="18" fill="#FDF3EC" opacity="0.12"/>
-    <rect x="44" y="231" width="16" height="25" rx="5" fill="#FDF3EC" opacity="0.47"/><rect x="73" y="228" width="16" height="28" rx="5" fill="#FDF3EC" opacity="0.87"/><rect x="102" y="175" width="16" height="81" rx="5" fill="#FDF3EC" opacity="0.90"/><rect x="131" y="190" width="16" height="66" rx="5" fill="#FDF3EC" opacity="0.54"/><rect x="160" y="170" width="16" height="86" rx="5" fill="#FDF3EC" opacity="0.83"/><rect x="189" y="191" width="16" height="65" rx="5" fill="#FDF3EC" opacity="0.65"/><rect x="218" y="231" width="16" height="25" rx="5" fill="#FDF3EC" opacity="0.65"/><rect x="247" y="181" width="16" height="75" rx="5" fill="#FDF3EC" opacity="0.53"/><rect x="276" y="193" width="16" height="63" rx="5" fill="#FDF3EC" opacity="0.53"/><rect x="305" y="178" width="16" height="78" rx="5" fill="#FDF3EC" opacity="0.82"/><rect x="334" y="180" width="16" height="76" rx="5" fill="#FDF3EC" opacity="0.87"/><rect x="363" y="191" width="16" height="65" rx="5" fill="#FDF3EC" opacity="0.59"/>
-    <text x="44" y="176" font-size="14" font-family="'IBM Plex Mono',monospace" fill="#FDF3EC" opacity="0.75">LAST 12 MONTHS</text>
-  </g>
-  <g>
-      <rect x="26" y="300" width="368" height="76" rx="16" fill="#FDF3EC" opacity="0.14"/>
-      <circle cx="62" cy="338" r="16" fill="#FDF3EC" opacity="0.85"/>
-      <text x="92" y="332" font-size="17" font-family="'Archivo',sans-serif" fill="#FDF3EC">New today</text>
-      <text x="92" y="358" font-size="15" font-family="'IBM Plex Mono',monospace" fill="#FDF3EC" opacity="0.7">90%</text>
-      <rect x="316" y="326" width="52" height="26" rx="13" fill="#7FE0B0" opacity="0.9"/>
-    </g><g>
-      <rect x="26" y="392" width="368" height="76" rx="16" fill="#FDF3EC" opacity="0.14"/>
-      <circle cx="62" cy="430" r="16" fill="#FDF3EC" opacity="0.85"/>
-      <text x="92" y="424" font-size="17" font-family="'Archivo',sans-serif" fill="#FDF3EC">Saved searches</text>
-      <text x="92" y="450" font-size="15" font-family="'IBM Plex Mono',monospace" fill="#FDF3EC" opacity="0.7">64%</text>
-      <rect x="316" y="418" width="52" height="26" rx="13" fill="#FDF3EC" opacity="0.9"/>
-    </g><g>
-      <rect x="26" y="484" width="368" height="76" rx="16" fill="#FDF3EC" opacity="0.14"/>
-      <circle cx="62" cy="522" r="16" fill="#FDF3EC" opacity="0.85"/>
-      <text x="92" y="516" font-size="17" font-family="'Archivo',sans-serif" fill="#FDF3EC">Chat with seller</text>
-      <text x="92" y="542" font-size="15" font-family="'IBM Plex Mono',monospace" fill="#FDF3EC" opacity="0.7">97%</text>
-      <rect x="316" y="510" width="52" height="26" rx="13" fill="#7FE0B0" opacity="0.9"/>
-    </g><g>
-      <rect x="26" y="576" width="368" height="76" rx="16" fill="#FDF3EC" opacity="0.14"/>
-      <circle cx="62" cy="614" r="16" fill="#FDF3EC" opacity="0.85"/>
-      <text x="92" y="608" font-size="17" font-family="'Archivo',sans-serif" fill="#FDF3EC">My listings</text>
-      <text x="92" y="634" font-size="15" font-family="'IBM Plex Mono',monospace" fill="#FDF3EC" opacity="0.7">74%</text>
-      <rect x="316" y="602" width="52" height="26" rx="13" fill="#FDF3EC" opacity="0.9"/>
-    </g>
-  <circle cx="60" cy="814" r="9" fill="#FDF3EC" opacity="1"/><circle cx="160" cy="814" r="7" fill="#FDF3EC" opacity="0.45"/><circle cx="260" cy="814" r="7" fill="#FDF3EC" opacity="0.45"/><circle cx="360" cy="814" r="7" fill="#FDF3EC" opacity="0.45"/>
-</svg></div>
+        <div class="technology-gallery">
+          <figure>
+            <img src="/assets/img/site-upscaled/Technology/17_innovation_research.jpg" alt="Technology innovation concept image" loading="lazy" decoding="async">
+            <figcaption>Picha ya dhana</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/img/site-upscaled/Technology/18_data_infrastructure.jpg" alt="Digital infrastructure concept image" loading="lazy" decoding="async">
+            <figcaption>Picha ya dhana</figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -634,12 +610,9 @@
     <div class="footer__grid">
       <div class="footer__brand">
         <a class="brand" href="/sw"><svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true" width="38" height="38">
-    <path d="M6 44V22a18 18 0 0 1 36 0v22" fill="none" stroke="currentColor" stroke-width="2.4"/>
-    <path d="M14 44V24a10 10 0 0 1 20 0v20" fill="none" stroke="currentColor" stroke-width="1.6" opacity="0.65"/>
-    <circle cx="24" cy="16" r="3.4" fill="#A8452C"/>
-    <path d="M24 22v16" stroke="#A8452C" stroke-width="1.6"/>
-    <path d="M2 44h44" stroke="currentColor" stroke-width="2.4"/>
-  </svg><span><span class="brand__word">TRIXX</span><span class="brand__sub">Maisha ya kisasa</span></span></a>
+    <path d="M24 2 46 44H2L24 2Z" fill="currentColor"/>
+    <path d="m15 25 18 18M33 25 15 43" fill="none" stroke="var(--brand-surface, #F5F3EC)" stroke-width="6" stroke-linecap="square"/>
+  </svg><span><span class="brand__word"><span>TRI</span><b>XX</b></span><span class="brand__sub">Mali na teknolojia</span></span></a>
         <p>TRIXX builds smart homes and sells, rents and manages property across Kenya — with connected apps for Home, Farm, Rent, Market and School.</p>
         <p class="tiny">TRIXX House, 4th Floor, Kilimani Business Centre, Wood Avenue, Nairobi 00100, Kenya</p>
         <p class="tiny"><a href="mailto:hello@trixx.co.ke">hello@trixx.co.ke</a> · <a href="tel:+254700000000">+254 700 000 000</a></p>
