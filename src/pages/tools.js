@@ -155,6 +155,9 @@ function configuratorPage(locale) {
             <strong style="font-family:var(--display);font-size:1.7rem;color:var(--paper)" data-cfg-total>${money(Math.round((18500000 + 1250000 + 3200000) * 1.16 + 285000))}</strong>
           </div>
 
+          <div class="cluster mt-3">
+            <button class="btn btn--outline btn--sm btn--block" type="button" onclick="window.print()" style="border-color:rgba(244,237,224,0.35);color:var(--paper)">Print / Export Summary</button>
+          </div>
           <a class="btn btn--brass btn--block mt-3" href="${localePath('/contact?interest=build', locale)}">Request a written quote</a>
           <a class="btn btn--outline btn--block mt-2" style="border-color:rgba(244,237,224,0.35);color:var(--paper)" href="${localePath('/book-viewing', locale)}">${esc(t(locale, 'cta.book'))}</a>
           <p class="tiny mt-3" style="color:rgba(244,237,224,0.5)">Indicative pricing. A written quote follows a site survey and confirms plot conditions, access and approvals.</p>
