@@ -132,6 +132,38 @@ function statBlock(stat) {
   </div>`;
 }
 
+/* Auto-advancing image slideshow. Each slide: { src, alt, title, note,
+   eyebrow?, href?, cta? }. `variant: 'solid'` adds its own dark backdrop so the
+   slideshow can sit on a light section. Behaviour lives in app.js. */
+function slideshow({ slides, locale, label, variant, interval }) {
+  const sw = locale === 'sw';
+  const conceptLabel = sw ? 'Picha ya dhana' : 'Concept image';
+  return `<div class="design-slideshow${variant ? ` design-slideshow--${variant}` : ''}" data-slideshow${interval ? ` data-interval="${interval}"` : ''} data-slide-noun="${sw ? 'Slaidi' : 'Slide'}" data-start-label="${sw ? 'Anzisha slaidi' : 'Start slideshow'}" data-stop-label="${sw ? 'Sitisha slaidi' : 'Pause slideshow'}" tabindex="0" role="region" aria-roledescription="carousel" aria-label="${esc(label)}">
+    <div class="design-slideshow__slides">
+      ${slides.map((slide, i) => `<article class="design-slide${i === 0 ? ' is-active' : ''}" data-slide data-label="${esc(slide.title)}" aria-hidden="${i === 0 ? 'false' : 'true'}"${i === 0 ? '' : ' hidden'}>
+        <div class="design-slide__media"><img src="${slide.src}" alt="${esc(slide.alt)}" loading="lazy" decoding="async"></div>
+        <div class="design-slide__body">
+          <span class="concept-image-label">${conceptLabel}</span>
+          ${slide.eyebrow ? `<p class="eyebrow">${esc(slide.eyebrow)}</p>` : ''}
+          <h3>${esc(slide.title)}</h3>
+          <p>${esc(slide.note)}</p>
+          ${slide.href ? `<a class="btn btn--brass" href="${localePath(slide.href, locale)}">${esc(slide.cta || t(locale, 'cta.explore'))} →</a>` : ''}
+        </div>
+      </article>`).join('')}
+    </div>
+    <div class="design-slideshow__controls">
+      <span class="design-slideshow__count" aria-hidden="true"><b data-slideshow-current>01</b> / ${String(slides.length).padStart(2, '0')}</span>
+      <div class="design-slideshow__dots" aria-label="${sw ? 'Chagua slaidi' : 'Choose a slide'}">
+        ${slides.map((slide, i) => `<button class="slideshow-dot${i === 0 ? ' is-active' : ''}" type="button" data-slide-go="${i}" aria-label="${esc(sw ? `Onyesha ${slide.title}` : `Show ${slide.title}`)}" aria-pressed="${i === 0 ? 'true' : 'false'}"></button>`).join('')}
+      </div>
+      <button class="slideshow-button" type="button" data-slideshow-prev aria-label="${sw ? 'Slaidi iliyotangulia' : 'Previous slide'}">←</button>
+      <button class="slideshow-button" type="button" data-slideshow-next aria-label="${sw ? 'Slaidi inayofuata' : 'Next slide'}">→</button>
+      <button class="slideshow-toggle" type="button" data-slideshow-toggle data-play-label="${sw ? 'Cheza' : 'Play'}" data-pause-label="${sw ? 'Sitisha' : 'Pause'}" aria-label="${sw ? 'Sitisha slaidi' : 'Pause slideshow'}">${sw ? 'Sitisha' : 'Pause'}</button>
+    </div>
+    <p class="visually-hidden" data-slideshow-status aria-live="polite"></p>
+  </div>`;
+}
+
 function testimonialCard(item) {
   const stars = '★'.repeat(item.rating) + '☆'.repeat(5 - item.rating);
   return `<figure class="quote-card">
@@ -245,6 +277,6 @@ function timeline(items) {
 
 module.exports = {
   TIER_LABEL, styleName, styleOf, badges, listingCard, styleCard, packageCard,
-  statBlock, testimonialCard, postCard, storeButtons, breadcrumbs,
+  statBlock, slideshow, testimonialCard, postCard, storeButtons, breadcrumbs,
   breadcrumbLd, progressTracker, timeline, minifySvg, tourAssetPath,
 };

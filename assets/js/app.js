@@ -38,7 +38,7 @@
   /* ---------- reveal on scroll ---------- */
 
   function initReveal() {
-    const targets = $$('.section-head, .grid > .card, .app-showcase, .pkg-card, .design-slideshow, .inspiration-card, .product-visual');
+    const targets = $$('.section-head, .grid > .card, .grid > .stat, .grid > .panel, .app-card, .app-showcase, .pkg-card, .design-slideshow, .inspiration-card, .product-visual, .technology-gallery figure, .brand-material-card, .searchbar');
     if (!targets.length) return;
     if (!('IntersectionObserver' in window)) {
       targets.forEach((el) => el.classList.add('reveal', 'is-in'));
@@ -69,6 +69,9 @@
       const dots = $$('[data-slide-go]', slideshow);
       const status = $('[data-slideshow-status]', slideshow);
       const toggle = $('[data-slideshow-toggle]', slideshow);
+      const current = $('[data-slideshow-current]', slideshow);
+      const interval = Number(slideshow.dataset.interval) || 6500;
+      slideshow.style.setProperty('--slide-interval', `${interval}ms`);
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
       let index = Math.max(0, slides.findIndex((slide) => !slide.hidden));
       let paused = reducedMotion.matches;
@@ -92,21 +95,26 @@
           dot.classList.toggle('is-active', i === index);
           dot.setAttribute('aria-pressed', String(i === index));
         });
+        if (current) current.textContent = String(index + 1).padStart(2, '0');
         if (announce && status) status.textContent = `${slideshow.dataset.slideNoun} ${index + 1} / ${slides.length}: ${slides[index].dataset.label}`;
       };
 
       const stopTimer = () => {
         if (timer !== null) window.clearTimeout(timer);
         timer = null;
+        slideshow.classList.remove('is-timing');
       };
 
       const schedule = () => {
         stopTimer();
         if (paused || document.hidden || slideshow.matches(':hover') || slideshow.contains(document.activeElement)) return;
+        // Restart the progress bar on the active dot so it tracks the timer.
+        void slideshow.offsetWidth;
+        slideshow.classList.add('is-timing');
         timer = window.setTimeout(() => {
           show(index + 1, false);
           schedule();
-        }, 6500);
+        }, interval);
       };
 
       const move = (delta) => {
@@ -148,6 +156,69 @@
       setToggle();
       schedule();
     });
+  }
+
+  /* ---------- homepage hero crossfade ---------- */
+
+  function initHeroSlides() {
+    $$('[data-hero-slides]').forEach((root) => {
+      const images = $$('img', root);
+      if (images.length < 2) return;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let index = 0;
+      window.setInterval(() => {
+        if (document.hidden || reducedMotion.matches) return;
+        const prev = images[index];
+        index = (index + 1) % images.length;
+        const next = images[index];
+        prev.classList.remove('is-active');
+        prev.setAttribute('aria-hidden', 'true');
+        next.classList.add('is-active');
+        next.removeAttribute('aria-hidden');
+      }, 5500);
+    });
+  }
+
+  /* ---------- count-up for headline figures ---------- */
+
+  function initCountUp() {
+    const values = $$('.stat__value').filter((el) => /\d/.test(el.textContent));
+    if (!values.length || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const run = (el) => {
+      const text = el.textContent;
+      const match = text.match(/^(\D*)([\d,]+(?:\.\d+)?)(.*)$/);
+      if (!match) return;
+      const [, prefix, raw, suffix] = match;
+      const target = parseFloat(raw.replace(/,/g, ''));
+      const decimals = (raw.split('.')[1] || '').length;
+      const grouped = raw.includes(',');
+      const format = (n) => {
+        const fixed = n.toFixed(decimals);
+        return grouped ? Number(fixed).toLocaleString('en-KE', { minimumFractionDigits: decimals }) : fixed;
+      };
+      const duration = 1400;
+      const start = performance.now();
+      const tick = (now) => {
+        const p = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = `${prefix}${format(target * eased)}${suffix}`;
+        if (p < 1) window.requestAnimationFrame(tick);
+        else el.textContent = text;
+      };
+      window.requestAnimationFrame(tick);
+    };
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          io.unobserve(entry.target);
+          run(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+    values.forEach((el) => io.observe(el));
   }
 
   /* ---------- accessible floor-plan enlargement ---------- */
@@ -1524,6 +1595,8 @@
   function boot() {
     initReveal();
     initSlideshows();
+    initHeroSlides();
+    initCountUp();
     initFloorPlanDialog();
     initProgress();
     initDrawer();

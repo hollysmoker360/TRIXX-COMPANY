@@ -9,7 +9,7 @@ const SITE_IMAGES = require('../lib/site-images');
 const { LISTINGS } = require('../data/listings');
 const art = require('../lib/art');
 const { localePath } = require('../templates/layout');
-const { breadcrumbs, breadcrumbLd, statBlock, storeButtons, listingCard } = require('../templates/components');
+const { breadcrumbs, breadcrumbLd, statBlock, slideshow, storeButtons, listingCard } = require('../templates/components');
 
 function productVisual(app, locale, detail = false) {
   const image = detail ? SITE_IMAGES.appDetails[app.slug] : SITE_IMAGES.apps[app.slug];
@@ -40,6 +40,20 @@ function productsIndex(locale) {
           ${statBlock({ value: '21,000+', label: c(locale, 'products.statGuardians') })}
         </div>
       </div>
+
+      ${slideshow({
+        locale,
+        variant: 'solid',
+        label: locale === 'sw' ? 'App za TRIXX katika maisha ya kila siku' : 'TRIXX apps in everyday life',
+        slides: APPS.map((app) => ({
+          src: SITE_IMAGES.appDetails[app.slug],
+          alt: `Illustrative concept image for ${app.name}`,
+          eyebrow: app.name,
+          title: app.tagline,
+          note: app.description,
+          href: `/products/${app.slug}`,
+        })),
+      })}
 
       ${APPS.map((app, i) => `
       <section class="section${i % 2 === 1 ? ' section--tight' : ''}" id="${app.slug}">
