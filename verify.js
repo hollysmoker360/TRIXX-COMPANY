@@ -151,14 +151,16 @@ for (const file of files) {
   if (rel.endsWith('404.html')) continue; // no canonical address, no alternates
   const en = (html.match(/hreflang="en" href="([^"]+)"/) || [])[1];
   const sw = (html.match(/hreflang="sw" href="([^"]+)"/) || [])[1];
-  if (!en || !sw) {
-    problems.push(`${rel}: missing hreflang alternates`);
+  if (!en) {
+    problems.push(`${rel}: missing English hreflang alternate`);
     continue;
   }
   const enFile = urlToFile(en.replace('https://trixx.co.ke', ''));
-  const swFile = urlToFile(sw.replace('https://trixx.co.ke', ''));
   if (!fs.existsSync(enFile)) problems.push(`${rel}: hreflang en target missing (${en})`);
-  if (!fs.existsSync(swFile)) problems.push(`${rel}: hreflang sw target missing (${sw})`);
+  if (sw) {
+    const swFile = urlToFile(sw.replace('https://trixx.co.ke', ''));
+    if (!fs.existsSync(swFile)) problems.push(`${rel}: hreflang sw target missing (${sw})`);
+  }
 }
 
 console.log(`Checked ${files.length} pages, ${totalLinks} internal links, ${totalLd} JSON-LD blocks.`);

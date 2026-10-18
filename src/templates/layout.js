@@ -101,7 +101,31 @@ function navMarkup(currentPath, locale) {
   }).join('');
 }
 
-function header(currentPath, locale, singleLocale) {
+function header(currentPath, locale, singleLocale, corporate = false) {
+  if (corporate) {
+    const links = [
+      ['Home', '/'],
+      ['About Us', '/about'],
+      ['Our Divisions', '/divisions'],
+      ['Projects & Innovation', '/projects'],
+      ['Leadership', '/leadership'],
+      ['Contact', '/contact'],
+    ];
+    const nav = links.map(([label, href]) => `<a class="corp-nav__link" href="${href}"${currentPath === href ? ' aria-current="page"' : ''}>${label}</a>`).join('');
+    const drawerNav = links.map(([label, href]) => `<a href="${href}"${currentPath === href ? ' aria-current="page"' : ''}>${label}<span aria-hidden="true">→</span></a>`).join('');
+    return `<header class="corp-header">
+  <div class="corp-shell corp-header__inner">
+    <a class="corp-brand" href="/" aria-label="TRIXX Technologies home"><span class="corp-brand__mark" aria-hidden="true">T</span><span><strong>TRIXX</strong><small>TECHNOLOGIES</small></span></a>
+    <nav class="corp-nav" aria-label="Main navigation">${nav}</nav>
+    <a class="corp-button corp-button--header" href="/contact?interest=partnership">Partner with us <span aria-hidden="true">→</span></a>
+    <button class="corp-menu-toggle" type="button" data-drawer-open aria-controls="drawer" aria-expanded="false" aria-label="Open navigation">☰</button>
+  </div>
+</header>
+<div class="corp-drawer" id="drawer" data-open="false" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="corp-drawer__head"><a class="corp-brand" href="/" aria-label="TRIXX Technologies home"><span class="corp-brand__mark" aria-hidden="true">T</span><span><strong>TRIXX</strong><small>TECHNOLOGIES</small></span></a><button class="corp-menu-toggle" type="button" data-drawer-close aria-label="Close navigation">×</button></div>
+  <nav class="corp-drawer__links" aria-label="Mobile navigation">${drawerNav}<a class="corp-drawer__cta" href="/contact?interest=partnership">Partner with us <span aria-hidden="true">→</span></a></nav>
+</div>`;
+  }
   // On a page with no canonical address the language switcher would point at
   // URLs that never exist, so it is replaced with the locale name.
   const langLinks = singleLocale
@@ -173,7 +197,24 @@ function header(currentPath, locale, singleLocale) {
 </div>`;
 }
 
-function footer(locale) {
+function footer(locale, corporate = false) {
+  if (corporate) return `<footer class="corp-footer">
+  <div class="corp-shell">
+    <div class="corp-footer__main">
+      <div class="corp-footer__identity"><a class="corp-brand corp-brand--footer" href="/" aria-label="TRIXX Technologies home"><span class="corp-brand__mark" aria-hidden="true">T</span><span><strong>TRIXX</strong><small>TECHNOLOGIES</small></span></a><p>Developing practical digital solutions across industries and everyday life.</p></div>
+      <div><p class="corp-footer__label">Divisions</p><ul>${[
+        ['Real Estate & Smart Homes', '/divisions/real-estate-smart-homes'],
+        ['EdTech', '/divisions/edtech'],
+        ['Property Management', '/divisions/property-management'],
+        ['AgriTech', '/divisions/agritech'],
+        ['Smart Living & IoT', '/divisions/smart-living-iot'],
+      ].map(([label, href]) => `<li><a href="${href}">${label}</a></li>`).join('')}</ul></div>
+      <div><p class="corp-footer__label">Company</p><ul><li><a href="/about">About Us</a></li><li><a href="/projects">Projects & Innovation</a></li><li><a href="/leadership">Leadership</a></li><li><a href="/contact">Contact</a></li></ul></div>
+      <div><p class="corp-footer__label">Legal</p><ul><li><a href="/legal/privacy">Privacy Policy</a></li><li><a href="/legal/terms">Terms of Use</a></li></ul><p class="corp-footer__pending">Contact details pending verification</p></div>
+    </div>
+    <div class="corp-footer__bottom"><span>© ${new Date().getFullYear()} TRIXX Technologies. All rights reserved.</span><span>Kenya · Building for Africa and beyond</span></div>
+  </div>
+</footer>`;
   const columns = [
     {
       title: t(locale, 'footer.explore'),
@@ -263,11 +304,14 @@ function head(page, locale) {
   const canonical = `${SITE.url}${canonicalPath === '/' ? '/' : canonicalPath + '/'}`;
   // A page with no canonical address (the 404) gets no hreflang pair, since
   // pointing at a URL that never exists would be worse than saying nothing.
-  const alternates = page.noHreflang ? '' : LOCALES.map((l) => {
+  const alternateLocales = page.hreflangLocales || (page.noHreflang ? [] : LOCALES.map((l) => l.code));
+  const alternates = alternateLocales.map((code) => {
+    const l = LOCALES.find((localeItem) => localeItem.code === code);
+    if (!l) return '';
     const alt = swapLocale(page.path, l.code);
     const href = `${SITE.url}${alt === '/' ? '/' : alt + '/'}`;
     return `<link rel="alternate" hreflang="${l.code}" href="${href}">`;
-  }).join('\n  ');
+  }).filter(Boolean).join('\n  ');
 
   const jsonLd = [page.jsonLd].flat().filter(Boolean);
 
@@ -276,9 +320,7 @@ function head(page, locale) {
   <title>${esc(page.title)}</title>
   <meta name="description" content="${esc(page.description)}">
   <link rel="canonical" href="${canonical}">
-  ${page.noindex ? '<meta name="robots" content="noindex, nofollow">' : ''}
-  ${alternates}
-  <meta name="theme-color" content="#101A19">
+${page.noindex ? '  <meta name="robots" content="noindex, nofollow">\n' : ''}${alternates ? `  ${alternates}\n` : ''}  <meta name="theme-color" content="${page.theme === 'corporate' ? '#101B2D' : '#101A19'}">
   <meta property="og:type" content="${page.ogType || 'website'}">
   <meta property="og:site_name" content="${esc(SITE.name)}">
   <meta property="og:title" content="${esc(page.title)}">
@@ -286,14 +328,17 @@ function head(page, locale) {
   <meta property="og:url" content="${canonical}">
   <meta property="og:locale" content="${locale === 'sw' ? 'sw_KE' : 'en_KE'}">
   <meta name="twitter:card" content="summary_large_image">
+  ${page.theme === 'corporate' ? `<meta property="og:image" content="${SITE.url}/assets/img/site-upscaled/Homepage/01_homepage_hero.jpg">
+  <meta property="og:image:alt" content="Illustrative TRIXX Technologies concept image, not a completed project">
+  <meta name="twitter:image" content="${SITE.url}/assets/img/site-upscaled/Homepage/01_homepage_hero.jpg">` : ''}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
+  ${page.theme === 'corporate' ? '<link rel="stylesheet" href="/assets/css/corporate.css">' : ''}
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-  ${page.extraHead || ''}
-  ${jsonLd.map((obj) => `<script type="application/ld+json">${JSON.stringify(obj)}</script>`).join('\n  ')}`;
+${page.extraHead ? `  ${page.extraHead}\n` : ''}${jsonLd.length ? `  ${jsonLd.map((obj) => `<script type="application/ld+json">${JSON.stringify(obj)}</script>`).join('\n  ')}\n` : ''}`;
 }
 
 /* Keep the document outline monotonic: a heading may never jump more than one
@@ -322,12 +367,12 @@ function page(doc) {
 <body data-page="${esc(doc.navKey || '')}" data-locale="${locale}">
   <a class="skip" href="#main">Skip to content</a>
   <div class="scroll-progress" data-progress aria-hidden="true"></div>
-  ${doc.noHreflang ? header(doc.path, locale, true) : header(doc.path, locale)}
+  ${header(doc.path, locale, doc.noHreflang, doc.theme === 'corporate')}
   ${doc.adminBar || ''}
   <main id="main">
 ${normaliseHeadingLevels(doc.body)}
   </main>
-  ${footer(locale)}
+  ${footer(locale, doc.theme === 'corporate')}
   ${doc.mobileBar || ''}
   ${doc.compareBar || ''}
   <script src="/assets/js/app.js" defer></script>

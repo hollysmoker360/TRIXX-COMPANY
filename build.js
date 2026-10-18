@@ -19,8 +19,7 @@ const { favicon, markSvg } = require('./src/lib/brand');
 const art = require('./src/lib/art');
 
 const PAGE_MODULES = [
-  'home', 'collections', 'packages', 'products', 'farm', 'search', 'listings',
-  'tools', 'accounts', 'owner', 'tenant', 'trust', 'legal', 'contact', 'admin', 'system',
+  'company',
 ];
 
 function ensureDir(dir) {
@@ -172,10 +171,13 @@ function writeSitemap(pages) {
     .filter((p) => !p.noindex && !p.noSitemap)
     .map((p) => {
       const loc = `${SITE.url}${p.route === '/' ? '/' : p.route + '/'}`;
-      const alternates = LOCALES.map((l) => {
+      const alternateLocales = p.hreflangLocales || (p.noHreflang ? [] : LOCALES.map((l) => l.code));
+      const alternates = alternateLocales.map((code) => {
+        const l = LOCALES.find((locale) => locale.code === code);
+        if (!l) return '';
         const altPath = l.code === 'en' ? p.path : `/sw${p.path === '/' ? '' : p.path}`;
         return `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${SITE.url}${altPath === '/' ? '/' : altPath + '/'}"/>`;
-      }).join('\n');
+      }).filter(Boolean).join('\n');
       return `  <url>
     <loc>${loc}</loc>
     <lastmod>${today}</lastmod>

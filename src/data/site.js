@@ -10,10 +10,10 @@ const LOCALES = [
 ];
 
 const SITE = {
-  name: 'TRIXX',
-  legalName: 'TRIXX Smart Living Limited',
-  tagline: 'Homes that think, farms that thrive.',
-  description: 'TRIXX builds smart homes and sells, rents and manages property across Kenya — with connected apps for Home, Farm, Rent, Market and School.',
+  name: 'TRIXX Technologies',
+  legalName: 'TRIXX Technologies',
+  tagline: 'Technology that moves life forward.',
+  description: 'TRIXX Technologies is developing practical digital solutions across real estate, education, property management, agriculture and smart living.',
   url: 'https://trixx.co.ke',
   email: 'hello@trixx.co.ke',
   sales: 'sales@trixx.co.ke',
