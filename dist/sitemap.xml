@@ -148,6 +148,13 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/projects/"/>
   </url>
   <url>
+    <loc>https://trixx.co.ke/gated-community/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/gated-community/"/>
+  </url>
+  <url>
     <loc>https://trixx.co.ke/projects/heritage-meets-tomorrow/</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>

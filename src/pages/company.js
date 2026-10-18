@@ -367,6 +367,198 @@ function projectsPage() {
   return pageDocument('/projects', 'Projects & Innovation', 'Verified projects and product development information from TRIXX Technologies.', body);
 }
 
+function gatedCommunityPage() {
+  const body = `
+  <section class="arch-page-intro" style="background: linear-gradient(135deg, rgba(9,16,23,.9), rgba(15,30,41,.75));">
+    <div class="arch-shell" style="display:grid; grid-template-columns: 1.1fr .9fr; gap: 2rem; align-items:center;">
+      <div>
+        <p class="arch-eyebrow">TRIXX Gated Community</p>
+        <h1 style="font-size: clamp(2.8rem, 6vw, 5rem);">More than a home.<br><span style="font-style:italic; color: var(--brand-gold, #d9b66d);">A smarter community.</span></h1>
+        <p style="max-width: 40rem; font-size: 1.25rem;">A premium residential concept that combines architecture, security, landscaped lifestyle spaces and connected technology in one clearly defined estate vision.</p>
+        <div class="arch-home-hero__actions" style="margin-top:1.5rem;">
+          <a class="arch-button arch-button--bronze" href="#master-plan">Explore the master plan <span aria-hidden="true">→</span></a>
+          <a class="arch-button arch-button--line" href="/contact">Register interest</a>
+        </div>
+      </div>
+      <div style="position:relative; min-height: 440px; border-radius: 22px; overflow:hidden; box-shadow: 0 30px 60px rgba(0,0,0,.35);">
+        <img src="${esc(images.gatedCommunityHero)}" alt="Illustrative gated community entrance at dusk, premium villas and landscaped security gates" style="width:100%; height:100%; object-fit:cover; display:block;" fetchpriority="high" decoding="async">
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.4));"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="corp-section corp-section--soft">
+    <div class="corp-shell">
+      <div class="arch-feature-grid" style="grid-template-columns:repeat(5, minmax(0,1fr));">
+        <article class="arch-concept-card" style="padding: 1.4rem;">
+          <p class="arch-eyebrow">Estate size</p>
+          <h3>50–100 homes</h3>
+          <p>Concept target range for a premium smart-living development.</p>
+        </article>
+        <article class="arch-concept-card" style="padding: 1.4rem;">
+          <p class="arch-eyebrow">Location</p>
+          <h3>Kenya</h3>
+          <p>Location to be selected after land and planning review.</p>
+        </article>
+        <article class="arch-concept-card" style="padding: 1.4rem;">
+          <p class="arch-eyebrow">Positioning</p>
+          <h3>Premium</h3>
+          <p>Luxury gated living with smart-home, security and amenity focus.</p>
+        </article>
+        <article class="arch-concept-card" style="padding: 1.4rem;">
+          <p class="arch-eyebrow">Homes</p>
+          <h3>Three collections</h3>
+          <p>Signature villas, horizon homes and courtyard residences.</p>
+        </article>
+        <article class="arch-concept-card" style="padding: 1.4rem;">
+          <p class="arch-eyebrow">Status</p>
+          <h3>Proposed concept</h3>
+          <p>Illustrative master-plan direction only; no approvals or costs confirmed.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="corp-section">
+    <div class="corp-shell corp-about-grid">
+      <div>
+        <p class="corp-kicker">Development vision</p>
+        <h2>Secure, sustainable and beautifully planned.</h2>
+      </div>
+      <div>
+        <p>TRIXX Gated Community is envisioned as a premium residential estate where architecture, security, landscape and intelligent infrastructure work together. The goal is to create a complete living environment rather than just a collection of houses behind a gate.</p>
+        <p>Every element remains clearly labelled as conceptual until a specific site, title status, planning review, engineering design and budget have been confirmed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="corp-section corp-section--soft" id="master-plan">
+    <div class="corp-shell">
+      <div class="arch-heading">
+        <div>
+          <p class="arch-eyebrow">Estate master plan</p>
+          <h2>A layout shaped around living well.</h2>
+        </div>
+      </div>
+      <div class="arch-feature-grid" style="grid-template-columns: repeat(2, minmax(0,1fr));">
+        <article class="arch-concept-card" style="padding: 1.5rem;">
+          <h3>Zone A — Entrances & security</h3>
+          <p>Main gatehouse, visitor bays, secure access controls, perimeter lighting, vehicle control and authorized security monitoring.</p>
+        </article>
+        <article class="arch-concept-card" style="padding: 1.5rem;">
+          <h3>Zone B — Residential clusters</h3>
+          <p>Three neighbourhood clusters of roughly 25 homes each to support phased delivery and clearer residential identity.</p>
+        </article>
+        <article class="arch-concept-card" style="padding: 1.5rem;">
+          <h3>Zone C — Central green</h3>
+          <p>Parks, walking paths, play areas, shaded seating and flexible event lawns preserve a community feeling.</p>
+        </article>
+        <article class="arch-concept-card" style="padding: 1.5rem;">
+          <h3>Zone D — Clubhouse & amenities</h3>
+          <p>Gym, multipurpose lounge, changing rooms, recreation and management office, sized to the final development brief.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="corp-section">
+    <div class="corp-shell">
+      <div class="arch-heading">
+        <div>
+          <p class="arch-eyebrow">Residential offer</p>
+          <h2>Three fitted home directions.</h2>
+        </div>
+      </div>
+      <div class="arch-feature-grid" style="grid-template-columns:repeat(3, minmax(0,1fr));">
+        <article class="arch-concept-card" style="padding:1rem;">
+          <img src="${esc(images.architectureInspiration[0].src)}" alt="Signature villa concept" style="width:100%; height:240px; object-fit:cover; border-radius:16px;" loading="lazy" decoding="async">
+          <div style="padding: 1rem 0 0;">
+            <p class="arch-eyebrow">Type A</p>
+            <h3>Signature Villa</h3>
+            <p>Three bedrooms, private garden and an open-plan living approach designed around family comfort and easy indoor-outdoor living.</p>
+          </div>
+        </article>
+        <article class="arch-concept-card" style="padding:1rem;">
+          <img src="${esc(images.architecture['swahili-coastal'])}" alt="Horizon villa concept" style="width:100%; height:240px; object-fit:cover; border-radius:16px;" loading="lazy" decoding="async">
+          <div style="padding: 1rem 0 0;">
+            <p class="arch-eyebrow">Type B</p>
+            <h3>Horizon Villa</h3>
+            <p>Four-bedroom concept with terraces, upper-level retreat and a modern layered plan for more generous family use.</p>
+          </div>
+        </article>
+        <article class="arch-concept-card" style="padding:1rem;">
+          <img src="${esc(images.architectureInspiration[2].src)}" alt="Courtyard residence concept" style="width:100%; height:240px; object-fit:cover; border-radius:16px;" loading="lazy" decoding="async">
+          <div style="padding: 1rem 0 0;">
+            <p class="arch-eyebrow">Type C</p>
+            <h3>Courtyard Residence</h3>
+            <p>Four or five-bedroom concept offering a private internal courtyard, spacious entertaining rooms and premium smart-home options.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="corp-section corp-section--soft">
+    <div class="corp-shell">
+      <div class="arch-heading">
+        <div>
+          <p class="arch-eyebrow">Smart living</p>
+          <h2>Connected infrastructure designed from the start.</h2>
+        </div>
+      </div>
+      <div class="arch-feature-grid" style="grid-template-columns:repeat(4, minmax(0,1fr));">
+        <article class="arch-concept-card" style="padding:1.2rem;">
+          <h3>Security workflow</h3>
+          <p>Resident credentials, visitor registration, access logs and monitored entry points.</p>
+        </article>
+        <article class="arch-concept-card" style="padding:1.2rem;">
+          <h3>Home automation</h3>
+          <p>Lighting scenes, climate control, access and energy awareness, configured by house type.</p>
+        </article>
+        <article class="arch-concept-card" style="padding:1.2rem;">
+          <h3>Energy & water</h3>
+          <p>Solar-ready homes, utility monitoring, leak alerts and rainwater strategies for selected site conditions.</p>
+        </article>
+        <article class="arch-concept-card" style="padding:1.2rem;">
+          <h3>Resident app</h3>
+          <p>Estate updates, service requests, facility booking and community communication in one digital layer.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="corp-section">
+    <div class="corp-shell corp-about-grid">
+      <div>
+        <p class="corp-kicker">Lifestyle</p>
+        <h2>Community living, not just a gate.</h2>
+      </div>
+      <div>
+        <p>Shared walking paths, a central green, children’s play space, fitness and social venues help turn the estate into a true neighbourhood. These are concept amenities to be validated against the actual site, target demographic and budget.</p>
+        <ul class="focus-list">
+          <li><span>01</span>Landscape trails and community lawns</li>
+          <li><span>02</span>Clubhouse and shared recreation</li>
+          <li><span>03</span>Climate-responsive planting and shaded paths</li>
+          <li><span>04</span>Optional solar carports and EV-ready infrastructure</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="corp-cta">
+    <div class="corp-shell corp-cta__inner">
+      <div>
+        <p class="corp-kicker">TRIXX Gated Community</p>
+        <h2>Concept project showcase.</h2>
+        <p>This is a proposed master-plan concept for a premium smart-living estate. Site, approvals, pricing, engineering and construction details remain unconfirmed.</p>
+      </div>
+      <a class="corp-button corp-button--gold" href="/contact">Express interest <span aria-hidden="true">→</span></a>
+    </div>
+  </section>`;
+
+  return pageDocument('/gated-community', 'TRIXX Gated Community', 'A premium smart-living residential estate concept with gated security, architecture, landscaped communal spaces and connected-home infrastructure.', body);
+}
+
 function heritageBoardPage() {
   const concepts = [
     {
@@ -486,6 +678,7 @@ function companyPages() {
     startProjectPage(),
     partnersPage(),
     projectsPage(),
+    gatedCommunityPage(),
     heritageBoardPage(),
     leadershipPage(),
     contactPage(),

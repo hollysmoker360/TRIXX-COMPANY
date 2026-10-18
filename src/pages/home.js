@@ -81,6 +81,7 @@ function homePage(locale) {
   ].map((slide) => ({ ...slide, eyebrow: locale === 'sw' ? 'Dhana ya usanifu' : 'Design concept' }));
   const heroSlides = [
     { src: SITE_IMAGES.homepageHero, alt: 'Illustrative TRIXX-style home concept, not a completed project' },
+    { src: SITE_IMAGES.designWorkshop, alt: 'Design workshop image showing TRIXX team reviewing sustainable home concepts' },
     { src: SITE_IMAGES.appDetails.home, alt: 'Illustrative smart living interior concept' },
     { src: SITE_IMAGES.brandVision, alt: 'Illustrative TRIXX brand vision concept' },
     { src: SITE_IMAGES.architecture['swahili-coastal'], alt: 'Illustrative Swahili coastal house concept' },

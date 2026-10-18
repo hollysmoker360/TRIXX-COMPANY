@@ -7,6 +7,9 @@ const remote = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w
 module.exports = Object.freeze({
   homepageHero: remote('photo-1512917774080-9991f1c4c750'),
   brandVision: remote('photo-1494526585095-c41746248156'),
+  designWorkshop: remote('photo-1524758631624-e2822e304c36'),
+  gatedCommunityHero: remote('photo-1505693416388-ac5ce068fe85'),
+  gatedCommunityGatehouse: remote('photo-1494526585095-c41746248156'),
   architecture: Object.freeze({
     'swahili-coastal': remote('photo-1505693416388-ac5ce068fe85'),
     victorian: remote('photo-1460317442991-0ec209397118'),
