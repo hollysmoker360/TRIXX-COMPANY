@@ -2,44 +2,45 @@
 
 const root = '/assets/img/site-upscaled';
 const image = (folder, file) => `${root}/${folder}/${file}`;
+const remote = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1600&q=80`;
 
 module.exports = Object.freeze({
-  homepageHero: image('Homepage', '01_homepage_hero.jpg'),
-  brandVision: image('Homepage', '02_brand_vision.jpg'),
+  homepageHero: remote('photo-1512917774080-9991f1c4c750'),
+  brandVision: remote('photo-1494526585095-c41746248156'),
   architecture: Object.freeze({
-    'swahili-coastal': image('Architecture', '03_swahili_coastal.jpg'),
-    victorian: image('Architecture', '04_victorian_georgian.jpg'),
-    contemporary: image('Architecture', '07_contemporary_minimalist.jpg'),
+    'swahili-coastal': remote('photo-1505693416388-ac5ce068fe85'),
+    victorian: remote('photo-1460317442991-0ec209397118'),
+    contemporary: remote('photo-1502672260266-1c1ef2d93688'),
   }),
   architectureInspiration: Object.freeze([
     {
-      src: image('Architecture', '05_mediterranean_moorish.jpg'),
+      src: remote('photo-1600585154340-be6161a56a0c'),
       title: 'Mediterranean and Moorish',
-      alt: 'Mediterranean and Moorish architectural concept image',
+      alt: 'Luxury modern villa exterior inspired by Mediterranean architecture',
     },
     {
-      src: image('Architecture', '06_cape_dutch.jpg'),
+      src: remote('photo-1600607687939-ce8a6c25118c'),
       title: 'Cape Dutch',
-      alt: 'Cape Dutch architectural concept image',
+      alt: 'Contemporary hillside home with glass living spaces',
     },
     {
-      src: image('Architecture', '08_african_inspired.jpg'),
+      src: remote('photo-1512917774080-9991f1c4c750'),
       title: 'African-inspired forms',
-      alt: 'African-inspired architectural concept image',
+      alt: 'Warm-toned contemporary home with courtyard living',
     },
   ]),
   apps: Object.freeze({
-    home: image('Smart_Home', '09_smart_home_control.jpg'),
+    home: remote('photo-1505693416388-ac5ce068fe85'),
     farm: image('Agriculture', '11_smart_agriculture.jpg'),
-    rent: image('Lifestyle', '19_lifestyle_comfort.jpg'),
-    market: image('Real_Estate', '13_luxury_property_showcase.jpg'),
+    rent: remote('photo-1484154218962-a197022b5858'),
+    market: remote('photo-1600573472550-8090b5e0745e'),
     school: image('Education', '15_modern_classroom.jpg'),
   }),
   appDetails: Object.freeze({
-    home: image('Smart_Home', '10_smart_living_interior.jpg'),
+    home: remote('photo-1494526585095-c41746248156'),
     farm: image('Agriculture', '12_sustainable_farming.jpg'),
-    rent: image('Lifestyle', '20_community_living.jpg'),
-    market: image('Real_Estate', '14_interior_living_space.jpg'),
+    rent: remote('photo-1502672260266-1c1ef2d93688'),
+    market: remote('photo-1600607687939-ce8a6c25118c'),
     school: image('Education', '16_online_learning.jpg'),
   }),
   technology: Object.freeze({
