@@ -1606,6 +1606,116 @@
     render();
   }
 
+  /* ---------- architectural concepts and local project briefs ---------- */
+
+  function initArchitectureShowcase() {
+    const search = $('[data-concept-search]');
+    const filter = $('[data-concept-filter]');
+    const cards = $$('[data-concept-card]');
+    const count = $('[data-concept-count]');
+    const empty = $('[data-concept-empty]');
+    const comparePanel = $('[data-concept-compare-panel]');
+    const compareMessage = $('[data-compare-message]');
+
+    if (cards.length) {
+      const updateCollection = () => {
+        const term = (search ? search.value : '').trim().toLowerCase();
+        const tradition = filter ? filter.value : '';
+        let visible = 0;
+        cards.forEach((card) => {
+          const matches = (!term || card.dataset.name.includes(term))
+            && (!tradition || card.dataset.tradition === tradition);
+          card.hidden = !matches;
+          if (matches) visible += 1;
+        });
+        if (count) count.textContent = `${visible} ${visible === 1 ? 'concept study' : 'concept studies'}`;
+        if (empty) empty.hidden = visible > 0;
+      };
+
+      search?.addEventListener('input', updateCollection);
+      filter?.addEventListener('change', updateCollection);
+
+      const updateComparison = () => {
+        const selected = $$('[data-concept-compare]:checked').map((input) => input.value);
+        if (comparePanel) comparePanel.hidden = selected.length < 2;
+        $$('[data-compare-column]').forEach((cell) => {
+          cell.hidden = !selected.includes(cell.dataset.compareColumn);
+        });
+        if (compareMessage) compareMessage.textContent = selected.length
+          ? `${selected.length} concepts selected. Floor area, room dimensions and storeys remain to be confirmed.`
+          : '';
+      };
+
+      $$('[data-concept-compare]').forEach((input) => {
+        input.addEventListener('change', () => {
+          const selected = $$('[data-concept-compare]:checked');
+          if (selected.length > 3) {
+            input.checked = false;
+            if (compareMessage) compareMessage.textContent = 'Compare up to three concepts at a time.';
+            return;
+          }
+          updateComparison();
+        });
+      });
+
+      $('[data-concept-clear]')?.addEventListener('click', () => {
+        $$('[data-concept-compare]').forEach((input) => { input.checked = false; });
+        updateComparison();
+      });
+    }
+
+    $$('[data-print-brochure]').forEach((button) => {
+      button.addEventListener('click', () => window.print());
+    });
+
+    const briefForm = $('[data-project-brief]');
+    if (briefForm) {
+      const prioritiesField = briefForm.querySelector('[name="priorities"]')?.closest('label');
+      prioritiesField?.insertAdjacentHTML('beforebegin', `<fieldset class="arch-choice-group"><legend>Material finishes to explore</legend><label><input type="checkbox" name="finishes" value="Natural stone"><span>Natural stone</span></label><label><input type="checkbox" name="finishes" value="Limewash"><span>Limewash</span></label><label><input type="checkbox" name="finishes" value="Carved timber"><span>Carved timber</span></label><label><input type="checkbox" name="finishes" value="Earth-toned render"><span>Earth-toned render</span></label></fieldset><fieldset class="arch-choice-group"><legend>Smart-home features to discuss</legend><label><input type="checkbox" name="features" value="Lighting and shading"><span>Lighting &amp; shading</span></label><label><input type="checkbox" name="features" value="Climate comfort"><span>Climate comfort</span></label><label><input type="checkbox" name="features" value="Access and security"><span>Access &amp; security</span></label><label><input type="checkbox" name="features" value="Solar and energy monitoring"><span>Solar &amp; energy monitoring</span></label><label><input type="checkbox" name="features" value="Rainwater and water management"><span>Rainwater &amp; water management</span></label></fieldset>`);
+      briefForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!briefForm.reportValidity()) return;
+
+        const values = new FormData(briefForm);
+        const selectedStyle = briefForm.elements.style.selectedOptions[0]?.textContent || 'Open to discussion';
+        const priorities = String(values.get('priorities') || '').trim() || 'Not provided';
+        const brief = [
+          'TRIXX TECHNOLOGIES | EARLY PROJECT BRIEF',
+          'Private local document · not submitted to TRIXX',
+          '',
+          `Plot location or county: ${values.get('location') || 'Not provided'}`,
+          `Approximate house size: ${values.get('size')}`,
+          `Indicative budget range: ${values.get('budget')}`,
+          `Preferred architectural direction: ${selectedStyle}`,
+          `Bedrooms to explore: ${values.get('bedrooms')}`,
+          `Storeys to explore: ${values.get('storeys')}`,
+          `Material finishes to explore: ${values.getAll('finishes').join(', ') || 'Not selected'}`,
+          `Smart-home features to discuss: ${values.getAll('features').join(', ') || 'Not selected'}`,
+          `Priorities: ${priorities}`,
+          '',
+          'This is an early discussion aid, not a design, quotation, project booking, planning document or construction specification.',
+          'All architectural concepts and technology options require project-specific review and professional advice.',
+        ].join('\n');
+
+        const file = new Blob([brief], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(file);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'trixx-early-project-brief.txt';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+
+        const message = $('[data-brief-message]', briefForm);
+        if (message) {
+          message.hidden = false;
+          message.textContent = 'Your brief was created on this device. It has not been sent to TRIXX.';
+        }
+      });
+    }
+  }
+
   /* ---------- boot ---------- */
 
   function boot() {
@@ -1625,6 +1735,7 @@
     initSavings();
     initBooking();
     initAdmin();
+    initArchitectureShowcase();
   }
 
   if (document.readyState === 'loading') {

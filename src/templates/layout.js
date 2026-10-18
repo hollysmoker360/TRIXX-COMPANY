@@ -105,11 +105,11 @@ function header(currentPath, locale, singleLocale, corporate = false) {
   if (corporate) {
     const links = [
       ['Home', '/'],
-      ['About Us', '/about'],
-      ['Our Divisions', '/divisions'],
-      ['Projects & Innovation', '/projects'],
-      ['Leadership', '/leadership'],
-      ['Contact', '/contact'],
+      ['House Concepts', '/house-concepts'],
+      ['Smart Living', '/smart-living'],
+      ['Sustainability', '/sustainability'],
+      ['Portfolio & Journal', '/projects'],
+      ['Partners', '/partners'],
     ];
     const nav = links.map(([label, href]) => `<a class="corp-nav__link" href="${href}"${currentPath === href ? ' aria-current="page"' : ''}>${label}</a>`).join('');
     const drawerNav = links.map(([label, href]) => `<a href="${href}"${currentPath === href ? ' aria-current="page"' : ''}>${label}<span aria-hidden="true">→</span></a>`).join('');
@@ -117,13 +117,13 @@ function header(currentPath, locale, singleLocale, corporate = false) {
   <div class="corp-shell corp-header__inner">
     <a class="corp-brand" href="/" aria-label="TRIXX Technologies home"><span class="corp-brand__mark" aria-hidden="true">T</span><span><strong>TRIXX</strong><small>TECHNOLOGIES</small></span></a>
     <nav class="corp-nav" aria-label="Main navigation">${nav}</nav>
-    <a class="corp-button corp-button--header" href="/contact?interest=partnership">Partner with us <span aria-hidden="true">→</span></a>
+    <a class="corp-button corp-button--header" href="/start-project">Discuss your project <span aria-hidden="true">→</span></a>
     <button class="corp-menu-toggle" type="button" data-drawer-open aria-controls="drawer" aria-expanded="false" aria-label="Open navigation">☰</button>
   </div>
 </header>
 <div class="corp-drawer" id="drawer" data-open="false" role="dialog" aria-modal="true" aria-label="Navigation menu">
   <div class="corp-drawer__head"><a class="corp-brand" href="/" aria-label="TRIXX Technologies home"><span class="corp-brand__mark" aria-hidden="true">T</span><span><strong>TRIXX</strong><small>TECHNOLOGIES</small></span></a><button class="corp-menu-toggle" type="button" data-drawer-close aria-label="Close navigation">×</button></div>
-  <nav class="corp-drawer__links" aria-label="Mobile navigation">${drawerNav}<a class="corp-drawer__cta" href="/contact?interest=partnership">Partner with us <span aria-hidden="true">→</span></a></nav>
+  <nav class="corp-drawer__links" aria-label="Mobile navigation">${drawerNav}<a href="/about">About TRIXX<span aria-hidden="true">→</span></a><a href="/leadership">Leadership<span aria-hidden="true">→</span></a><a href="/contact">Contact<span aria-hidden="true">→</span></a><a class="corp-drawer__cta" href="/start-project">Discuss your project <span aria-hidden="true">→</span></a></nav>
 </div>`;
   }
   // On a page with no canonical address the language switcher would point at
@@ -209,8 +209,8 @@ function footer(locale, corporate = false) {
         ['AgriTech', '/divisions/agritech'],
         ['Smart Living & IoT', '/divisions/smart-living-iot'],
       ].map(([label, href]) => `<li><a href="${href}">${label}</a></li>`).join('')}</ul></div>
-      <div><p class="corp-footer__label">Company</p><ul><li><a href="/about">About Us</a></li><li><a href="/projects">Projects & Innovation</a></li><li><a href="/leadership">Leadership</a></li><li><a href="/contact">Contact</a></li></ul></div>
-      <div><p class="corp-footer__label">Legal</p><ul><li><a href="/legal/privacy">Privacy Policy</a></li><li><a href="/legal/terms">Terms of Use</a></li></ul><p class="corp-footer__pending">Contact details pending verification</p></div>
+      <div><p class="corp-footer__label">Explore</p><ul><li><a href="/house-concepts">House Concepts</a></li><li><a href="/smart-living">Smart Living</a></li><li><a href="/sustainability">Sustainability</a></li><li><a href="/projects">Portfolio & Journal</a></li><li><a href="/partners">Partners</a></li><li><a href="/divisions">Five Business Divisions</a></li><li><a href="/about">About Us</a></li><li><a href="/leadership">Leadership</a></li></ul></div>
+      <div><p class="corp-footer__label">Connect</p><ul><li><a href="/start-project">Discuss a project</a></li><li><a href="/contact">Contact</a></li><li><a href="/divisions">Business divisions</a></li><li><a href="/legal/privacy">Privacy Policy</a></li><li><a href="/legal/terms">Terms of Use</a></li></ul><p class="corp-footer__pending">Contact details pending verification</p></div>
     </div>
     <div class="corp-footer__bottom"><span>© ${new Date().getFullYear()} TRIXX Technologies. All rights reserved.</span><span>Kenya · Building for Africa and beyond</span></div>
   </div>

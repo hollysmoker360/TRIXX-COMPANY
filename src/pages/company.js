@@ -78,6 +78,69 @@ const VALUES = [
   'Responsible growth',
 ];
 
+const HOUSE_CONCEPTS = [
+  {
+    slug: 'moorish-smart-palace',
+    name: 'The Moorish Smart Palace',
+    tradition: 'Moorish',
+    image: images.architectureInspiration[0].src,
+    alt: 'Illustrative Moorish-inspired courtyard house with arches and geometric detail',
+    story: 'Horseshoe arches, carved timber and a central courtyard create an inward-facing home shaped by shade, water and patterned light.',
+    materials: ['Lime plaster', 'Carved timber', 'Patterned stone'],
+    features: ['Courtyard light scenes', 'Automated privacy screens', 'Smart-glass study'],
+  },
+  {
+    slug: 'swahili-coastal-residence',
+    name: 'The Swahili Coastal Residence',
+    tradition: 'Swahili',
+    image: images.architecture['swahili-coastal'],
+    alt: 'Illustrative Swahili coastal residence with shaded verandas and a planted courtyard',
+    story: 'Carved doors, deep verandas and a protected courtyard reinterpret coastal privacy and passive airflow for contemporary family life.',
+    materials: ['Coral-stone palette', 'Carved timber', 'Limewash'],
+    features: ['Humidity monitoring', 'Rainwater planning', 'Remote security concept'],
+  },
+  {
+    slug: 'african-earth-house',
+    name: 'The African Earth House',
+    tradition: 'African Vernacular',
+    image: images.architectureInspiration[2].src,
+    alt: 'Illustrative African-inspired home concept with earth-toned finishes and deep roof shade',
+    story: 'Earth-toned walls, local pattern references and generous overhangs ground the home in its landscape and climate.',
+    materials: ['Earth-toned render', 'Natural stone', 'Locally sourced timber'],
+    features: ['Passive cooling study', 'Solar microgrid concept', 'Greywater reuse planning'],
+  },
+  {
+    slug: 'mediterranean-estate',
+    name: 'The Mediterranean Estate',
+    tradition: 'Mediterranean',
+    image: images.apps.market,
+    alt: 'Illustrative luxury villa concept with a warm stone palette and indoor-outdoor living',
+    story: 'Stone façades, loggias and shaded terraces frame a relaxed relationship between interior rooms and outdoor living.',
+    materials: ['Natural stone', 'Clay-toned roof', 'Bronze-finish metalwork'],
+    features: ['Zoned climate concept', 'Occupancy-based lighting', 'Solar-readiness study'],
+  },
+  {
+    slug: 'modern-haveli',
+    name: 'The Modern Haveli',
+    tradition: 'Haveli',
+    image: images.appDetails.home,
+    alt: 'Illustrative warm interior concept suggesting a layered courtyard home',
+    story: 'Layered courtyards, carved screens and shaded balconies create a sequence from shared spaces to quiet private rooms.',
+    materials: ['Carved screenwork', 'Ornamental stone', 'Warm hardwood'],
+    features: ['Private access zones', 'Scene-based lighting', 'Water-use monitoring concept'],
+  },
+  {
+    slug: 'neo-gothic-tech-manor',
+    name: 'The Neo-Gothic Tech Manor',
+    tradition: 'Gothic Revival',
+    image: images.architecture.victorian,
+    alt: 'Illustrative heritage manor concept with tall windows and detailed masonry',
+    story: 'Pointed forms, tall openings and expressive masonry are balanced with a calm, efficient contemporary interior.',
+    materials: ['Textured masonry', 'Lead-free metal detailing', 'High-performance glazing concept'],
+    features: ['Electrochromic glazing study', 'Zoned environmental control', 'Discreet security concept'],
+  },
+];
+
 function photo(src, alt, className = '') {
   return `<figure class="corp-photo ${className}">
     <img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async">
@@ -115,60 +178,39 @@ function divisionCard(division) {
   </article>`;
 }
 
+function conceptCard(concept) {
+  return `<article class="arch-concept-card">
+    <a href="/house-concepts/${concept.slug}" class="arch-concept-card__image" aria-label="Explore ${esc(concept.name)}">
+      <img src="${esc(concept.image)}" alt="${esc(concept.alt)}" loading="lazy" decoding="async">
+      <span>Concept · not a completed project</span>
+    </a>
+    <div class="arch-concept-card__copy"><p class="arch-eyebrow">${esc(concept.tradition)}</p><h3><a href="/house-concepts/${concept.slug}">${esc(concept.name)}</a></h3><p>${esc(concept.story)}</p><a class="arch-inline-link" href="/house-concepts/${concept.slug}">Explore design <span aria-hidden="true">→</span></a></div>
+  </article>`;
+}
+
 function homePage() {
   const body = `
-  <section class="corp-hero">
-    <img class="corp-hero__image" src="${esc(images.homepageHero)}" alt="Illustrative technology and living concept image, not a completed TRIXX project" fetchpriority="high" decoding="async">
-    <div class="corp-hero__veil"></div>
-    <div class="corp-shell corp-hero__content">
-      <p class="corp-kicker">TRIXX Technologies · Kenya</p>
-      <h1>Technology that moves life forward.</h1>
-      <p>We develop practical digital solutions across real estate, education, property management, agriculture and smart living.</p>
-      <div class="corp-actions">
-        <a class="corp-button corp-button--gold" href="/divisions">Explore our divisions <span aria-hidden="true">→</span></a>
-        <a class="corp-button corp-button--light" href="/contact?interest=partnership">Partner with us</a>
-      </div>
-      <span class="corp-hero__caption">Illustrative concept image · not a completed TRIXX project</span>
-    </div>
+  <section class="arch-home-hero">
+    <img class="arch-home-hero__image" src="${esc(images.apps.market)}" alt="Illustrative luxury heritage villa at dusk with arches, warm interior lighting and a courtyard pool; concept render, not a completed TRIXX project" fetchpriority="high" decoding="async">
+    <div class="arch-home-hero__overlay"></div>
+    <div class="arch-home-hero__brand"><span class="arch-brand-mark" aria-hidden="true">T</span><span><strong>TRIXX</strong><small>HERITAGE · TECHNOLOGY · LIVING</small></span></div>
+    <div class="arch-home-hero__copy"><p class="arch-eyebrow">Architecture, rooted in place</p><h1>Heritage<br>meets <em>tomorrow.</em></h1><p>Timeless homes shaped by cultural identity and quietly intelligent living.</p><div class="arch-home-hero__actions"><a class="arch-button arch-button--bronze" href="/house-concepts">Explore house concepts <span aria-hidden="true">→</span></a><a class="arch-button arch-button--line" href="/start-project">Discuss your project</a></div></div>
+    <span class="arch-home-hero__disclaimer">Architectural concept render · not a completed TRIXX project</span>
   </section>
 
-  <section class="corp-section corp-intro">
-    <div class="corp-shell corp-intro__grid">
-      <p class="corp-kicker">One company, shared purpose</p>
-      <div><h2>One vision. Multiple industries. Practical innovation.</h2>
-      <p>TRIXX Technologies is a parent company developing specialized solutions for different industries, guided by usability, responsible innovation, reliability and long-term value.</p></div>
-    </div>
-  </section>
+  <section class="arch-manifesto"><div class="arch-shell arch-manifesto__inner"><p class="arch-eyebrow">A modern heritage practice</p><h2>Culture gives a home its character.<br><span>Technology gives it another way to care.</span></h2><p>TRIXX explores residential concepts where courtyards, crafted materials and climate-aware design meet thoughtful ideas for comfort, security and resource use.</p></div></section>
 
-  <section class="corp-section corp-section--soft" id="divisions">
-    <div class="corp-shell">
-      <div class="corp-section-heading"><div><p class="corp-kicker">Our divisions</p><h2>Focused on everyday challenges.</h2></div><a class="corp-text-link" href="/divisions">View all divisions <span aria-hidden="true">→</span></a></div>
-      <div class="division-grid">${DIVISIONS.map(divisionCard).join('')}</div>
-    </div>
-  </section>
+  <section class="arch-home-collection"><div class="arch-shell"><div class="arch-heading"><div><p class="arch-eyebrow">The house concepts</p><h2>Many traditions.<br>A distinctly TRIXX point of view.</h2></div><a class="arch-inline-link" href="/house-concepts">View the collection <span aria-hidden="true">→</span></a></div><div class="arch-feature-grid">${HOUSE_CONCEPTS.slice(0, 3).map(conceptCard).join('')}</div></div></section>
 
-  <section class="corp-section corp-approach">
-    <div class="corp-shell">
-      <div class="corp-section-heading"><div><p class="corp-kicker">Our approach</p><h2>Built around real-world problems.</h2></div><p>We aim to build carefully, learn from the people who use our solutions, and grow only when the work is ready.</p></div>
-      <ol class="approach-list"><li><span>01</span><h3>Understand</h3><p>Listen to customers and define the problem.</p></li><li><span>02</span><h3>Design</h3><p>Shape a practical solution around real needs.</p></li><li><span>03</span><h3>Build and test</h3><p>Develop the product and check how it works.</p></li><li><span>04</span><h3>Learn</h3><p>Collect feedback and improve thoughtfully.</p></li><li><span>05</span><h3>Grow responsibly</h3><p>Scale when the solution and its support are ready.</p></li></ol>
-    </div>
-  </section>
+  <section class="arch-home-tech"><div class="arch-home-tech__image"><img src="${esc(images.apps.home)}" alt="Illustrative smart-home control concept alongside a heritage-inspired interior" loading="lazy" decoding="async"><span>Technology shown for concept illustration only</span></div><div class="arch-home-tech__copy"><p class="arch-eyebrow">Smart living, quietly integrated</p><h2>More comfort.<br>Less visual noise.</h2><p>Lighting, access, climate and energy concepts designed to support the architecture rather than compete with it.</p><ul><li>Thoughtful lighting and shading</li><li>Comfort and climate zones</li><li>Energy and water awareness</li><li>Security with discreet control</li></ul><a class="arch-inline-link" href="/smart-living">Explore smart living <span aria-hidden="true">→</span></a></div></section>
 
-  <section class="corp-section corp-projects-preview">
-    <div class="corp-shell corp-projects-preview__grid">
-      ${photo(images.technology.innovation, 'Illustrative image representing research and technology development')}
-      <div><p class="corp-kicker">Projects & innovation</p><h2>Ideas develop through evidence.</h2><p>We will share verified concepts, prototypes and products as their status is confirmed. No completed projects are presented here without approved project information.</p><a class="corp-text-link" href="/projects">Explore projects & innovation <span aria-hidden="true">→</span></a></div>
-    </div>
-  </section>
+  <section class="arch-home-sustainability"><div class="arch-shell arch-sustain-grid"><figure><img src="${esc(images.technology.innovation)}" alt="Illustrative architectural study representing passive design and environmental research" loading="lazy" decoding="async"><figcaption>Concept illustration · performance requires project-specific assessment</figcaption></figure><div><p class="arch-eyebrow">Designed with the climate in mind</p><h2>Comfort starts<br>before the switch.</h2><p>Orientation, shade, daylight, ventilation and material choices form the first layer. Renewable energy and water systems can be considered as part of a project-specific design.</p><a class="arch-inline-link" href="/sustainability">Our sustainability approach <span aria-hidden="true">→</span></a></div></div></section>
 
-  <section class="corp-section corp-leader-preview">
-    <div class="corp-shell corp-leader-preview__grid"><div class="corp-avatar" role="img" aria-label="Initials placeholder for Francesc's approved portrait">F</div>
-      <div><p class="corp-kicker">Leadership</p><h2>Francesc</h2><p class="corp-leader-preview__title">Founder & CEO, TRIXX Technologies</p><p>His leadership focuses on building a technology company developing solutions across real estate, education, property management, agriculture and smart living.</p><a class="corp-text-link" href="/leadership">Meet our founder <span aria-hidden="true">→</span></a><p class="corp-note">Portrait pending approval. This initials placeholder is not a photograph.</p></div></div>
-  </section>
+  <section class="arch-home-process"><div class="arch-shell"><div class="arch-heading"><div><p class="arch-eyebrow">From first thought to project brief</p><h2>A clear path to a considered home.</h2></div><a class="arch-inline-link" href="/start-project">Start a project brief <span aria-hidden="true">→</span></a></div><ol><li><span>01</span><h3>Discovery</h3><p>Plot, people, priorities.</p></li><li><span>02</span><h3>Concept</h3><p>Architectural direction and spatial ideas.</p></li><li><span>03</span><h3>Technical consultation</h3><p>Materials, systems and specialist input.</p></li><li><span>04</span><h3>Budget & approvals</h3><p>Scope, cost planning and required professionals.</p></li><li><span>05</span><h3>Construction planning</h3><p>Next steps defined with qualified partners.</p></li></ol><p class="arch-process-note">Professional architectural, engineering, quantity surveying, approval and construction services depend on confirmed appointments and applicable licensing.</p></div></section>
 
-  <section class="corp-cta"><div class="corp-shell corp-cta__inner"><div><p class="corp-kicker">Start a conversation</p><h2>Let’s build something meaningful.</h2><p>Have a project, business challenge or partnership opportunity? Connect with TRIXX Technologies to start a conversation.</p></div><a class="corp-button corp-button--gold" href="/contact">Contact our team <span aria-hidden="true">→</span></a></div></section>`;
+  <section class="arch-home-cta"><div class="arch-shell"><p class="arch-eyebrow">A home with its own point of view</p><h2>Let’s begin with the place,<br>the people and the possibility.</h2><a class="arch-button arch-button--bronze" href="/start-project">Discuss your project <span aria-hidden="true">→</span></a></div></section>`;
 
-  return pageDocument('/', 'Technology that moves life forward', SITE.description, body);
+  return pageDocument('/', 'Heritage-Inspired Homes & Smart Living', 'Discover TRIXX heritage-inspired house concepts, intelligent living ideas and a considered approach to residential design.', body);
 }
 
 function aboutPage() {
@@ -196,9 +238,76 @@ function divisionPage(division) {
   return pageDocument(`/divisions/${division.slug}`, division.name, division.description, body);
 }
 
+function houseConceptsPage() {
+  const cards = HOUSE_CONCEPTS.map((concept) => `<article class="arch-concept-card arch-concept-card--collection" data-concept-card data-tradition="${esc(concept.tradition.toLowerCase())}" data-name="${esc(`${concept.name} ${concept.tradition}`.toLowerCase())}">
+    <a href="/house-concepts/${concept.slug}" class="arch-concept-card__image" aria-label="Explore ${esc(concept.name)}"><img src="${esc(concept.image)}" alt="${esc(concept.alt)}" loading="lazy" decoding="async"><span>Concept study</span></a>
+    <div class="arch-concept-card__copy"><p class="arch-eyebrow">${esc(concept.tradition)}</p><h2><a href="/house-concepts/${concept.slug}">${esc(concept.name)}</a></h2><p>${esc(concept.story)}</p><ul class="arch-card-specs"><li>Floor area <span>To be developed</span></li><li>Bedrooms <span>Concept brief</span></li><li>Storeys <span>Concept brief</span></li></ul><a class="arch-inline-link" href="/house-concepts/${concept.slug}">View concept <span aria-hidden="true">→</span></a></div>
+    <label class="arch-compare"><input type="checkbox" value="${concept.slug}" data-concept-compare> Add to comparison</label>
+  </article>`).join('');
+  const body = `<section class="arch-page-intro"><div class="arch-shell"><p class="arch-eyebrow">TRIXX · The heritage collection</p><h1>Homes with a sense of place.</h1><p>Explore architectural directions that bring historical character into conversation with modern comfort and considered technology.</p><span class="arch-concept-disclaimer">All designs are conceptual studies. No floor areas, room dimensions, build specifications or performance outcomes are confirmed.</span></div></section>
+  <section class="arch-collection"><div class="arch-shell"><div class="arch-collection-toolbar"><label class="arch-search"><span>Search concepts</span><input type="search" placeholder="Search by style or name" data-concept-search></label><label class="arch-filter"><span>Tradition</span><select data-concept-filter><option value="">All traditions</option>${[...new Set(HOUSE_CONCEPTS.map((item) => item.tradition))].map((item) => `<option value="${esc(item.toLowerCase())}">${esc(item)}</option>`).join('')}</select></label><p data-concept-count aria-live="polite">${HOUSE_CONCEPTS.length} concept studies</p></div><div class="arch-collection-grid">${cards}</div><p class="arch-empty" data-concept-empty hidden>No concepts match those filters.</p><section class="arch-compare-panel" data-concept-compare-panel hidden><div class="arch-compare-panel__heading"><div><p class="arch-eyebrow">Compare directions</p><h2>Compare selected concepts</h2></div><button class="arch-compare-clear" type="button" data-concept-clear>Clear selection</button></div><p class="arch-compare-message" data-compare-message role="status" aria-live="polite"></p><div class="arch-compare-table-wrap"><table class="arch-compare-table"><thead><tr><th scope="col">Design attribute</th>${HOUSE_CONCEPTS.map((item) => `<th scope="col" data-compare-column="${item.slug}" hidden>${esc(item.name)}</th>`).join('')}</tr></thead><tbody><tr><th scope="row">Architectural tradition</th>${HOUSE_CONCEPTS.map((item) => `<td data-compare-column="${item.slug}" hidden>${esc(item.tradition)}</td>`).join('')}</tr><tr><th scope="row">Character</th>${HOUSE_CONCEPTS.map((item) => `<td data-compare-column="${item.slug}" hidden>${esc(item.story)}</td>`).join('')}</tr><tr><th scope="row">Materials</th>${HOUSE_CONCEPTS.map((item) => `<td data-compare-column="${item.slug}" hidden>${item.materials.map(esc).join(', ')}</td>`).join('')}</tr><tr><th scope="row">Indicative floor area</th>${HOUSE_CONCEPTS.map((item) => `<td data-compare-column="${item.slug}" hidden>To be confirmed during concept development</td>`).join('')}</tr><tr><th scope="row">Rooms and storeys</th>${HOUSE_CONCEPTS.map((item) => `<td data-compare-column="${item.slug}" hidden>To be defined with the project brief</td>`).join('')}</tr></tbody></table></div><p class="arch-compare-note">Comparison is conceptual. Project dimensions and specifications require design development and professional review.</p></section></div></section>
+  <section class="arch-home-cta"><div class="arch-shell"><p class="arch-eyebrow">Start with your place</p><h2>Find the architectural direction<br>that feels like yours.</h2><a class="arch-button arch-button--bronze" href="/start-project">Prepare a project brief <span aria-hidden="true">→</span></a></div></section>`;
+  return pageDocument('/house-concepts', 'House Concepts', 'Explore TRIXX heritage-inspired house concepts, architectural traditions, materials and intelligent living ideas.', body);
+}
+
+function houseConceptPage(concept) {
+  const materials = concept.materials.map((item) => `<li>${esc(item)}</li>`).join('');
+  const features = concept.features.map((item) => `<li>${esc(item)}<span>Concept direction</span></li>`).join('');
+  const related = HOUSE_CONCEPTS.filter((item) => item.slug !== concept.slug).slice(0, 3);
+  const body = `<section class="arch-detail-hero"><img src="${esc(concept.image)}" alt="${esc(concept.alt)}" fetchpriority="high" decoding="async"><div class="arch-detail-hero__shade"></div><div class="arch-shell arch-detail-hero__copy"><a class="arch-back" href="/house-concepts">← All house concepts</a><p class="arch-eyebrow">${esc(concept.tradition)} · Design study</p><h1>${esc(concept.name)}</h1><p>${esc(concept.story)}</p><span class="arch-concept-disclaimer">Illustrative concept · not a completed TRIXX project</span></div></section>
+  <section class="arch-detail-body"><div class="arch-shell"><div class="arch-detail-actions"><div><p class="arch-eyebrow">The design story</p><h2>Character that carries through every room.</h2><p>This direction explores how a historical architectural language can inform proportion, shade, material and movement through the home. Details shown here are design intentions, not confirmed construction specifications.</p></div><button class="arch-button arch-button--dark" type="button" data-print-brochure>Print / save concept sheet</button></div>
+  <div class="arch-detail-grid"><section class="arch-detail-panel"><p class="arch-eyebrow">Material palette</p><h2>Texture, tone, craft.</h2><ul class="arch-detail-list">${materials}</ul><p class="arch-detail-note">Material selections depend on site, availability, suitability and professional review.</p></section><section class="arch-detail-panel"><p class="arch-eyebrow">Signature features</p><h2>Intelligence, in context.</h2><ul class="arch-detail-features">${features}</ul><p class="arch-detail-note">Compatibility and implementation are not confirmed; these are technology concepts for discussion.</p></section></div>
+  <section class="arch-floorplan"><div class="arch-floorplan__intro"><p class="arch-eyebrow">Spatial study</p><h2>A home plan begins with the way you live.</h2><p>This schematic illustrates possible room relationships only. It is not dimensioned, not to scale and not suitable for construction or approvals.</p><div class="arch-floorplan__status">Conceptual floor plan · dimensions pending design</div></div><div class="arch-floorplan__drawing" role="img" aria-label="Schematic conceptual floor plan showing living, dining, kitchen, courtyard, bedrooms and service rooms; not to scale"><div class="arch-room arch-room--living">Living</div><div class="arch-room arch-room--dining">Dining</div><div class="arch-room arch-room--kitchen">Kitchen</div><div class="arch-room arch-room--court">Courtyard</div><div class="arch-room arch-room--bed1">Bedroom</div><div class="arch-room arch-room--bed2">Bedroom</div><div class="arch-room arch-room--bath">Bath</div><div class="arch-room arch-room--service">Service</div></div></section>
+  <section class="arch-project-brief-cta"><div><p class="arch-eyebrow">Make it your own</p><h2>Bring your plot, priorities and questions.</h2><p>Prepare a private project brief with your preferred style and requirements. It is generated on your device and is not sent to TRIXX.</p></div><a class="arch-button arch-button--bronze" href="/start-project?style=${concept.slug}">Create a project brief <span aria-hidden="true">→</span></a></section></div></section>
+  <section class="arch-related"><div class="arch-shell"><div class="arch-heading"><div><p class="arch-eyebrow">More from the collection</p><h2>Other architectural directions</h2></div></div><div class="arch-feature-grid">${related.map(conceptCard).join('')}</div></div></section>`;
+  return pageDocument(`/house-concepts/${concept.slug}`, concept.name, `${concept.story} Explore materials, signature features and a clearly labelled schematic concept plan.`, body);
+}
+
+function smartLivingPage() {
+  const systems = [
+    ['Lighting & scenes', 'Layered, automated lighting concepts that respond to time of day, activity and user preference.', images.apps.home, 'Illustrative home lighting control concept'],
+    ['Access & security', 'A considered approach to entry, privacy, alerts and remote access. Specific devices and integrations require confirmation.', images.technology.infrastructure, 'Illustrative connected technology infrastructure'],
+    ['Climate & comfort', 'Explore passive design first, then consider zoned climate control and automated shading where appropriate.', images.appDetails.home, 'Illustrative contemporary connected living interior'],
+    ['Energy & water', 'Solar, battery storage, energy monitoring, rainwater and smart metering as options for project-specific evaluation.', images.apps.farm, 'Illustrative smart resource management concept'],
+  ];
+  const cards = systems.map(([title, description, src, alt]) => `<article class="arch-tech-card"><img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async"><div><span class="arch-tech-label">Technology direction · not a live product</span><h2>${esc(title)}</h2><p>${esc(description)}</p></div></article>`).join('');
+  const body = `<section class="arch-page-intro"><div class="arch-shell"><p class="arch-eyebrow">Smart Living</p><h1>Intelligence that respects the architecture.</h1><p>Showcasing ideas for security, comfort and resource awareness without turning the TRIXX website into a device-control dashboard.</p><span class="arch-concept-disclaimer">All capabilities below are design and development directions. Availability and compatibility have not been verified.</span></div></section><section class="arch-tech-grid-section"><div class="arch-shell arch-tech-grid">${cards}</div></section><section class="arch-tech-principles"><div class="arch-shell"><p class="arch-eyebrow">Design principles</p><div class="arch-tech-principles__grid"><article><h2>Useful before impressive</h2><p>Every proposed system should answer a real comfort, safety or resource need.</p></article><article><h2>Secure by design</h2><p>Access, connectivity, updates and privacy need review before a system is specified.</p></article><article><h2>People stay in control</h2><p>Automation should be understandable, adjustable and able to fail gracefully.</p></article></div></div></section><section class="arch-home-cta"><div class="arch-shell"><p class="arch-eyebrow">Explore architecture with intelligence</p><h2>Technology should belong<br>to the life of the home.</h2><a class="arch-button arch-button--bronze" href="/start-project">Discuss a project <span aria-hidden="true">→</span></a></div></section>`;
+  return pageDocument('/smart-living', 'Smart Living', 'Explore TRIXX smart-home technology directions for lighting, access, climate, energy and water.', body);
+}
+
+function sustainabilityPage() {
+  const strategies = [
+    ['Shade & orientation', 'Study site orientation, roof overhangs, verandas and screened openings to manage direct sun and create comfortable transitions.'],
+    ['Natural ventilation', 'Consider cross-ventilation, high-level openings and courtyard effects alongside site conditions and specialist input.'],
+    ['Daylight & material', 'Use room placement, controlled daylight and suitable material choices to shape a comfortable interior environment.'],
+    ['Energy & water options', 'Evaluate solar generation, storage, rainwater capture, metering and reuse according to site feasibility and professional design.'],
+  ];
+  const body = `<section class="arch-page-intro"><div class="arch-shell"><p class="arch-eyebrow">Sustainability</p><h1>Better performance begins with thoughtful design.</h1><p>We explore passive strategies and responsible material and resource choices before discussing technology options.</p><span class="arch-concept-disclaimer">No measured energy, water, cost or comfort performance is claimed. Outcomes require project-specific calculations and evidence.</span></div></section><section class="arch-sustainability"><div class="arch-shell"><figure class="arch-sustainability__image"><img src="${esc(images.technology.innovation)}" alt="Illustrative architectural research concept representing passive design and resource-conscious planning" fetchpriority="high" decoding="async"><figcaption>Illustrative image · no measured project performance represented</figcaption></figure><div class="arch-strategy-grid">${strategies.map(([title, description], index) => `<article><span>0${index + 1}</span><h2>${esc(title)}</h2><p>${esc(description)}</p></article>`).join('')}</div></div></section><section class="arch-sustainability-note"><div class="arch-shell"><p class="arch-eyebrow">Evidence before claims</p><h2>Climate response is specific to its site.</h2><p>Local climate, orientation, materials, occupancy, construction quality and system performance all matter. TRIXX will publish measured results only when supported by verified project data or clearly stated calculations.</p><a class="arch-inline-link" href="/house-concepts">Explore the house concepts <span aria-hidden="true">→</span></a></div></section>`;
+  return pageDocument('/sustainability', 'Sustainability', 'Explore passive design, climate response, material choices and renewable energy options without unsupported performance claims.', body);
+}
+
+function startProjectPage() {
+  const styleOptions = HOUSE_CONCEPTS.map((concept) => `<option value="${concept.slug}">${esc(concept.name)}</option>`).join('');
+  const body = `<section class="arch-page-intro"><div class="arch-shell"><p class="arch-eyebrow">Start a project</p><h1>A considered home begins with a good brief.</h1><p>Share the place, scale and architectural direction you are exploring. This tool prepares a private brief file on your device; it does not send your details to TRIXX or create a project tracker.</p></div></section><section class="arch-brief-section"><div class="arch-shell arch-brief-grid"><form class="arch-brief-form" data-project-brief><div class="arch-brief-form__heading"><p class="arch-eyebrow">Project brief builder</p><h2>Your early requirements</h2></div><label>Plot location or county<input name="location" type="text" maxlength="120" autocomplete="address-level2" placeholder="For example, county or town"></label><div class="arch-form-row"><label>Approximate house size<select name="size" required><option value="">Choose a range</option><option>Under 150 m²</option><option>150–250 m²</option><option>251–400 m²</option><option>Over 400 m²</option><option>Not decided</option></select></label><label>Indicative budget range<select name="budget" required><option value="">Choose a range</option><option>Under KES 10 million</option><option>KES 10–25 million</option><option>KES 25–50 million</option><option>Over KES 50 million</option><option>Not decided</option></select></label></div><label>Preferred architectural direction<select name="style" required><option value="">Choose a concept</option>${styleOptions}<option value="open">Open to discussion</option></select></label><div class="arch-form-row"><label>Bedrooms to explore<select name="bedrooms"><option>2</option><option selected>3</option><option>4</option><option>5 or more</option><option>Not decided</option></select></label><label>Storeys to explore<select name="storeys"><option>Single storey</option><option selected>Two storeys</option><option>Not decided</option></select></label></div><label>What matters most? (optional)<textarea name="priorities" rows="4" maxlength="800" placeholder="Describe priorities such as courtyard living, accessibility, natural ventilation, security or family spaces."></textarea></label><label class="arch-brief-consent"><input name="acknowledged" type="checkbox" required><span>I understand this brief is generated locally and will not be submitted to TRIXX.</span></label><button class="arch-button arch-button--dark" type="submit">Download my project brief</button><p class="arch-brief-message" data-brief-message role="status" aria-live="polite" hidden></p></form><aside class="arch-brief-aside"><p class="arch-eyebrow">What happens next</p><h2>A useful starting point, not a quote.</h2><p>The generated file is a discussion aid. It is not a project reference, cost estimate, design, planning document or service booking.</p><ol><li>Note the site and early requirements.</li><li>Review concept directions and questions.</li><li>Share with your own project advisers or bring it to a future TRIXX consultation.</li></ol><p class="arch-process-note">TRIXX’s enquiry service and verified contact channel are not configured yet. This page does not transmit or retain your input.</p></aside></div></section>`;
+  return pageDocument('/start-project', 'Start a Project', 'Prepare a private early-stage residential project brief on your device. It is not submitted to TRIXX.', body);
+}
+
+function partnersPage() {
+  const roles = [
+    ['Architects & designers', 'Explore culturally grounded residential concepts and thoughtful design collaboration.'],
+    ['Engineers & technical specialists', 'Help evaluate building systems, environmental controls, energy and water options.'],
+    ['Technology providers', 'Discuss compatible, secure and maintainable connected-home capabilities.'],
+    ['Material & construction partners', 'Explore suitable materials, sourcing and delivery approaches for future projects.'],
+    ['Investors & strategic partners', 'Discuss the TRIXX vision and the responsible development of its architectural and technology direction.'],
+  ];
+  const body = `<section class="arch-page-intro"><div class="arch-shell"><p class="arch-eyebrow">Partners</p><h1>Build the right things, with the right people.</h1><p>TRIXX welcomes conversations with professionals and organizations whose expertise can strengthen heritage-inspired homes and intelligent living.</p></div></section><section class="arch-partners"><div class="arch-shell"><div class="arch-partner-grid">${roles.map(([title, description], index) => `<article><span>0${index + 1}</span><h2>${esc(title)}</h2><p>${esc(description)}</p></article>`).join('')}</div><p class="arch-concept-disclaimer">No partnerships or investment arrangements are currently represented as established through this page.</p><a class="arch-button arch-button--dark" href="/contact">View contact readiness</a></div></section>`;
+  return pageDocument('/partners', 'Partners', 'Explore collaboration opportunities with TRIXX Technologies in architecture, engineering, technology, materials and investment.', body);
+}
+
 function projectsPage() {
   const body = `<section class="corp-page-hero"><div class="corp-shell"><p class="corp-kicker">Projects & innovation</p><h1>Development, shared honestly.</h1><p>We will publish approved project and product information with a clear status: concept, in development, prototype or launched.</p></div></section>
   <section class="corp-section"><div class="corp-shell heritage-project-link"><img src="${esc(images.architectureInspiration[0].src)}" alt="Illustrative Moorish courtyard architecture concept" loading="lazy" decoding="async"><div><p class="heritage-kicker">Featured concept study</p><h2>Heritage Meets Tomorrow</h2><p>Four architectural directions bring cultural identity together with considered home technology and material choices.</p><a class="heritage-link" href="/projects/heritage-meets-tomorrow">View the concept board <span aria-hidden="true">→</span></a><span class="heritage-status">Concept study · not a completed TRIXX project</span></div></div></section>
+  <section class="arch-journal"><div class="arch-shell"><div class="arch-heading"><div><p class="arch-eyebrow">The architectural journal</p><h2>Ideas for living, building and belonging.</h2></div><span class="arch-concept-disclaimer">Editorial themes · articles pending publication</span></div><div class="arch-journal-grid"><article><span>01 · Heritage</span><h3>What makes a home feel rooted in place?</h3><p>Notes on proportion, craft, shade and the details people carry forward.</p></article><article><span>02 · Smart living</span><h3>Can home technology become quieter?</h3><p>Exploring usability, privacy and integration without adding visual noise.</p></article><article><span>03 · Climate</span><h3>Start with shade, air and daylight.</h3><p>Design questions to ask before specifying mechanical systems.</p></article></div></div></section>
   <section class="corp-section corp-section--soft"><div class="corp-shell corp-projects-empty"><p class="corp-status">Project portfolio pending verified content</p><h2>No project case studies are published yet.</h2><p>As project details and images are approved, this page can distinguish completed work from concepts, research and products in development. The images currently used across this site are illustrative concepts, not photographs of completed TRIXX projects.</p><div class="corp-project-areas"><h3>Areas of innovation</h3><ul>${DIVISIONS.map((division) => `<li><a href="/divisions/${division.slug}">${esc(division.short)} <span aria-hidden="true">→</span></a></li>`).join('')}</ul></div></div></section>`;
   return pageDocument('/projects', 'Projects & Innovation', 'Verified projects and product development information from TRIXX Technologies.', body);
 }
@@ -313,6 +422,12 @@ function companyPages() {
     aboutPage(),
     divisionsPage(),
     ...DIVISIONS.map(divisionPage),
+    houseConceptsPage(),
+    ...HOUSE_CONCEPTS.map(houseConceptPage),
+    smartLivingPage(),
+    sustainabilityPage(),
+    startProjectPage(),
+    partnersPage(),
     projectsPage(),
     heritageBoardPage(),
     leadershipPage(),

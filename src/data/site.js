@@ -12,8 +12,8 @@ const LOCALES = [
 const SITE = {
   name: 'TRIXX Technologies',
   legalName: 'TRIXX Technologies',
-  tagline: 'Technology that moves life forward.',
-  description: 'TRIXX Technologies is developing practical digital solutions across real estate, education, property management, agriculture and smart living.',
+  tagline: 'Heritage · Technology · Living',
+  description: 'TRIXX Technologies explores heritage-inspired homes with intelligent technology, thoughtful materials and contemporary comfort.',
   url: 'https://trixx.co.ke',
   email: 'hello@trixx.co.ke',
   sales: 'sales@trixx.co.ke',
