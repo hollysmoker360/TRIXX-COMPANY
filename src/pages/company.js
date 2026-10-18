@@ -9,6 +9,7 @@ const DIVISIONS = [
     slug: 'real-estate-smart-homes',
     name: 'TRIXX Real Estate & Smart Homes',
     short: 'Real Estate & Smart Homes',
+    status: 'In development',
     image: images.apps.market,
     imageAlt: 'Concept image illustrating a modern residential property',
     description: 'Bringing together property, architectural concepts and technology-enabled living through solutions designed for modern homes and property projects.',
@@ -21,6 +22,7 @@ const DIVISIONS = [
     slug: 'edtech',
     name: 'TRIXX EdTech',
     short: 'EdTech',
+    status: 'In development',
     image: images.apps.school,
     imageAlt: 'Concept image illustrating a modern learning environment',
     description: 'Developing digital tools that help schools, teachers, students and parents organize educational activities and communicate more effectively.',
@@ -33,6 +35,7 @@ const DIVISIONS = [
     slug: 'property-management',
     name: 'TRIXX Property Management',
     short: 'Property Management',
+    status: 'In development',
     image: images.apps.rent,
     imageAlt: 'Concept image illustrating a residential community',
     description: 'Helping landlords and property managers simplify rental operations, track payment records and maintain clearer records.',
@@ -45,6 +48,7 @@ const DIVISIONS = [
     slug: 'agritech',
     name: 'TRIXX AgriTech',
     short: 'AgriTech',
+    status: 'In development',
     image: images.apps.farm,
     imageAlt: 'Concept image illustrating technology-assisted agriculture',
     description: 'Exploring digital tools that help farmers organize farm activities, monitor costs and make better-informed operational decisions.',
@@ -57,6 +61,7 @@ const DIVISIONS = [
     slug: 'smart-living-iot',
     name: 'TRIXX Smart Living & IoT',
     short: 'Smart Living & IoT',
+    status: 'TRIXX Home · first product focus, in development',
     image: images.apps.home,
     imageAlt: 'Concept image illustrating a connected home interior',
     description: 'Connecting compatible devices and digital systems to make homes and selected environments easier to monitor and manage.',
@@ -163,6 +168,19 @@ function pageDocument(path, title, description, body) {
   };
 }
 
+function netlifyForm({ name, title, description, fields, buttonLabel }) {
+  return `<form class="arch-capture-form" name="${esc(name)}" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field" data-netlify-form>
+    <input type="hidden" name="form-name" value="${esc(name)}">
+    <p class="arch-honeypot" aria-hidden="true"><label>Leave this field empty<input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <div class="arch-capture-form__heading"><p class="arch-eyebrow">TRIXX · ${esc(title)}</p><p>${esc(description)}</p></div>
+    ${fields}
+    <label class="arch-brief-consent"><input name="consent" type="checkbox" value="yes" required><span>I agree that TRIXX may use these details to respond to this request, as described in the <a href="/legal/privacy">privacy notice</a>.</span></label>
+    <button class="arch-button arch-button--dark" type="submit">${esc(buttonLabel)} <span aria-hidden="true">→</span></button>
+    <p class="arch-capture-message" data-capture-message role="status" aria-live="polite" hidden></p>
+    <p class="arch-capture-note">On Netlify, submissions are stored in the site dashboard and can trigger configured email notifications. This local preview does not send or store submissions.</p>
+  </form>`;
+}
+
 function divisionCard(division) {
   return `<article class="division-card">
     <a class="division-card__image" href="/divisions/${division.slug}" aria-label="Discover ${esc(division.name)}">
@@ -172,6 +190,8 @@ function divisionCard(division) {
     <div class="division-card__content">
       <p class="corp-kicker">Division 0${DIVISIONS.indexOf(division) + 1}</p>
       <h3><a href="/divisions/${division.slug}">${esc(division.name)}</a></h3>
+      <span class="corp-status">${esc(division.status)}</span>
+      ${division === DIVISIONS[0] ? '<p class="division-card__first-product">First product: TRIXX Home</p>' : ''}
       <p>${esc(division.description)}</p>
       <a class="corp-text-link" href="/divisions/${division.slug}">Discover more <span aria-hidden="true">→</span></a>
     </div>
@@ -181,7 +201,7 @@ function divisionCard(division) {
 function conceptCard(concept) {
   return `<article class="arch-concept-card">
     <a href="/house-concepts/${concept.slug}" class="arch-concept-card__image" aria-label="Explore ${esc(concept.name)}">
-      <img src="${esc(concept.image)}" alt="${esc(concept.alt)}" loading="lazy" decoding="async">
+      <img src="${esc(concept.image)}" alt="${esc(concept.alt)}" style="view-transition-name: concept-${concept.slug}" loading="lazy" decoding="async">
       <span>Concept · not a completed project</span>
     </a>
     <div class="arch-concept-card__copy"><p class="arch-eyebrow">${esc(concept.tradition)}</p><h3><a href="/house-concepts/${concept.slug}">${esc(concept.name)}</a></h3><p>${esc(concept.story)}</p><a class="arch-inline-link" href="/house-concepts/${concept.slug}">Explore design <span aria-hidden="true">→</span></a></div>
@@ -194,7 +214,7 @@ function homePage() {
     <img class="arch-home-hero__image" src="${esc(images.apps.market)}" alt="Illustrative luxury heritage villa at dusk with arches, warm interior lighting and a courtyard pool; concept render, not a completed TRIXX project" fetchpriority="high" decoding="async">
     <div class="arch-home-hero__overlay"></div>
     <div class="arch-home-hero__brand"><span class="arch-brand-mark" aria-hidden="true">T</span><span><strong>TRIXX</strong><small>HERITAGE · TECHNOLOGY · LIVING</small></span></div>
-    <div class="arch-home-hero__copy"><p class="arch-eyebrow">Architecture, rooted in place</p><h1>Heritage<br>meets <em>tomorrow.</em></h1><p>Timeless homes shaped by cultural identity and quietly intelligent living.</p><div class="arch-home-hero__actions"><a class="arch-button arch-button--bronze" href="/house-concepts">Explore house concepts <span aria-hidden="true">→</span></a><a class="arch-button arch-button--line" href="/start-project">Discuss your project</a></div></div>
+    <div class="arch-home-hero__copy"><p class="arch-eyebrow">Architecture, rooted in place</p><h1>Heritage<br>meets <em>tomorrow.</em></h1><p>Smart technology for homes, schools, property and farms, shaped by cultural identity and quietly intelligent living.</p><div class="arch-home-hero__actions"><a class="arch-button arch-button--bronze" href="/house-concepts">Explore house concepts <span aria-hidden="true">→</span></a><a class="arch-button arch-button--line" href="/start-project">Discuss your project</a></div><div class="arch-home-hero__secondary"><a href="/contact">Contact us</a><a href="/waitlist">Join the waitlist</a><a href="/partners">Partner with us</a></div></div>
     <span class="arch-home-hero__disclaimer">Architectural concept render · not a completed TRIXX project</span>
   </section>
 
@@ -216,7 +236,7 @@ function homePage() {
 function aboutPage() {
   const body = `
   <section class="corp-page-hero"><div class="corp-shell"><p class="corp-kicker">About TRIXX Technologies</p><h1>One parent company. Five areas of focus.</h1><p>We are building a technology group developing specialized solutions for how people live, learn, manage property, farm and interact with connected devices.</p></div></section>
-  <section class="corp-section"><div class="corp-shell corp-about-grid"><div><p class="corp-kicker">Our company</p><h2>Practical technology, developed with purpose.</h2></div><div><p>TRIXX Technologies brings related business divisions together under a shared commitment to useful, responsible and maintainable technology. Our initial focus is Kenya, with an ambition to serve other African markets and international customers over time.</p><p>Each division explores a distinct set of customer needs while benefiting from shared learning, product thinking and a consistent approach to trust and usability.</p></div></div></section>
+  <section class="corp-section"><div class="corp-shell corp-about-grid"><div><p class="corp-kicker">Our company</p><h2>Practical technology, developed with purpose.</h2></div><div><p>TRIXX Technologies is an early-stage venture bringing related business divisions together under a shared commitment to useful, responsible and maintainable technology. Our initial focus is Kenya, with an ambition to serve other African markets and international customers over time.</p><p>Each division is being developed around a distinct set of customer needs while benefiting from shared learning, product thinking and a consistent approach to trust and usability. Capabilities shown on this site are development directions unless explicitly confirmed otherwise.</p><h3>Founder story</h3><p>Company materials trace TRIXX’s beginnings to Nairobi in 2016. Founder and CEO Francesc is developing the venture around practical technology for homes, education, property and agriculture. Further personal biography will be published only after his approval.</p></div></div></section>
   <section class="corp-section corp-section--soft"><div class="corp-shell corp-purpose-grid"><article><p class="corp-kicker">Mission</p><h2>What we work toward.</h2><p>${esc(MISSION)}</p></article><article><p class="corp-kicker">Vision</p><h2>Where we hope to go.</h2><p>${esc(VISION)}</p></article></div></section>
   <section class="corp-section"><div class="corp-shell"><div class="corp-section-heading"><div><p class="corp-kicker">Our values</p><h2>Principles that guide our work.</h2></div></div><ul class="value-list">${VALUES.map((value, index) => `<li><span>0${index + 1}</span>${esc(value)}</li>`).join('')}</ul></div></section>
   <section class="corp-section corp-section--navy"><div class="corp-shell corp-about-grid"><div><p class="corp-kicker">How we work</p><h2>Shared foundations. Specialized solutions.</h2></div><div><p>We start by understanding a problem, design a practical response, then build, test and learn. The divisions share this approach while developing for their own customers and contexts. Capabilities are described as areas of focus until their implementation is verified.</p><a class="corp-button corp-button--gold" href="/divisions">Meet the divisions <span aria-hidden="true">→</span></a></div></div></section>`;
@@ -240,7 +260,7 @@ function divisionPage(division) {
 
 function houseConceptsPage() {
   const cards = HOUSE_CONCEPTS.map((concept) => `<article class="arch-concept-card arch-concept-card--collection" data-concept-card data-tradition="${esc(concept.tradition.toLowerCase())}" data-name="${esc(`${concept.name} ${concept.tradition}`.toLowerCase())}">
-    <a href="/house-concepts/${concept.slug}" class="arch-concept-card__image" aria-label="Explore ${esc(concept.name)}"><img src="${esc(concept.image)}" alt="${esc(concept.alt)}" loading="lazy" decoding="async"><span>Concept study</span></a>
+    <a href="/house-concepts/${concept.slug}" class="arch-concept-card__image" aria-label="Explore ${esc(concept.name)}"><img src="${esc(concept.image)}" alt="${esc(concept.alt)}" style="view-transition-name: concept-${concept.slug}" loading="lazy" decoding="async"><span>Concept study</span></a>
     <div class="arch-concept-card__copy"><p class="arch-eyebrow">${esc(concept.tradition)}</p><h2><a href="/house-concepts/${concept.slug}">${esc(concept.name)}</a></h2><p>${esc(concept.story)}</p><ul class="arch-card-specs"><li>Floor area <span>To be developed</span></li><li>Bedrooms <span>Concept brief</span></li><li>Storeys <span>Concept brief</span></li></ul><a class="arch-inline-link" href="/house-concepts/${concept.slug}">View concept <span aria-hidden="true">→</span></a></div>
     <label class="arch-compare"><input type="checkbox" value="${concept.slug}" data-concept-compare> Add to comparison</label>
   </article>`).join('');
@@ -254,13 +274,37 @@ function houseConceptPage(concept) {
   const materials = concept.materials.map((item) => `<li>${esc(item)}</li>`).join('');
   const features = concept.features.map((item) => `<li>${esc(item)}<span>Concept direction</span></li>`).join('');
   const related = HOUSE_CONCEPTS.filter((item) => item.slug !== concept.slug).slice(0, 3);
-  const body = `<section class="arch-detail-hero"><img src="${esc(concept.image)}" alt="${esc(concept.alt)}" fetchpriority="high" decoding="async"><div class="arch-detail-hero__shade"></div><div class="arch-shell arch-detail-hero__copy"><a class="arch-back" href="/house-concepts">← All house concepts</a><p class="arch-eyebrow">${esc(concept.tradition)} · Design study</p><h1>${esc(concept.name)}</h1><p>${esc(concept.story)}</p><span class="arch-concept-disclaimer">Illustrative concept · not a completed TRIXX project</span></div></section>
+  const body = `<section class="arch-detail-hero"><img src="${esc(concept.image)}" alt="${esc(concept.alt)}" style="view-transition-name: concept-${concept.slug}" fetchpriority="high" decoding="async"><div class="arch-detail-hero__shade"></div><div class="arch-shell arch-detail-hero__copy"><a class="arch-back" href="/house-concepts">← All house concepts</a><p class="arch-eyebrow">${esc(concept.tradition)} · Design study</p><h1>${esc(concept.name)}</h1><p>${esc(concept.story)}</p><span class="arch-concept-disclaimer">Illustrative concept · not a completed TRIXX project</span></div></section>
   <section class="arch-detail-body"><div class="arch-shell"><div class="arch-detail-actions"><div><p class="arch-eyebrow">The design story</p><h2>Character that carries through every room.</h2><p>This direction explores how a historical architectural language can inform proportion, shade, material and movement through the home. Details shown here are design intentions, not confirmed construction specifications.</p></div><button class="arch-button arch-button--dark" type="button" data-print-brochure>Print / save concept sheet</button></div>
   <div class="arch-detail-grid"><section class="arch-detail-panel"><p class="arch-eyebrow">Material palette</p><h2>Texture, tone, craft.</h2><ul class="arch-detail-list">${materials}</ul><p class="arch-detail-note">Material selections depend on site, availability, suitability and professional review.</p></section><section class="arch-detail-panel"><p class="arch-eyebrow">Signature features</p><h2>Intelligence, in context.</h2><ul class="arch-detail-features">${features}</ul><p class="arch-detail-note">Compatibility and implementation are not confirmed; these are technology concepts for discussion.</p></section></div>
   <section class="arch-floorplan"><div class="arch-floorplan__intro"><p class="arch-eyebrow">Spatial study</p><h2>A home plan begins with the way you live.</h2><p>This schematic illustrates possible room relationships only. It is not dimensioned, not to scale and not suitable for construction or approvals.</p><div class="arch-floorplan__status">Conceptual floor plan · dimensions pending design</div></div><div class="arch-floorplan__drawing" role="img" aria-label="Schematic conceptual floor plan showing living, dining, kitchen, courtyard, bedrooms and service rooms; not to scale"><div class="arch-room arch-room--living">Living</div><div class="arch-room arch-room--dining">Dining</div><div class="arch-room arch-room--kitchen">Kitchen</div><div class="arch-room arch-room--court">Courtyard</div><div class="arch-room arch-room--bed1">Bedroom</div><div class="arch-room arch-room--bed2">Bedroom</div><div class="arch-room arch-room--bath">Bath</div><div class="arch-room arch-room--service">Service</div></div></section>
   <section class="arch-project-brief-cta"><div><p class="arch-eyebrow">Make it your own</p><h2>Bring your plot, priorities and questions.</h2><p>Prepare a private project brief with your preferred style and requirements. It is generated on your device and is not sent to TRIXX.</p></div><a class="arch-button arch-button--bronze" href="/start-project?style=${concept.slug}">Create a project brief <span aria-hidden="true">→</span></a></section></div></section>
   <section class="arch-related"><div class="arch-shell"><div class="arch-heading"><div><p class="arch-eyebrow">More from the collection</p><h2>Other architectural directions</h2></div></div><div class="arch-feature-grid">${related.map(conceptCard).join('')}</div></div></section>`;
   return pageDocument(`/house-concepts/${concept.slug}`, concept.name, `${concept.story} Explore materials, signature features and a clearly labelled schematic concept plan.`, body);
+}
+
+function smartHomesPage() {
+  const homes = [
+    { name: 'Starter', tradition: 'Contemporary fusion', image: images.architecture.contemporary, alt: 'Illustrative Starter home concept with contemporary lines and shaded outdoor living', story: 'A compact, adaptable direction focused on comfortable everyday living.', rooms: ['Living', 'Dining', 'Kitchen', 'Bedroom', 'Bedroom', 'Bath', 'Utility'] },
+    { name: 'Courtyard', tradition: 'Moorish-inspired', image: images.architectureInspiration[0].src, alt: 'Illustrative Moorish-inspired courtyard home with a planted central court', story: 'A private centre brings daylight, planting and shared family spaces into the plan.', rooms: ['Living', 'Dining', 'Kitchen', 'Court', 'Bedroom', 'Bedroom', 'Study', 'Bath'] },
+    { name: 'Coastal', tradition: 'Swahili-inspired', image: images.architecture['swahili-coastal'], alt: 'Illustrative Swahili coastal home with shaded veranda and tropical planting', story: 'Deep shade, veranda living and privacy respond to a coastal way of life.', rooms: ['Veranda', 'Living', 'Dining', 'Kitchen', 'Bedroom', 'Bedroom', 'Bedroom', 'Bath'] },
+  ];
+  const homeCards = homes.map((home, index) => `<article class="arch-home-concept"><img src="${esc(home.image)}" alt="${esc(home.alt)}" loading="lazy" decoding="async"><div class="arch-home-concept__copy"><p class="arch-eyebrow">0${index + 1} · ${esc(home.tradition)} · concept</p><h2>${esc(home.name)}</h2><p>${esc(home.story)}</p><div class="arch-mini-plan arch-mini-plan--${home.name.toLowerCase()}" role="img" aria-label="Schematic, unscaled floor-plan sketch for the ${esc(home.name)} concept"><span class="arch-plan-label">Concept sketch · not to scale</span>${home.rooms.map((room) => `<span>${esc(room)}</span>`).join('')}</div><p class="arch-plan-disclaimer">Illustrative room relationships only. Dimensions, floor area, structure and approvals are not defined.</p></div></article>`).join('');
+  const tiers = [
+    ['Lighting & access', 'Essential lighting and access planning', 'Expanded scenes and access zones', 'Broader coordinated control concepts'],
+    ['Comfort', 'Manual-first comfort choices', 'Zoned comfort and shading ideas', 'Integrated climate and shading concepts'],
+    ['Energy & water', 'Resource-ready planning', 'Solar and water monitoring concepts', 'Broader generation and storage planning'],
+    ['Monitoring', 'Core home-status direction', 'Energy and environment awareness', 'Expanded system-status concepts'],
+  ];
+  const body = `<section class="arch-page-intro"><div class="arch-shell"><p class="arch-eyebrow">TRIXX Smart Homes</p><h1>Three home concepts.<br>Three ways to begin.</h1><p>Explore Starter, Courtyard and Coastal directions with a proposed Basic, Comfort and Premium technology comparison.</p><span class="arch-concept-disclaimer">Concepts only. Plans are not to scale. No price, floor area, compatibility, installation, performance or construction details are confirmed.</span></div></section>
+  <section class="arch-smart-home-cards"><div class="arch-shell"><div class="arch-smart-home-grid">${homeCards}</div></div></section>
+  <section class="arch-tier-section"><div class="arch-shell"><div class="arch-heading"><div><p class="arch-eyebrow">Technology package directions</p><h2>Basic · Comfort · Premium</h2></div><span class="arch-concept-disclaimer">Proposed comparison · not a product specification</span></div><div class="arch-tier-table-wrap"><table class="arch-tier-table"><thead><tr><th scope="col">Design area</th><th scope="col">Basic</th><th scope="col">Comfort</th><th scope="col">Premium</th></tr></thead><tbody>${tiers.map(([area, basic, comfort, premium]) => `<tr><th scope="row">${esc(area)}</th><td>${esc(basic)}</td><td>${esc(comfort)}</td><td>${esc(premium)}</td></tr>`).join('')}</tbody></table></div><p class="arch-plan-disclaimer">Tier names describe planning directions only. Included devices, pricing and third-party compatibility require confirmed design and testing.</p><a class="arch-button arch-button--bronze" href="/start-project">Prepare a project brief <span aria-hidden="true">→</span></a></div></section>`;
+  return pageDocument('/smart-homes', 'Smart Homes', 'Explore TRIXX Starter, Courtyard and Coastal home concepts and proposed Basic, Comfort and Premium technology tiers.', body);
+}
+
+function thankYouPage() {
+  const body = `<section class="arch-page-intro"><div class="arch-shell"><p class="arch-eyebrow">Thank you</p><h1>Your form was submitted.</h1><p>If this site is deployed on Netlify with form handling enabled, your submission is available to the TRIXX site administrator. Email notifications require separate configuration.</p><a class="arch-button arch-button--dark" href="/">Return to the homepage</a></div></section>`;
+  return { ...pageDocument('/thank-you', 'Thank You', 'Form submission confirmation for the TRIXX website.', body), noindex: true, noSitemap: true };
 }
 
 function smartLivingPage() {
@@ -300,8 +344,19 @@ function partnersPage() {
     ['Material & construction partners', 'Explore suitable materials, sourcing and delivery approaches for future projects.'],
     ['Investors & strategic partners', 'Discuss the TRIXX vision and the responsible development of its architectural and technology direction.'],
   ];
-  const body = `<section class="arch-page-intro"><div class="arch-shell"><p class="arch-eyebrow">Partners</p><h1>Build the right things, with the right people.</h1><p>TRIXX welcomes conversations with professionals and organizations whose expertise can strengthen heritage-inspired homes and intelligent living.</p></div></section><section class="arch-partners"><div class="arch-shell"><div class="arch-partner-grid">${roles.map(([title, description], index) => `<article><span>0${index + 1}</span><h2>${esc(title)}</h2><p>${esc(description)}</p></article>`).join('')}</div><p class="arch-concept-disclaimer">No partnerships or investment arrangements are currently represented as established through this page.</p><a class="arch-button arch-button--dark" href="/contact">View contact readiness</a></div></section>`;
+  const fields = `<div class="arch-form-row"><label>Your name<input name="name" autocomplete="name" maxlength="100" required></label><label>Email address<input name="email" type="email" autocomplete="email" maxlength="254" required></label></div><div class="arch-form-row"><label>Area of expertise<select name="expertise" required><option value="">Choose an area</option><option>Developer</option><option>Architect or designer</option><option>IoT specialist</option><option>Mentor</option><option>Investor</option><option>Other</option></select></label><label>Organization (optional)<input name="organization" autocomplete="organization" maxlength="120"></label></div><label>How would you like to contribute?<textarea name="message" rows="5" maxlength="1500" required></textarea></label><label class="arch-brief-consent"><input name="terms-acknowledged" type="checkbox" value="yes" required><span>I understand that applying to collaborate does not automatically mean paid work, compensation or equity.</span></label>`;
+  const form = netlifyForm({ name: 'partner-application', title: 'Partner with TRIXX', description: 'Introduce your expertise and the kind of collaboration you have in mind.', fields, buttonLabel: 'Send partner application' });
+  const body = `<section class="arch-page-intro"><div class="arch-shell"><p class="arch-eyebrow">Partners</p><h1>Build the right things, with the right people.</h1><p>TRIXX welcomes conversations with developers, architects and designers, IoT specialists, mentors and investors whose expertise can strengthen heritage-inspired homes and intelligent living.</p></div></section><section class="arch-partners"><div class="arch-shell"><div class="arch-partner-grid">${roles.map(([title, description], index) => `<article><span>0${index + 1}</span><h2>${esc(title)}</h2><p>${esc(description)}</p></article>`).join('')}</div><p class="arch-concept-disclaimer">Applying does not automatically mean paid work, compensation or equity. Any arrangement would require separate discussion and written agreement.</p><div class="arch-partner-form-wrap"><div><p class="arch-eyebrow">Introduce yourself</p><h2>Partner with us</h2><p>Submissions are available to the site administrator only when Netlify Forms is enabled on deployment. Local preview does not transmit this form.</p></div>${form}</div></div></section>`;
   return pageDocument('/partners', 'Partners', 'Explore collaboration opportunities with TRIXX Technologies in architecture, engineering, technology, materials and investment.', body);
+}
+
+function waitlistPage() {
+  const products = ['TRIXX Home', 'TRIXX School', 'TRIXX Rent', 'TRIXX Farm', 'TRIXX Market']
+    .map((product) => `<option value="${product}">${product} · ${product === 'TRIXX Home' ? 'first product focus' : 'in development'}</option>`).join('');
+  const fields = `<div class="arch-form-row"><label>Your name<input name="name" autocomplete="name" maxlength="100" required></label><label>Email address<input name="email" type="email" autocomplete="email" maxlength="254" required></label></div><label>Product interest<select name="product" required><option value="">Choose a product area</option>${products}</select></label>`;
+  const form = netlifyForm({ name: 'product-waitlist', title: 'Product waitlist', description: 'Register interest in updates about a TRIXX product direction. This is not a service subscription or reservation.', fields, buttonLabel: 'Register interest' });
+  const body = `<section class="arch-page-intro"><div class="arch-shell"><p class="arch-eyebrow">Product updates</p><h1>Follow what comes next.</h1><p>Joining a waitlist is an expression of interest only. It does not guarantee access, launch timing or product availability.</p></div></section><section class="arch-brief-section"><div class="arch-shell arch-brief-grid">${form}<aside class="arch-brief-aside"><p class="arch-eyebrow">First product focus</p><h2>TRIXX Home</h2><p>TRIXX Home is the first product focus and remains in development. The other division products are also under development; timelines and feature sets are not confirmed.</p></aside></div></section>`;
+  return pageDocument('/waitlist', 'Product Waitlist', 'Register interest in updates about TRIXX product development. Waitlist registration does not guarantee availability.', body);
 }
 
 function projectsPage() {
@@ -400,9 +455,10 @@ function leadershipPage() {
 }
 
 function contactPage() {
-  const interests = DIVISIONS.map((division) => `<li>${esc(division.short)}</li>`).join('');
-  const body = `<section class="corp-page-hero"><div class="corp-shell"><p class="corp-kicker">Contact</p><h1>Start a conversation.</h1><p>We welcome business, product and partnership enquiries across the TRIXX Technologies divisions.</p></div></section>
-  <section class="corp-section"><div class="corp-shell corp-contact-grid"><div><p class="corp-kicker">Enquiries</p><h2>Enquiry handling is being prepared.</h2><p>This website does not yet have a configured enquiry inbox or secure submission service. No information entered on this page would be delivered, so we have not included a non-working form.</p><p>Verified contact details and a working enquiry channel will be added before this page is used to collect personal information.</p></div><aside class="corp-contact-aside"><h3>Areas of interest</h3><ul>${interests}<li>Partnerships</li><li>General enquiries</li></ul><p>For privacy or data requests, the company’s verified contact channel must be published before launch.</p></aside></div></section>`;
+  const fields = `<div class="arch-form-row"><label>Your name<input name="name" autocomplete="name" maxlength="100" required></label><label>Email address<input name="email" type="email" autocomplete="email" maxlength="254" required></label></div><div class="arch-form-row"><label>Phone number (optional)<input name="phone" type="tel" autocomplete="tel" maxlength="40"></label><label>Area of interest<select name="interest" required><option value="">Choose a topic</option>${DIVISIONS.map((division) => `<option>${esc(division.short)}</option>`).join('')}<option>Partnership</option><option>General enquiry</option></select></label></div><label>Your message<textarea name="message" rows="6" maxlength="2000" required></textarea></label>`;
+  const form = netlifyForm({ name: 'contact-enquiry', title: 'Contact TRIXX', description: 'Share enough detail for the team to understand your question.', fields, buttonLabel: 'Send enquiry' });
+  const body = `<section class="arch-page-intro"><div class="arch-shell"><p class="arch-eyebrow">Contact</p><h1>Start a conversation.</h1><p>We welcome business, product and partnership enquiries across the TRIXX Technologies divisions.</p></div></section>
+  <section class="arch-contact"><div class="arch-shell arch-contact-grid"><div><p class="arch-eyebrow">Contact details</p><h2>TRIXX Technologies</h2><p><a href="mailto:hello@trixx.co.ke">hello@trixx.co.ke</a></p><p>Nairobi, Kenya</p><p class="arch-form-note">A phone or WhatsApp number has not been confirmed for publication. This form is stored and delivered only when Netlify Forms is enabled on the deployed site; email alerts need administrator configuration. Local submissions are not sent or stored.</p><h3>Privacy requests</h3><p>Use the verified company email above to ask about personal information submitted through a deployed, configured form. Review the draft privacy notice before launch.</p></div>${form}</div></section>`;
   return pageDocument('/contact', 'Contact', 'Information about contacting TRIXX Technologies and current enquiry-channel status.', body);
 }
 
@@ -424,6 +480,7 @@ function companyPages() {
     ...DIVISIONS.map(divisionPage),
     houseConceptsPage(),
     ...HOUSE_CONCEPTS.map(houseConceptPage),
+    smartHomesPage(),
     smartLivingPage(),
     sustainabilityPage(),
     startProjectPage(),
@@ -432,6 +489,8 @@ function companyPages() {
     heritageBoardPage(),
     leadershipPage(),
     contactPage(),
+    waitlistPage(),
+    thankYouPage(),
     notFoundPage(),
     legalPage('/legal/privacy', 'Privacy Policy', 'Privacy policy template pending operational and legal review.', 'Add the data controller, collected information, processing purposes, lawful bases, recipients, retention and data-subject request process after they are verified.'),
     legalPage('/legal/terms', 'Terms of Use', 'Terms template pending review against the actual TRIXX website and services.', 'Add approved terms covering the website, intellectual property, permitted use, disclaimers and applicable jurisdiction.'),

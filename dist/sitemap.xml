@@ -106,6 +106,13 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/house-concepts/neo-gothic-tech-manor/"/>
   </url>
   <url>
+    <loc>https://trixx.co.ke/smart-homes/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/smart-homes/"/>
+  </url>
+  <url>
     <loc>https://trixx.co.ke/smart-living/</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -160,6 +167,13 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/contact/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/waitlist/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/waitlist/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/legal/privacy/</loc>

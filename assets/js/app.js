@@ -38,7 +38,7 @@
   /* ---------- reveal on scroll ---------- */
 
   function initReveal() {
-    const targets = $$('.section-head, .grid > .card, .grid > .stat, .grid > .panel, .app-card, .app-showcase, .pkg-card, .design-slideshow, .inspiration-card, .product-visual, .technology-gallery figure, .brand-material-card, .searchbar');
+    const targets = $$('.section-head, .grid > .card, .grid > .stat, .grid > .panel, .app-card, .app-showcase, .pkg-card, .design-slideshow, .inspiration-card, .product-visual, .technology-gallery figure, .brand-material-card, .searchbar, .arch-home-collection, .arch-home-tech__copy, .arch-home-sustainability, .arch-home-process, .arch-feature-grid > .arch-concept-card, .arch-collection-grid > .arch-concept-card, .arch-detail-panel, .arch-tech-card, .arch-strategy-grid > article, .arch-home-concept, .arch-tier-table-wrap, .arch-partner-grid > article, .arch-capture-form');
     if (!targets.length) return;
     if (!('IntersectionObserver' in window)) {
       targets.forEach((el) => el.classList.add('reveal', 'is-in'));
@@ -335,6 +335,21 @@
             : 'Thank you. We have your details and will reply within one working day.';
         }
         form.reset();
+      });
+    });
+
+    $$('form[data-netlify-form]').forEach((form) => {
+      form.addEventListener('submit', (event) => {
+        const localPreview = window.location.protocol === 'file:'
+          || ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
+        if (!localPreview) return;
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+        const message = $('[data-capture-message]', form);
+        if (message) {
+          message.hidden = false;
+          message.textContent = 'Local preview only: this form was not sent or stored. Deploy to the configured Netlify site to enable submissions.';
+        }
       });
     });
 

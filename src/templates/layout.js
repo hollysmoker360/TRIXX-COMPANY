@@ -106,6 +106,7 @@ function header(currentPath, locale, singleLocale, corporate = false) {
     const links = [
       ['Home', '/'],
       ['House Concepts', '/house-concepts'],
+      ['Smart Homes', '/smart-homes'],
       ['Smart Living', '/smart-living'],
       ['Sustainability', '/sustainability'],
       ['Portfolio & Journal', '/projects'],
@@ -123,7 +124,7 @@ function header(currentPath, locale, singleLocale, corporate = false) {
 </header>
 <div class="corp-drawer" id="drawer" data-open="false" role="dialog" aria-modal="true" aria-label="Navigation menu">
   <div class="corp-drawer__head"><a class="corp-brand" href="/" aria-label="TRIXX Technologies home"><span class="corp-brand__mark" aria-hidden="true">T</span><span><strong>TRIXX</strong><small>TECHNOLOGIES</small></span></a><button class="corp-menu-toggle" type="button" data-drawer-close aria-label="Close navigation">×</button></div>
-  <nav class="corp-drawer__links" aria-label="Mobile navigation">${drawerNav}<a href="/about">About TRIXX<span aria-hidden="true">→</span></a><a href="/leadership">Leadership<span aria-hidden="true">→</span></a><a href="/contact">Contact<span aria-hidden="true">→</span></a><a class="corp-drawer__cta" href="/start-project">Discuss your project <span aria-hidden="true">→</span></a></nav>
+  <nav class="corp-drawer__links" aria-label="Mobile navigation">${drawerNav}<a href="/waitlist">Join the waitlist<span aria-hidden="true">→</span></a><a href="/about">About TRIXX<span aria-hidden="true">→</span></a><a href="/leadership">Leadership<span aria-hidden="true">→</span></a><a href="/contact">Contact<span aria-hidden="true">→</span></a><a class="corp-drawer__cta" href="/start-project">Discuss your project <span aria-hidden="true">→</span></a></nav>
 </div>`;
   }
   // On a page with no canonical address the language switcher would point at
