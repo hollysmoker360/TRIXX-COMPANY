@@ -146,6 +146,253 @@ const HOUSE_CONCEPTS = [
   },
 ];
 
+const ECOSYSTEM_ITEMS = [
+  {
+    slug: 'gated-community', category: 'Property & Developments', name: 'TRIXX Gated Community', kind: 'development',
+    summary: 'A proposed premium residential estate bringing architecture, controlled access, connected-living infrastructure and landscaped shared spaces together.',
+    problem: 'People looking for a home need more than a building: they need a considered relationship between privacy, security, shared amenities and the surrounding landscape.',
+    audience: 'Families, professionals, homeowners seeking privacy and people interested in technology-enabled community living.',
+    flow: ['Explore the estate vision and possible home collections.', 'Share priorities and register an enquiry with TRIXX.', 'Review location, land, approvals, costs and engineering only when confirmed.'],
+    features: ['Contemporary homes in different architectural collections', 'Controlled entrance and visitor-management concepts', 'Landscaped gardens, walking routes and communal green spaces', 'Proposed clubhouse and recreation facilities', 'Connectivity-ready infrastructure with solar and water options', 'Resident portal concept for updates, maintenance and amenity bookings'],
+    benefits: ['A more coherent relationship between private homes and shared spaces', 'Potential for connected estate services to be considered from the outset', 'A development vision that includes nature, movement and community life'],
+    status: 'Proposed development concept', image: images.gatedCommunityGatehouse,
+    imageAlt: 'Illustrative gated community entrance at dusk; concept visualization, not a completed TRIXX development',
+  },
+  {
+    slug: 'noir-villa', category: 'Architecture & Smart Living', name: 'TRIXX Noir Villa', kind: 'home',
+    summary: 'A contemporary home concept shaped by charcoal finishes, clean geometry, generous glazing and warm timber accents.',
+    problem: 'Some homeowners want a distinctive modern identity without giving up daylight, garden connections or practical family spaces.',
+    audience: 'Buyers who appreciate modern architecture, minimalist interiors and the option to plan connected-home systems.',
+    flow: ['Choose a plot, household priorities and preferred architectural direction.', 'Explore a concept layout, materials and indoor-outdoor connections.', 'Confirm dimensions, climate response, costs and technical design with qualified professionals.'],
+    features: ['Geometric contemporary forms and dark exterior finishes', 'Open-plan living and dining with garden connection', 'Timber, stone and dark-metal material direction', 'Optional smart lighting, shading and access planning', 'Solar-readiness and energy-monitoring options'],
+    benefits: ['A strong architectural identity with a restrained material palette', 'Flexible spaces for everyday living and entertaining', 'Technology and energy options considered as part of early planning'],
+    status: 'Proposed house concept', image: images.architecture.contemporary,
+    imageAlt: 'Illustrative contemporary residence with geometric forms and large glazed openings',
+  },
+  {
+    slug: 'courtyard-residence', category: 'Architecture & Smart Living', name: 'TRIXX Courtyard Residence', kind: 'home',
+    summary: 'A private residence organized around a protected courtyard that brings daylight, planting and fresh-air opportunities into the centre of the home.',
+    problem: 'Urban and suburban homes can struggle to balance privacy with daylight, greenery and a comfortable connection to the outdoors.',
+    audience: 'Families who value privacy, quiet outdoor space and contemporary architecture connected to nature.',
+    flow: ['Discuss privacy, household routines and the plot context.', 'Explore room relationships around a planted central court.', 'Develop shading, structure, glazing and services through professional review.'],
+    features: ['Central private courtyard', 'Flexible relationship between family and entertaining spaces', 'Options for a mature tree, planted beds or outdoor seating', 'Natural stone, timber and textured-finish direction', 'Privacy-conscious glazing with optional smart lighting and climate planning'],
+    benefits: ['Daylight and planting become part of the home’s everyday experience', 'A protected outdoor space can support calm and privacy', 'Room layouts can respond to the household and site'],
+    status: 'Proposed house concept', image: images.architectureInspiration[0].src,
+    imageAlt: 'Illustrative courtyard residence concept with arches and planted outdoor space',
+  },
+  {
+    slug: 'horizon-villa', category: 'Architecture & Smart Living', name: 'TRIXX Horizon Villa', kind: 'home',
+    summary: 'A two-storey family-home concept that separates shared living from quieter private rooms while keeping the plan adaptable.',
+    problem: 'Growing households often need flexible space for work, guests and family life without losing a clear sense of privacy.',
+    audience: 'Growing families looking for adaptable rooms, generous shared spaces and a contemporary architectural identity.',
+    flow: ['Set household, plot and room priorities.', 'Explore a ground-floor living plan with private rooms above.', 'Adapt balconies, studies and structure to site conditions and professional advice.'],
+    features: ['Two-storey contemporary composition', 'Open-plan living, dining and kitchen options', 'Flexible bedroom and family-room arrangements', 'Optional study, guest room or covered terrace', 'Smart security, lighting and solar-ready planning options'],
+    benefits: ['Separates lively shared spaces from private retreats', 'Provides options for changing family needs', 'Makes technology and energy choices part of early design conversations'],
+    status: 'Proposed house concept', image: images.architecture.victorian,
+    imageAlt: 'Illustrative contemporary two-storey family residence',
+  },
+  {
+    slug: 'garden-residence', category: 'Architecture & Smart Living', name: 'TRIXX Garden Residence', kind: 'home',
+    summary: 'A single-storey home direction focused on accessible movement, garden views and an easy connection between indoor and outdoor living.',
+    problem: 'Multi-level layouts can be inconvenient for households that prefer step-free circulation or want rooms to open directly to a garden.',
+    audience: 'Families, downsizers and homeowners planning for long-term accessibility and garden-centered living.',
+    flow: ['Identify access, garden and household requirements.', 'Arrange living areas around a terrace, garden and quiet bedrooms.', 'Review circulation, levels and adaptable details against the specific site.'],
+    features: ['Single-storey layout direction', 'Open-plan kitchen, dining and living spaces', 'Direct garden and covered-terrace access', 'Optional adaptable bathrooms and circulation', 'Natural ventilation, daylight and optional smart systems'],
+    benefits: ['Everyday movement can be planned on one level', 'Garden access becomes part of daily routines', 'Adaptable details can be considered before construction documents'],
+    status: 'Proposed house concept', image: images.architectureInspiration[2].src,
+    imageAlt: 'Illustrative low-profile home concept set among landscaped greenery',
+  },
+  {
+    slug: 'heritage-modern-residence', category: 'Architecture & Smart Living', name: 'TRIXX Heritage Modern Residence', kind: 'home',
+    summary: 'A contemporary home direction that reinterprets regional architectural character through modern proportions, natural materials and discreet technology planning.',
+    problem: 'Homeowners can find it difficult to express a connection to architectural heritage while meeting contemporary needs for comfort and function.',
+    audience: 'Homeowners seeking a distinctive residence that balances cultural character with contemporary functionality.',
+    flow: ['Choose the regional or historical references that matter to the household.', 'Explore proportions, screens, verandas, courtyards and materials.', 'Test climate, structure and cultural references with qualified local specialists.'],
+    features: ['Options for Swahili, Mediterranean, Moorish and other influences', 'Shaded verandas, arches, screens or courtyard studies', 'Natural stone, textured plaster and timber palette', 'Modern kitchen and bathroom planning', 'Optional smart-home and energy-system concepts'],
+    benefits: ['Creates a home with a specific sense of place', 'Uses shade, screens and outdoor rooms as design elements', 'Leaves room for modern services without making them the visual focus'],
+    status: 'Proposed house concept', image: images.architecture['swahili-coastal'],
+    imageAlt: 'Illustrative heritage-inspired contemporary home with shaded veranda and courtyard planting',
+  },
+  {
+    slug: 'hillside-retreat', category: 'Architecture & Smart Living', name: 'TRIXX Hillside Retreat', kind: 'home',
+    summary: 'A site-responsive residence concept that explores stepped levels, terraces and carefully positioned glazing for sloping or view-oriented land.',
+    problem: 'A standard flat-site layout may not respond well to a sloping plot, drainage, views or changes in ground level.',
+    audience: 'Buyers considering a sloping or elevated plot who want architecture shaped around the land and its views.',
+    flow: ['Understand the plot through topographic and geotechnical studies.', 'Explore stepped spaces, terraces and protected outdoor areas.', 'Develop structure, drainage and access with qualified professionals.'],
+    features: ['Architecture tailored to site topography', 'Terraces and outdoor viewing areas', 'Stone and timber material direction', 'Glazing planned for views and solar control', 'Site-specific drainage and landscape planning'],
+    benefits: ['Works with the land instead of assuming a flat site', 'Can frame views while creating sheltered outdoor spaces', 'Surfaces engineering and drainage needs early in the process'],
+    status: 'Proposed house concept', image: images.architectureInspiration[1].src,
+    imageAlt: 'Illustrative hillside home concept with stepped forms and expansive views',
+  },
+  {
+    slug: 'trixx-home', category: 'Architecture & Smart Living', name: 'TRIXX Home', kind: 'product',
+    summary: 'A proposed smart-living platform to bring compatible home devices and household information into a more unified interface.',
+    problem: 'Home systems can be fragmented across separate controls, making status, energy use and routine management harder to understand.',
+    audience: 'Homeowners, property developers and residents exploring a more connected home.',
+    flow: ['Identify compatible devices and the household’s priorities.', 'Connect supported systems through an app or touchscreen concept.', 'Test permissions, integrations and security before any capability is offered.'],
+    features: ['Unified smart-home dashboard concept', 'Compatible lighting, climate and curtain controls', 'Access-system integrations where supported', 'Energy information, routines and schedules', 'Household permissions, status and maintenance reminders'],
+    benefits: ['A clearer view of selected home systems', 'Potentially simpler daily routines across compatible devices', 'An opportunity to consider permissions and security centrally'],
+    status: 'First product focus · in development', image: images.apps.home,
+    imageAlt: 'Illustrative connected-home interior representing the TRIXX Home concept',
+  },
+  {
+    slug: 'trixx-farm', category: 'Agriculture', name: 'TRIXX Farm', kind: 'product',
+    summary: 'A proposed digital agriculture platform for organizing farm activity, resource records and compatible sensor information.',
+    problem: 'Farm decisions and costs can be difficult to track when field records, irrigation and environmental information are kept separately.',
+    audience: 'Smallholder farmers, commercial farms, greenhouse operators and agricultural businesses.',
+    flow: ['Record fields, crops, inputs and activities.', 'Connect compatible sensors or weather information where available.', 'Review records and reports to support decisions; outcomes are not guaranteed.'],
+    features: ['Farm and field records with crop calendars', 'Irrigation scheduling and monitoring concepts', 'Optional soil and environmental sensor integrations', 'Input, inventory and harvest records', 'Farm activity and performance reports'],
+    benefits: ['Keeps more operational information together', 'Can help users review resource use over time', 'Supports clearer planning without promising yield or profit outcomes'],
+    status: 'Proposed product · availability unconfirmed', image: images.apps.farm,
+    imageAlt: 'Illustrative smart-agriculture image representing the TRIXX Farm concept',
+  },
+  {
+    slug: 'schoolsphere', category: 'Education', name: 'TRIXX School · SchoolSphere', kind: 'product',
+    summary: 'A proposed school platform connecting administration, teaching, learning and communication in one digital environment.',
+    problem: 'School records, schedules, learning materials and family communications can become scattered across disconnected processes.',
+    audience: 'Primary and secondary schools, school networks, teachers, families and education administrators.',
+    flow: ['Configure school roles and records.', 'Organize approved academic workflows and communications.', 'Review access, data handling and integrations with each institution.'],
+    features: ['Admissions, student and staff records', 'Attendance, timetables and examinations', 'Report cards and academic information', 'Digital learning resources and assignments', 'School calendar, announcements and role-based access'],
+    benefits: ['Creates a clearer place for school information and workflows', 'Can reduce repeated coordination across staff and families', 'Supports institution-specific roles and permissions'],
+    status: 'Proposed product · availability unconfirmed', image: images.apps.school,
+    imageAlt: 'Illustrative modern classroom representing the TRIXX School platform concept',
+  },
+  {
+    slug: 'scanflow', category: 'Retail Technology', name: 'TRIXX SmartTrolley · ScanFlow', kind: 'product',
+    summary: 'A smart-retail concept connecting an equipped trolley or shopper’s phone with a store catalogue and shopping workflow.',
+    problem: 'Shoppers and retailers need convenient ways to review a basket and its running total while ensuring store systems remain in control of prices and checkout.',
+    audience: 'Supermarkets, mini-markets, retailers and shopping-centre operators.',
+    flow: ['Connect to a retailer’s configured product catalogue.', 'Scan eligible items and review a running basket.', 'Hand off to the retailer’s verified checkout and payment process.'],
+    features: ['Android touchscreen concept for equipped trolleys', 'Phone-based product scanning option', 'Barcode lookup and product information', 'Shopping lists, basket review and running total', 'Potential catalogue, loyalty and checkout integrations'],
+    benefits: ['Makes basket information easier to review while shopping', 'Offers a phone-based route alongside dedicated trolley screens', 'Lets retailers decide which checkout, payment and stock controls apply'],
+    status: 'Proposed product concept · integrations unconfirmed', image: images.technology.infrastructure,
+    imageAlt: 'Illustrative technology infrastructure image representing a connected retail system',
+  },
+  {
+    slug: 'trixx-property', category: 'Property & Developments', name: 'TRIXX Property · Rent & Market', kind: 'product',
+    summary: 'A proposed property ecosystem pairing discovery through TRIXX Market with rental-management workflows through TRIXX Rent.',
+    problem: 'Property seekers, owners and managers often coordinate listings, tenancy details, maintenance and communication across disconnected channels.',
+    audience: 'Property owners, landlords, authorized agents, tenants, buyers and developers.',
+    flow: ['Present property information and listing details.', 'Connect relevant parties through an enquiry or management workflow.', 'Confirm identity, payments and agent authorization through reviewed processes.'],
+    features: ['Property listings with galleries and specifications', 'Search concepts for location, type and budget', 'Rental and sale enquiry workflows', 'Tenancy, lease and maintenance records', 'Rent tracking and compatible payment integrations'],
+    benefits: ['Makes property information easier to browse and compare', 'Helps owners and managers organize recurring rental tasks', 'Creates clearer communication records between relevant parties'],
+    status: 'Proposed product ecosystem · availability unconfirmed', image: images.apps.market,
+    imageAlt: 'Illustrative residential property image representing TRIXX Market and TRIXX Rent',
+  },
+  {
+    slug: 'trixx-secure', category: 'Security', name: 'TRIXX Secure', kind: 'product',
+    summary: 'A proposed security product line for managing access and monitoring compatible devices across homes, businesses and residential communities.',
+    problem: 'Security devices and access permissions can be difficult to coordinate across separate systems and user groups.',
+    audience: 'Homeowners, businesses, property managers and gated residential communities.',
+    flow: ['Identify the site, devices and authorized user groups.', 'Configure supported access and notification workflows.', 'Review privacy, retention, response and security requirements before deployment.'],
+    features: ['Compatible camera and smart-lock integrations', 'Visitor registration and access-record concepts', 'Video doorbell, intercom and sensor notifications', 'Permission-based access and event history', 'Potential estate security dashboard integration'],
+    benefits: ['Brings selected access information into a clearer workflow', 'Helps distinguish user permissions and events', 'Keeps device compatibility and response arrangements explicit'],
+    status: 'Proposed product line · compatibility unconfirmed', image: images.gatedCommunityGatehouse,
+    imageAlt: 'Illustrative secure residential entrance representing the TRIXX Secure concept',
+  },
+  {
+    slug: 'trixx-fintech', category: 'FinTech', name: 'TRIXX FinTech', kind: 'product',
+    summary: 'A proposed suite of digital tools for organizing payment workflows, financial records and business reporting through suitable providers.',
+    problem: 'Organizations can struggle to reconcile invoices, incoming payments and financial records across separate systems.',
+    audience: 'Small and medium-sized businesses, schools, retailers and service providers.',
+    flow: ['Create or import a financial record.', 'Connect an authorized payment provider where appropriate.', 'Reconcile activity and review reports with clear audit history.'],
+    features: ['Digital invoicing and receipt concepts', 'Payment-provider integrations', 'Transaction records and reconciliation', 'Collections tracking and reminders', 'Financial summaries, exports and role-based access'],
+    benefits: ['Makes financial activity easier to review', 'Can reduce repeated manual reconciliation', 'Keeps payment handling with authorized providers rather than implying TRIXX holds funds'],
+    status: 'Proposed product suite · regulatory and provider review required', image: images.technology.infrastructure,
+    imageAlt: 'Illustrative data infrastructure image representing financial technology systems',
+  },
+  {
+    slug: 'trixx-pro', category: 'Business Software', name: 'TRIXX Pro', kind: 'product',
+    summary: 'A proposed business-operations platform for bringing everyday records and workflows into a more coherent workspace.',
+    problem: 'Growing organizations can end up relying on disconnected spreadsheets and separate tools for routine operations.',
+    audience: 'Retail shops, distributors, service companies and growing businesses.',
+    flow: ['Map the organization’s records and recurring tasks.', 'Configure selected workflows, roles and operational views.', 'Connect accounting or payment systems only after compatibility review.'],
+    features: ['Customer and supplier records', 'Inventory and stock-movement concepts', 'Quotation, invoice and receipt workflows', 'Staff tasks, approvals and dashboards', 'Multi-branch and compatible-system integrations'],
+    benefits: ['Gives teams a more organized view of recurring work', 'Helps managers see outstanding tasks and records', 'Allows workflows to grow with business needs'],
+    status: 'Proposed product · availability unconfirmed', image: images.designWorkshop,
+    imageAlt: 'Illustrative design workshop representing business planning and workflow development',
+  },
+  {
+    slug: 'trixx-design-studio', category: 'Design & Research', name: 'TRIXX Design Studio', kind: 'service',
+    summary: 'A proposed design offering connecting architectural concepts, spatial planning and technology-aware visualization.',
+    problem: 'People planning a home or property can benefit from seeing layout and material directions before committing to detailed design.',
+    audience: 'Homeowners, prospective builders, property developers and organizations planning new spaces.',
+    flow: ['Discuss the site, priorities and design references.', 'Explore concept layouts, visualizations or material directions.', 'Confirm scope, professional appointments and deliverables before work begins.'],
+    features: ['Concept house and architectural-style studies', '2D floor-plan and spatial-planning concepts', '3D exterior and interior visualization', 'Interior finish and material direction', 'Smart-home and sustainability planning concepts'],
+    benefits: ['Makes early design conversations more concrete', 'Helps compare spatial and visual directions', 'Can bring technology planning into the discussion early'],
+    status: 'Proposed service concept · scope and professional appointments unconfirmed', image: images.designWorkshop,
+    imageAlt: 'Illustrative design workshop image representing the TRIXX Design Studio concept',
+  },
+  {
+    slug: 'innovation-research', category: 'Design & Research', name: 'TRIXX Innovation & Research', kind: 'research',
+    summary: 'A proposed research and development area for documenting ideas, prototypes and experiments across TRIXX focus areas.',
+    problem: 'Visitors and potential collaborators need a clearer view of what a technology concept is solving and how far it has progressed.',
+    audience: 'Potential collaborators, engineers, research partners, investors and organizations interested in technology development.',
+    flow: ['Define a problem and proposed response.', 'Record research questions, prototype stage and evidence.', 'Publish progress and next milestones with clear limitations.'],
+    features: ['Smart-building and connected-device studies', 'Agriculture and retail technology experiments', 'Education software exploration', 'Energy and water-efficiency concepts', 'Prototype stages, evidence and partner opportunities'],
+    benefits: ['Makes development progress easier to understand', 'Separates research from launched products', 'Creates clearer opportunities for relevant collaboration'],
+    status: 'Research direction · projects and milestones pending confirmation', image: images.technology.innovation,
+    imageAlt: 'Illustrative technology research image representing TRIXX innovation work',
+  },
+  {
+    slug: 'trixx-intelligence', category: 'Shared Technology', name: 'TRIXX Intelligence', kind: 'technology',
+    summary: 'A proposed analytics layer that could help supported TRIXX products turn operational records into useful summaries.',
+    problem: 'Organizations may collect useful information without having a straightforward way to review trends or spot conditions needing attention.',
+    audience: 'Organizations seeking a clearer view of performance across supported operations.',
+    flow: ['Use data from a supported product or approved source.', 'Present summaries and indicators with understandable context.', 'Test any forecasting or recommendation before relying on it.'],
+    features: ['Custom dashboards and reports', 'Trend summaries and selected performance indicators', 'Configurable alerts and report generation', 'Optional forecasting or anomaly-detection research', 'Role-based access to analytics'],
+    benefits: ['Helps users review information in context', 'Can surface questions for further investigation', 'Keeps predictions and recommendations subject to testing and explanation'],
+    status: 'Proposed shared technology · capabilities unconfirmed', image: images.technology.infrastructure,
+    imageAlt: 'Illustrative data infrastructure image representing the TRIXX Intelligence concept',
+  },
+  {
+    slug: 'trixx-connect', category: 'Shared Technology', name: 'TRIXX Connect', kind: 'technology',
+    summary: 'A proposed integration layer for helping compatible TRIXX products and external services exchange information.',
+    problem: 'Repeated data entry and disconnected systems make it harder to maintain consistent information across workflows.',
+    audience: 'Businesses, institutions, developers and customers working across multiple connected systems.',
+    flow: ['Select systems with suitable technical interfaces.', 'Configure permitted data exchange and access.', 'Monitor integration status, errors and security requirements.'],
+    features: ['API and webhook integration concepts', 'Device and service connectivity', 'Data synchronization between supported systems', 'Integration status and error monitoring', 'Configurable permissions, event logs and developer documentation'],
+    benefits: ['Can reduce duplicated information entry', 'Makes connected workflows easier to reason about', 'Keeps permissions, compatibility and failure monitoring visible'],
+    status: 'Proposed shared technology · compatibility unconfirmed', image: images.technology.infrastructure,
+    imageAlt: 'Illustrative connected infrastructure image representing the TRIXX Connect concept',
+  },
+];
+
+const ECOSYSTEM_GROUPS = [
+  'Architecture & Smart Living', 'Property & Developments', 'Education', 'Agriculture',
+  'Retail Technology', 'Security', 'FinTech', 'Business Software', 'Design & Research', 'Shared Technology',
+];
+
+function ecosystemCard(item) {
+  const href = item.slug === 'gated-community' ? '/gated-community' : `/ecosystem/${item.slug}`;
+  return `<article class="ecosystem-card">
+    <a class="ecosystem-card__image" href="${href}" aria-label="Explore ${esc(item.name)}"><img src="${esc(item.image)}" alt="${esc(item.imageAlt)}" loading="lazy" decoding="async"></a>
+    <div class="ecosystem-card__body"><p class="corp-kicker">${esc(item.category)}</p><h3><a href="${href}">${esc(item.name)}</a></h3><span class="ecosystem-status">${esc(item.status)}</span><p>${esc(item.summary)}</p><p class="ecosystem-card__audience"><strong>For:</strong> ${esc(item.audience)}</p><a class="corp-text-link" href="${href}">Explore offering <span aria-hidden="true">→</span></a></div>
+  </article>`;
+}
+
+function ecosystemPage() {
+  const sections = ECOSYSTEM_GROUPS.map((group) => {
+    const items = ECOSYSTEM_ITEMS.filter((item) => item.category === group);
+    return `<section class="ecosystem-category"><div class="ecosystem-category__heading"><p class="corp-kicker">TRIXX ecosystem</p><h2>${esc(group)}</h2></div><div class="ecosystem-grid">${items.map(ecosystemCard).join('')}</div></section>`;
+  }).join('');
+  const body = `<section class="corp-page-hero ecosystem-intro"><div class="corp-shell"><p class="corp-kicker">One connected technology and innovation brand</p><h1>Ideas for homes, businesses and communities.</h1><p>Explore TRIXX house concepts, proposed products, services and shared technology. Each listing explains who it is for, what it could do and how to start a conversation.</p><span class="corp-status">Development status is shown on every offering</span></div></section><section class="corp-section"><div class="corp-shell"><div class="ecosystem-index">${sections}</div><div class="ecosystem-footer-note"><p>All proposed features, images and specifications are illustrative unless explicitly confirmed. Availability, compatibility, pricing, approvals and timelines are not implied.</p><a class="corp-button corp-button--gold" href="/contact">Discuss an offering <span aria-hidden="true">→</span></a></div></div></section>`;
+  return pageDocument('/ecosystem', 'TRIXX Ecosystem', 'Explore TRIXX house concepts, proposed products, services and shared technology with clear audiences, features and development status.', body);
+}
+
+function ecosystemItemPage(item) {
+  const workflow = item.flow.map((step, index) => `<li><span>0${index + 1}</span><p>${esc(step)}</p></li>`).join('');
+  const features = item.features.map((feature) => `<li>${esc(feature)}</li>`).join('');
+  const benefits = item.benefits.map((benefit) => `<li>${esc(benefit)}</li>`).join('');
+  const inquiry = `/contact?interest=${encodeURIComponent(item.name)}`;
+  const body = `<section class="ecosystem-detail-hero"><img src="${esc(item.image)}" alt="${esc(item.imageAlt)}" fetchpriority="high" decoding="async"><div class="ecosystem-detail-hero__shade"></div><div class="corp-shell ecosystem-detail-hero__content"><a class="ecosystem-back" href="/ecosystem">← TRIXX Ecosystem</a><p class="corp-kicker">${esc(item.category)} · ${item.kind === 'home' ? 'House concept' : 'Product and innovation'}</p><span class="ecosystem-status">${esc(item.status)}</span><h1>${esc(item.name)}</h1><p>${esc(item.summary)}</p><a class="corp-button corp-button--gold" href="${inquiry}">Enquire about ${esc(item.name)} <span aria-hidden="true">→</span></a></div></section>
+  <section class="corp-section"><div class="corp-shell ecosystem-detail"><section class="ecosystem-detail__problem"><p class="corp-kicker">The need</p><h2>Why this idea matters.</h2><p>${esc(item.problem)}</p></section><section class="ecosystem-detail__audience"><p class="corp-kicker">Who it is for</p><h2>Designed for a conversation with</h2><p>${esc(item.audience)}</p></section>
+  <section class="ecosystem-detail__workflow"><p class="corp-kicker">How it could work</p><h2>A clear path from interest to review.</h2><ol>${workflow}</ol></section><section class="ecosystem-detail__features"><p class="corp-kicker">Proposed features</p><h2>What the concept explores.</h2><ul>${features}</ul></section><section class="ecosystem-detail__benefits"><p class="corp-kicker">Potential benefits</p><h2>What it could make easier.</h2><ul>${benefits}</ul></section>
+  <aside class="ecosystem-detail__specs"><p class="corp-kicker">Specifications & safeguards</p><h2>Details remain subject to review.</h2><p>Pricing, dimensions, technical specifications, availability and timelines are not confirmed. Device compatibility, integrations, data handling, security and professional requirements must be reviewed for the specific project before any capability is promised.</p></aside></div></section>
+  <section class="corp-cta"><div class="corp-shell corp-cta__inner"><div><p class="corp-kicker">Start a conversation</p><h2>Explore whether ${esc(item.name)} fits your needs.</h2><p>The enquiry form lets you share your interest. A submission is stored only when the deployed site’s Netlify Forms configuration is enabled.</p></div><a class="corp-button corp-button--gold" href="${inquiry}">Enquire about this offering <span aria-hidden="true">→</span></a></div></section>`;
+  return pageDocument(`/ecosystem/${item.slug}`, item.name, `${item.summary} Learn who it is for, proposed features, potential benefits and current development status.`, body);
+}
+
 function photo(src, alt, className = '') {
   return `<figure class="corp-photo ${className}">
     <img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async">
@@ -417,11 +664,11 @@ function gatedCommunityPage() {
     <div class="corp-shell">
       <div class="gated-feature-strip__grid">
       ${[
-        ['🛡','24/7 Security','CCTv, smart access and controlled entry'],
-        ['🌿','Green Living','Parks, tree-lined streets and cleaner surroundings'],
-        ['🏠','Smart Homes','Integrated technology for modern living'],
-        ['👥','Community Spaces','Recreation, wellness and shared social areas'],
-        ['📍','Prime Locations','Easy access to schools, shopping and business hubs'],
+        ['🛡','Controlled Access','Visitor-management and security system concepts'],
+        ['🌿','Green Living','Proposed parks, planted streets and shared green space'],
+        ['🏠','Connected Homes','Connectivity-ready infrastructure concepts'],
+        ['👥','Community Spaces','Possible recreation, wellness and social areas'],
+        ['📍','Site Selection','Location and access details remain unconfirmed'],
       ].map(([icon, title, text]) => `
         <article class="gated-feature">
           <div class="gated-feature__icon">${icon}</div>
@@ -430,7 +677,7 @@ function gatedCommunityPage() {
         </article>
       `).join('')}
       </div>
-      <div class="gated-feature-strip__action"><a href="/contact" class="arch-button arch-button--bronze">Explore our gated community <span aria-hidden="true">→</span></a></div>
+      <div class="gated-feature-strip__action"><a href="/contact?interest=TRIXX%20Gated%20Community" class="arch-button arch-button--bronze">Explore our gated community <span aria-hidden="true">→</span></a></div>
     </div>
   </section>
 
@@ -575,7 +822,9 @@ function leadershipPage() {
 }
 
 function contactPage() {
-  const fields = `<div class="arch-form-row"><label>Your name<input name="name" autocomplete="name" maxlength="100" required></label><label>Email address<input name="email" type="email" autocomplete="email" maxlength="254" required></label></div><div class="arch-form-row"><label>Phone number (optional)<input name="phone" type="tel" autocomplete="tel" maxlength="40"></label><label>Area of interest<select name="interest" required><option value="">Choose a topic</option>${DIVISIONS.map((division) => `<option>${esc(division.short)}</option>`).join('')}<option>Partnership</option><option>General enquiry</option></select></label></div><label>Your message<textarea name="message" rows="6" maxlength="2000" required></textarea></label>`;
+  const interests = [...new Set([...DIVISIONS.map((division) => division.short), ...ECOSYSTEM_ITEMS.map((item) => item.name)])];
+  const interestOptions = interests.map((interest) => `<option value="${esc(interest)}">${esc(interest)}</option>`).join('');
+  const fields = `<div class="arch-form-row"><label>Your name<input name="name" autocomplete="name" maxlength="100" required></label><label>Email address<input name="email" type="email" autocomplete="email" maxlength="254" required></label></div><div class="arch-form-row"><label>Phone number (optional)<input name="phone" type="tel" autocomplete="tel" maxlength="40"></label><label>Area of interest<select name="interest" data-interest-select required><option value="">Choose a topic</option>${interestOptions}<option>Partnership</option><option>General enquiry</option></select></label></div><label>Your message<textarea name="message" rows="6" maxlength="2000" required></textarea></label>`;
   const form = netlifyForm({ name: 'contact-enquiry', title: 'Contact TRIXX', description: 'Share enough detail for the team to understand your question.', fields, buttonLabel: 'Send enquiry' });
   const body = `<section class="arch-page-intro"><div class="arch-shell"><p class="arch-eyebrow">Contact</p><h1>Start a conversation.</h1><p>We welcome business, product and partnership enquiries across the TRIXX Technologies divisions.</p></div></section>
   <section class="arch-contact"><div class="arch-shell arch-contact-grid"><div><p class="arch-eyebrow">Contact details</p><h2>TRIXX Technologies</h2><p><a href="mailto:hello@trixx.co.ke">hello@trixx.co.ke</a></p><p>Nairobi, Kenya</p><p class="arch-form-note">A phone or WhatsApp number has not been confirmed for publication. This form is stored and delivered only when Netlify Forms is enabled on the deployed site; email alerts need administrator configuration. Local submissions are not sent or stored.</p><h3>Privacy requests</h3><p>Use the verified company email above to ask about personal information submitted through a deployed, configured form. Review the draft privacy notice before launch.</p></div>${form}</div></section>`;
@@ -598,6 +847,8 @@ function companyPages() {
     aboutPage(),
     divisionsPage(),
     ...DIVISIONS.map(divisionPage),
+    ecosystemPage(),
+    ...ECOSYSTEM_ITEMS.filter((item) => item.slug !== 'gated-community').map(ecosystemItemPage),
     houseConceptsPage(),
     ...HOUSE_CONCEPTS.map(houseConceptPage),
     smartHomesPage(),

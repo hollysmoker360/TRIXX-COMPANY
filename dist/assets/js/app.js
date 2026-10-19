@@ -319,6 +319,12 @@
   /* ---------- forms (client-side confirmation, no backend in this build) ---------- */
 
   function initForms() {
+    const interestSelect = $('[data-interest-select]');
+    const requestedInterest = new URLSearchParams(window.location.search).get('interest');
+    if (interestSelect && requestedInterest && [...interestSelect.options].some((option) => option.value === requestedInterest)) {
+      interestSelect.value = requestedInterest;
+    }
+
     $$('form[data-form]').forEach((form) => {
       form.addEventListener('submit', (e) => {
         e.preventDefault();

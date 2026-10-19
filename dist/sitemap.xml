@@ -2,196 +2,329 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://trixx.co.ke/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/about/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/about/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/divisions/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/divisions/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/divisions/real-estate-smart-homes/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/divisions/real-estate-smart-homes/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/divisions/edtech/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/divisions/edtech/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/divisions/property-management/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/divisions/property-management/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/divisions/agritech/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/divisions/agritech/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/divisions/smart-living-iot/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/divisions/smart-living-iot/"/>
   </url>
   <url>
+    <loc>https://trixx.co.ke/ecosystem/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/ecosystem/noir-villa/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/noir-villa/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/ecosystem/courtyard-residence/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/courtyard-residence/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/ecosystem/horizon-villa/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/horizon-villa/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/ecosystem/garden-residence/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/garden-residence/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/ecosystem/heritage-modern-residence/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/heritage-modern-residence/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/ecosystem/hillside-retreat/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/hillside-retreat/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/ecosystem/trixx-home/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/trixx-home/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/ecosystem/trixx-farm/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/trixx-farm/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/ecosystem/schoolsphere/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/schoolsphere/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/ecosystem/scanflow/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/scanflow/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/ecosystem/trixx-property/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/trixx-property/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/ecosystem/trixx-secure/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/trixx-secure/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/ecosystem/trixx-fintech/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/trixx-fintech/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/ecosystem/trixx-pro/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/trixx-pro/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/ecosystem/trixx-design-studio/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/trixx-design-studio/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/ecosystem/innovation-research/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/innovation-research/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/ecosystem/trixx-intelligence/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/trixx-intelligence/"/>
+  </url>
+  <url>
+    <loc>https://trixx.co.ke/ecosystem/trixx-connect/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/ecosystem/trixx-connect/"/>
+  </url>
+  <url>
     <loc>https://trixx.co.ke/house-concepts/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/house-concepts/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/house-concepts/moorish-smart-palace/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/house-concepts/moorish-smart-palace/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/house-concepts/swahili-coastal-residence/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/house-concepts/swahili-coastal-residence/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/house-concepts/african-earth-house/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/house-concepts/african-earth-house/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/house-concepts/mediterranean-estate/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/house-concepts/mediterranean-estate/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/house-concepts/modern-haveli/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/house-concepts/modern-haveli/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/house-concepts/neo-gothic-tech-manor/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/house-concepts/neo-gothic-tech-manor/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/smart-homes/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/smart-homes/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/smart-living/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/smart-living/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/sustainability/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/sustainability/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/start-project/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/start-project/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/partners/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/partners/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/projects/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/projects/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/gated-community/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/gated-community/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/projects/heritage-meets-tomorrow/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/projects/heritage-meets-tomorrow/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/leadership/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/leadership/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/contact/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/contact/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/waitlist/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/waitlist/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/legal/privacy/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/legal/privacy/"/>
   </url>
   <url>
     <loc>https://trixx.co.ke/legal/terms/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://trixx.co.ke/legal/terms/"/>

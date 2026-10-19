@@ -106,7 +106,7 @@ function header(currentPath, locale, singleLocale, corporate = false) {
     const links = [
       ['Home', '/'],
       ['Gated Community', '/gated-community'],
-      ['House Concepts', '/house-concepts'],
+      ['Ecosystem', '/ecosystem'],
       ['Smart Homes', '/smart-homes'],
       ['Smart Living', '/smart-living'],
       ['Sustainability', '/sustainability'],
